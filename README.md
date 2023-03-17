@@ -13,6 +13,10 @@ Test that all of the chart modules in `src/` return their matching JSON spec def
 npm test
 ```
 
+## Getting started
+
+See the [`bar_aggregate.vl.js`](./src/bar_aggregate.vl.js) file as an example.
+
 ## Notes
 
 As described in [this issue](https://github.com/vega/vega-lite-api/issues/440), the `mark` field may not match the spec.
