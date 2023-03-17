@@ -11,7 +11,6 @@ const spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 describe(`${name}.vg.js`, () => {
   it(`should equal spec`, () => {
     const actual = fn();
-    console.log(actual);
     assert.deepStrictEqual(actual, spec);
   });
 });
