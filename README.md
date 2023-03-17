@@ -17,7 +17,7 @@ npm test
 
 See the [`bar_aggregate.vl.js`](./src/bar_aggregate.vl.js) file as an example.
 
-If you want to write an implementation, go to the spec's corresponding JavaScript file in the `src/` folder and begin. To test it, grab the associated test file from `test/todo/` and drop it into the `test` folder (its parent). Then run `npm test`.
+If you want to write an implementation, go to the spec's corresponding JavaScript file in the `src/` folder and begin. To test it, grab the associated test file from `test/todo/` and drop it into the `test` folder (its parent directory). Then run `npm test`.
 
 ## Notes
 
