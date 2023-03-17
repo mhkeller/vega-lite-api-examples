@@ -14,6 +14,6 @@ charts.forEach(c => {
 	writeFileSync(`./test/${c}.test.js`, contentsTest, 'utf-8');
 	notify({ m: 'Wrote test...', v: c, d: ['magenta'] });
 
-	writeFileSync(`./src/${c}.vg.js`, templateChart, 'utf-8');
+	writeFileSync(`./src/${c}.vl.js`, templateChart, 'utf-8');
 	notify({ m: 'Wrote chart...', v: c, d: ['blue'] });
 });

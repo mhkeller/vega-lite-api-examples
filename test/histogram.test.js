@@ -2,11 +2,11 @@
 import * as assert from 'assert';
 import { readFileSync } from 'fs';
 
-import fn from '../src/histogram.vg.js';
+import fn from '../src/histogram.vl.js';
 
 const name = 'histogram';
 
-const spec = JSON.parse(readFileSync(`./specs/${name}.vg.json`, 'utf-8'));
+const spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 
 describe(`${name}.vg.js`, () => {
   it(`should equal spec`, () => {

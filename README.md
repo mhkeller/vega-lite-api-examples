@@ -12,3 +12,7 @@ Test that all of the chart modules in `src/` return their matching JSON spec def
 ```
 npm test
 ```
+
+## Notes
+
+As described in [this issue](https://github.com/vega/vega-lite-api/issues/440), the `mark` field may not match the spec.
