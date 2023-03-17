@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "scaffold": "node scaffold-files.js",
-    "test": "mocha --require esm test/bar_aggregate.test.js"
+    "test": "mocha --require esm test/*.test.js"
   },
   "keywords": [],
   "author": "",
