@@ -9,7 +9,7 @@ const name = 'arc_color_mappings';
 const spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 
 describe(`${name}.vg.js`, () => {
-	it(`should equal spec`, () => {
+	it(`should match spec`, () => {
 		const actual = fn();
 		assert.deepStrictEqual(actual, spec);
 	});
