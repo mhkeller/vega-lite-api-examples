@@ -1,14 +1,14 @@
 import * as vl from 'vega-lite-api';
 
 // Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
-export default function chart() {
+export default function chart () {
 	return vl
 		.markBar()
 		.data('data/seattle-weather.csv')
-    .encode(
-      vl.x().field('precipitation').bin(true),
-      vl.y().aggregate('count')
-    )
+		.encode(
+			vl.x().field('precipitation').bin(true),
+			vl.y().aggregate('count')
+		)
 		.toSpec();
 }
 /*
