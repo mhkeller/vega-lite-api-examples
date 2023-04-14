@@ -6,7 +6,7 @@ const chartSlugs = readdirFilterSync('./specs/', {
 	include: 'json'
 }).map(d => d.split('.')[0]);
 
-const templateChart = readFileSync('./templates/template-chart.txt', 'utf-8');
+const templateChart = readFileSync('./templates/template-chart.js', 'utf-8');
 
 chartSlugs.forEach(slug => {
 	const spec = readFileSync(`./specs/${slug}.vl.json`, 'utf-8');

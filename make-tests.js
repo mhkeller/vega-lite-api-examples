@@ -2,6 +2,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { readdirFilterSync } from 'indian-ocean';
 import notify from '@mhkeller/notify';
 import { rimrafSync } from 'rimraf';
+import { commas } from '@mhkeller/utils';
 
 notify({ m: 'Making tests...', d: ['blue', 'bold', 'underline'] });
 notify({ m: 'Emptying test directory...', d: 'group' });
@@ -13,16 +14,25 @@ const charts = readdirFilterSync('./src/', {
 	fullPath: true
 });
 
-const templateTest = readFileSync('./templates/template-test.txt', 'utf-8');
+const templateReadme = readFileSync('./templates/template-README.md', 'utf-8');
+const templateTest = readFileSync('./templates/template-test.js', 'utf-8');
 
 // Create a test file for each src script that exports json
+let testCount = 0;
 for (const chartPath of charts) {
 	const result = await import(chartPath);
 	const slug = chartPath.split('/').pop().replace('.vl.js', '');
 	const spec = result?.default?.();
 	if (spec) {
+		testCount += 1;
 		const contentsTest = templateTest.replace(/SLUG/g, slug);
 		writeFileSync(`./test/${slug}.test.js`, contentsTest, 'utf-8');
 		notify({ m: 'Wrote test...', v: slug, d: ['green', 'bold'] });
 	}
 }
+
+const readme = templateReadme
+	.replace(/TK_TOTAL/g, commas(charts.length))
+	.replace(/TK_TESTS/g, commas(testCount));
+
+writeFileSync('./README.md', readme, 'utf-8');
