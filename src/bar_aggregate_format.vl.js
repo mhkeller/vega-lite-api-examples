@@ -6,9 +6,9 @@ export default function chart () {
 		.markBar()
 		.description('A bar chart showing the US population distribution of age groups in 2000.')
 		.data('data/population.json')
-    .transform({
-      filter: 'datum.year == 2000'
-    })
+		.transform({
+			filter: 'datum.year == 2000'
+		})
 		.height({ step: 17 })
 		.encode(
 			vl.x().field('people').aggregate('sum').title('population').axis({ format: '.2e' }),
