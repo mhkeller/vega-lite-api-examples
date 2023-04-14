@@ -4,6 +4,11 @@ Vega-Lite API Examples
 
 > Examples completed: 19 / 703
 
+- [Usage](#usage)
+- [Getting started](#getting-started)
+- [Notes](#notes)
+- [Example list (Completed: 19 / 703)](#example-list-completed-19--703)
+
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
 Contributions welcome!
@@ -37,7 +42,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 }
 ```
 
-## Example list (Collected: 19 / 703)
+## Example list (Completed: 19 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)

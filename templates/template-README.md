@@ -4,6 +4,11 @@ Vega-Lite API Examples
 
 > Examples completed: TK_TESTS / TK_TOTAL
 
+- [Usage](#usage)
+- [Getting started](#getting-started)
+- [Notes](#notes)
+- [Example list (Completed: TK\_TESTS / TK\_TOTAL)](#example-list-completed-tk_tests--tk_total)
+
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
 Contributions welcome!
@@ -37,4 +42,4 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 }
 ```
 
-## Example list (Collected: TK_TESTS / TK_TOTAL)
+## Example list (Completed: TK_TESTS / TK_TOTAL)

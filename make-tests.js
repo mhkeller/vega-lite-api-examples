@@ -35,8 +35,10 @@ for (const chartPath of charts) {
 }
 
 let readme = templateReadme
-	.replace(/TK_TOTAL/g, commas(charts.length))
-	.replace(/TK_TESTS/g, commas(testCount));
+	.replace('TK\\_TESTS', 'TK_TESTS')
+	.replace('TK\\_TOTAL', 'TK_TOTAL')
+	.replace(/TK_TOTAL/gi, commas(charts.length))
+	.replace(/TK_TESTS/gi, commas(testCount));
 
 readme += exampleList;
 
