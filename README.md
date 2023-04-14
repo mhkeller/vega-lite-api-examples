@@ -30,7 +30,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 
 ```json
 "order": {
-	"field": "order",
-	"type": "ordinal"
+  "field": "order",
+  "type": "ordinal"
 }
 ```
