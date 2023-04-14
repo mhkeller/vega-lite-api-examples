@@ -21,7 +21,7 @@ for (const chartPath of charts) {
 	const slug = chartPath.split('/').pop().replace('.vl.js', '');
 	const spec = result?.default?.();
 	if (spec) {
-		const contentsTest = templateTest.replaceAll('SLUG', slug);
+		const contentsTest = templateTest.replace(/SLUG/g, slug);
 		writeFileSync(`./test/${slug}.test.js`, contentsTest, 'utf-8');
 		notify({ m: 'Wrote test...', v: slug, d: ['green', 'bold'] });
 	}
