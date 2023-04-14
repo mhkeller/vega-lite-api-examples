@@ -4,7 +4,7 @@ import * as vl from 'vega-lite-api';
 export default function chart () {
 	return vl.markArc()
 		.facet({ column: { field: 'year' } })
-    // QUESTION why does this have to come after facet?
+	// QUESTION why does this have to come after facet?
 		.data('data/barley.json')
 		.spec(
 			vl
