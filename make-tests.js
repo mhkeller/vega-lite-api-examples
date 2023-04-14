@@ -19,6 +19,7 @@ const templateTest = readFileSync('./templates/template-test.js', 'utf-8');
 
 // Create a test file for each src script that exports json
 let testCount = 0;
+let exampleList = '\n';
 for (const chartPath of charts) {
 	const result = await import(chartPath);
 	const slug = chartPath.split('/').pop().replace('.vl.js', '');
@@ -29,10 +30,14 @@ for (const chartPath of charts) {
 		writeFileSync(`./test/${slug}.test.js`, contentsTest, 'utf-8');
 		notify({ m: 'Wrote test...', v: slug, d: ['green', 'bold'] });
 	}
+
+	exampleList += `* ${spec ? '✅' : '- [ ]'} [${slug}](${chartPath})\n`;
 }
 
-const readme = templateReadme
+let readme = templateReadme
 	.replace(/TK_TOTAL/g, commas(charts.length))
 	.replace(/TK_TESTS/g, commas(testCount));
+
+readme += exampleList;
 
 writeFileSync('./README.md', readme, 'utf-8');

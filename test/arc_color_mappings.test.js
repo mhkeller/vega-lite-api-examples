@@ -10,7 +10,7 @@ const spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 
 // Change this from a string to an object, which is what vega-lite-api creates
 if (typeof spec.mark === 'string') {
-	spec.mark = {type: spec.mark }
+	spec.mark = { type: spec.mark };
 }
 
 describe(`${name}.vg.js`, () => {

@@ -36,3 +36,5 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
   "type": "ordinal"
 }
 ```
+
+## Example list (Collected: TK_TESTS / TK_TOTAL)
