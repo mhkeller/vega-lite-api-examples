@@ -10,8 +10,8 @@ export default function chart () {
 		.width({ step: 17 })
 		.encode(
 			vl.x().fieldO('age'),
-      vl.y().field('people').aggregate('sum').title('population'),
-      vl.size({ value: 10 })
+			vl.y().field('people').aggregate('sum').title('population'),
+			vl.size({ value: 10 })
 		)
 		.toSpec();
 }
