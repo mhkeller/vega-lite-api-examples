@@ -22,6 +22,7 @@ export default function chart () {
 		)
 		.toSpec();
 }
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",

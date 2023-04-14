@@ -21,6 +21,7 @@ export default function chart () {
 			vl.color().fieldN('category'))
 		.toSpec();
 }
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
