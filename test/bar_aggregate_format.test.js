@@ -2,9 +2,9 @@
 import * as assert from 'assert';
 import { readFileSync } from 'fs';
 
-import fn from '../src/bar_aggregate.vl.js';
+import fn from '../src/bar_aggregate_format.vl.js';
 
-const name = 'bar_aggregate';
+const name = 'bar_aggregate_format';
 
 const spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 
