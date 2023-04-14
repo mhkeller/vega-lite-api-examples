@@ -38,7 +38,11 @@ let readme = templateReadme
 	.replace('TK\\_TESTS', 'TK_TESTS')
 	.replace('TK\\_TOTAL', 'TK_TOTAL')
 	.replace(/TK_TOTAL/gi, commas(charts.length))
-	.replace(/TK_TESTS/gi, commas(testCount));
+	.replace(/TK_TESTS/gi, commas(testCount))
+	.replace(/(\[Example list \().+?(\)\])/g, '$1$2')
+	.replace(' ()]', ']');
+
+// write a replacement regex that converts "[Example list (Completed: 19 / 703)]" to "[Example list]"
 
 readme += exampleList;
 

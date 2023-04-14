@@ -7,7 +7,7 @@ Vega-Lite API Examples
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list (Completed: 19 / 703)](#example-list-completed-19--703)
+- [Example list](#example-list-completed-19--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
