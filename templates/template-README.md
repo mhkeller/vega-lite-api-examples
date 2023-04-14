@@ -22,7 +22,7 @@ See the [`bar_aggregate.vl.js`](./src/bar_aggregate.vl.js) file as an example.
 
 If you want to write an implementation, go to a file in the `src/` folder and create a default function that exports a vega-lite spec. To test it, run `npm test`.
 
-Tests are automatically generated when you run `npm test`. You can quickly see which examples have already been created by looking at the file names in the test directory.
+Tests are automatically generated when you run `npm test`. See the list below for which examples have already been created.
 
 ## Notes
 
