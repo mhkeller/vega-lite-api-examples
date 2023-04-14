@@ -1,5 +1,47 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Log-scaled Histogram.  We may improve the support of this. See https://github.com/vega/vega-lite/issues/4792.",
+  "data": {
+    "values": [
+      {"x": 0.01},
+      {"x": 0.1},
+      {"x": 1},
+      {"x": 1},
+      {"x": 1},
+      {"x": 1},
+      {"x": 10},
+      {"x": 10},
+      {"x": 100},
+      {"x": 500},
+      {"x": 800}
+    ]
+  },
+  "transform": [{
+      "calculate": "log(datum.x)/log(10)", "as": "log_x"
+  }, {
+      "bin": true,
+      "field": "log_x",
+      "as": "bin_log_x"
+  }, {
+    "calculate": "pow(10, datum.bin_log_x)", "as": "x1"
+  }, {
+    "calculate": "pow(10, datum.bin_log_x_end)", "as": "x2"
+  }],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "x1",
+      "scale": {"type": "log", "base": 10},
+      "axis": {"tickCount": 5}
+    },
+    "x2": {"field": "x2"},
+    "y": {"aggregate": "count"}
+  }
 }
+
+*/

@@ -1,5 +1,96 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A layered bar chart with floating bars representing weekly weather data",
+  "config": {
+    "style": {
+      "hilo": {
+        "size": 20
+      }
+    }
+  },
+  "title": {
+    "text": ["Weekly Weather", "Observations and Predictions"],
+    "frame": "group"
+  },
+  "data": {
+    "url": "data/weather.json"
+  },
+  "width": 250,
+  "height": 200,
+  "encoding": {
+    "x": {
+      "field": "id",
+      "type": "ordinal",
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labels": false,
+        "title": null,
+        "titlePadding": 25,
+        "orient": "top"
+      }
+    },
+    "y": {
+      "type": "quantitative",
+      "scale": {"domain": [10, 70]},
+      "axis": {"title": "Temperature (F)"}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "size": 20, "color": "#ccc"},
+      "encoding": {
+        "y": {"field": "record.low"},
+        "y2": {"field": "record.high"}
+      }
+    },
+    {
+      "mark": {"type": "bar", "size": 20, "color": "#999"},
+      "encoding": {
+        "y": {"field": "normal.low"},
+        "y2": {"field": "normal.high"}
+      }
+    },
+    {
+      "mark": {"type": "bar", "size": 12, "color": "#000"},
+      "encoding": {
+        "y": {"field": "actual.low"},
+        "y2": {"field": "actual.high"}
+      }
+    },
+    {
+      "mark": {"type": "bar", "size": 12, "color": "#000"},
+      "encoding": {
+        "y": {"field": "forecast.low.low"},
+        "y2": {"field": "forecast.low.high"}
+      }
+    },
+    {
+      "mark": {"type": "bar", "size": 3, "color": "#000"},
+      "encoding": {
+        "y": {"field": "forecast.low.high"},
+        "y2": {"field": "forecast.high.low"}
+      }
+    },
+    {
+      "mark": {"type": "bar", "size": 12, "color": "#000"},
+      "encoding": {
+        "y": {"field": "forecast.high.low"},
+        "y2": {"field": "forecast.high.high"}
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "center", "baseline": "bottom", "y": -5},
+      "encoding": {
+        "text": {"field": "day"}
+      }
+    }
+  ]
 }
+
+*/

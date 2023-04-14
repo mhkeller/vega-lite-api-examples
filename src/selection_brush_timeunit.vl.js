@@ -1,5 +1,42 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "values": [
+      {"date": "Sun, 01 Jan 2012 23:00:01", "price": 150},
+      {"date": "Sun, 02 Jan 2012 00:10:02", "price": 100},
+      {"date": "Sun, 02 Jan 2012 01:20:03", "price": 170},
+      {"date": "Sun, 02 Jan 2012 02:30:04", "price": 165},
+      {"date": "Sun, 02 Jan 2012 03:40:05", "price": 200}
+    ]
+  },
+  "hconcat": [{
+    "mark": "point",
+    "params": [{
+      "name": "brush",
+      "select": {"type": "interval", "encodings": ["x"]}
+    }],
+    "encoding": {
+      "x": {"field": "date", "timeUnit": "seconds"},
+      "y": {"field": "price", "type": "quantitative"},
+      "color": {
+        "condition": {"param": "brush", "value": "goldenrod"},
+        "value": "steelblue"
+      }
+    }
+  }, {
+    "transform": [{"filter": {"param": "brush"}}],
+    "mark": "point",
+    "encoding": {
+      "x": {"field": "date", "timeUnit": "minutes"},
+      "y": {"field": "price", "type": "quantitative"},
+      "color": {"value": "goldenrod"}
+    }
+  }]
 }
+
+*/

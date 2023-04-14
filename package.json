@@ -1,22 +1,32 @@
 {
-  "name": "vega-lite-api-examples",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "scaffold": "node scaffold-files.js",
-    "test": "mocha --require esm test/*.test.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "esm": "^3.2.25",
-    "indian-ocean": "^4.0.3",
-    "mocha": "^10.2.0",
-    "prettier": "^2.8.4",
-    "vega-lite-api": "^5.6.0",
-    "wsk-notify": "^1.0.0"
-  }
+	"name": "vega-lite-api-examples",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"scaffold": "node make-files.js",
+		"pretest": "node make-tests.js",
+		"test": "mocha --require esm test/*.test.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@mhkeller/notify": "^1.1.0",
+		"esm": "^3.2.25",
+		"indian-ocean": "^4.0.3",
+		"mocha": "^10.2.0",
+		"prettier": "^2.8.4",
+		"rimraf": "^5.0.0",
+		"vega-lite-api": "^5.6.0"
+	},
+	"devDependencies": {
+		"eslint": "^8.38.0",
+		"eslint-config-semistandard": "^17.0.0",
+		"eslint-config-standard": "^17.0.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-n": "^15.7.0",
+		"eslint-plugin-promise": "^6.1.1"
+	}
 }

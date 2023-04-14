@@ -1,5 +1,29 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Using format parse to parsing of input time data as utc time.",
+  "data": {
+    "values": [
+      {"date": "10 Oct 2011 22:48:00"},
+      {"date": "11 Oct 2022 23:00:00"}
+    ],
+    "format": {
+      "parse": {"date": "utc:'%d %b %Y %H:%M:%S'"}
+    }
+  },
+  "mark": "point",
+  "encoding": {
+    "y": {
+      "timeUnit": "hoursminutes",
+      "field": "date",
+      "type": "ordinal",
+      "title": "time"
+    }
+  }
 }
+
+*/

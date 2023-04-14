@@ -1,5 +1,42 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "data": {
+    "url": "data/flights-2k.json",
+    "format": {"parse": {"date": "date"}}
+  },
+  "align": "all",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "transform": [{"calculate": "hours(datum.date)", "as": "time"}],
+  "columns": 3,
+  "concat": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "distance", "bin": {"maxbins": 20}},
+        "y": {"aggregate": "count"}
+      },
+      "name": "child__column_distance"
+    },
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "delay", "bin": {"maxbins": 20}},
+        "y": {"aggregate": "count"}
+      },
+      "name": "child__column_delay"
+    },
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "time", "bin": {"maxbins": 20}},
+        "y": {"aggregate": "count"}
+      },
+      "name": "child__column_time"
+    }
+  ]
 }
+*/

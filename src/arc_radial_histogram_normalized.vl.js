@@ -1,5 +1,32 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "data/movies.json"},
+  "layer": [
+    {
+      "mark": {"type": "arc", "stroke": "white", "tooltip": true},
+      "encoding": {
+        "theta": {"bin": true, "field": "IMDB Rating"},
+        "radius": {"aggregate": "count", "scale": {"type": "sqrt"}}
+      }
+    },
+    {
+      "mark": {"type": "text", "radiusOffset": 15, "align": "right"},
+      "encoding": {
+        "theta": {"bin": true, "field": "IMDB Rating"},
+        "radius": {"aggregate": "count", "scale": {"type": "sqrt"}},
+        "text": {"bin": true, "field": "IMDB Rating"},
+        "angle": {
+          "bin": true,
+          "field": "IMDB Rating",
+          "scale": {"range": [90, 450]}
+        }
+      }
+    }
+  ]
 }
+*/

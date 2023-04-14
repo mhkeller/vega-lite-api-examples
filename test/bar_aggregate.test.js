@@ -9,8 +9,8 @@ const name = 'bar_aggregate';
 const spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 
 describe(`${name}.vg.js`, () => {
-  it(`should equal spec`, () => {
-    const actual = fn();
-    assert.deepStrictEqual(actual, spec);
-  });
+	it(`should equal spec`, () => {
+		const actual = fn();
+		assert.deepStrictEqual(actual, spec);
+	});
 });

@@ -1,5 +1,28 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Using the field \"c\" as the color scale's range. Note that this only works if there is a 1:1 mapping between the color domain field (`l`) and the range field (`c`).",
+  "mark": { "type": "circle" },
+  "encoding": {
+    "y": {
+      "type": "nominal",
+      "field": "y"
+    },
+    "color": {
+      "type": "nominal",
+      "field": "l",
+      "scale": {"range": {"field": "c"}}
+    }
+  },
+  "data": {"values":[
+    {"y": "X", "l": "A", "c": "red"},
+    {"y": "Y", "l": "B", "c": "blue"},
+    {"y": "Z", "l": "C", "c": "green"}
+  ]}
 }
+
+*/

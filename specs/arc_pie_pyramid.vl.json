@@ -30,7 +30,8 @@
       }
     },
     "order": {
-      "field": "order"
+      "field": "order",
+      "type": "ordinal"
     }
   }
 }

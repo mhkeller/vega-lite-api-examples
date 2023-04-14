@@ -17,8 +17,17 @@ npm test
 
 See the [`bar_aggregate.vl.js`](./src/bar_aggregate.vl.js) file as an example.
 
-If you want to write an implementation, go to the spec's corresponding JavaScript file in the `src/` folder and begin. To test it, grab the associated test file from `test/todo/` and drop it into the `test` folder (its parent). Then run `npm test`.
+If you want to write an implementation, go to a file in the `src/` folder and create a default function that exports a vega-lite spec. To test it, run `npm test`.
 
 ## Notes
 
 As described in [this issue](https://github.com/vega/vega-lite-api/issues/440), the `mark` field may not match the spec.
+
+In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but is not present in the spec: 
+
+```json
+"order": {
+	"field": "order",
+	"type": "ordinal"
+}
+```

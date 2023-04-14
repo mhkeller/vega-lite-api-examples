@@ -1,5 +1,126 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 500,
+  "view": {
+    "stroke": "transparent"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/londonBoroughs.json",
+        "format": {
+          "type": "topojson",
+          "feature": "boroughs"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "value": "#eee"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/londonCentroids.json",
+        "format": {
+          "type": "json"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "indexof (datum.name,' ') > 0  ? substring(datum.name,0,indexof(datum.name, ' ')) : datum.name",
+          "as": "bLabel"
+        }
+      ],
+      "mark": "text",
+      "encoding": {
+        "longitude": {
+          "field": "cx",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "cy",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "bLabel",
+          "type": "nominal"
+        },
+        "size": {
+          "value": 8
+        },
+        "opacity": {
+          "value": 0.6
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/londonTubeLines.json",
+        "format": {
+          "type": "topojson",
+          "feature": "line"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "id",
+          "type": "nominal",
+          "legend": {
+            "title": null,
+            "orient": "bottom-right",
+            "offset": 0
+          },
+          "scale": {
+            "domain": [
+              "Bakerloo",
+              "Central",
+              "Circle",
+              "District",
+              "DLR",
+              "Hammersmith & City",
+              "Jubilee",
+              "Metropolitan",
+              "Northern",
+              "Piccadilly",
+              "Victoria",
+              "Waterloo & City"
+            ],
+            "range": [
+              "rgb(137,78,36)",
+              "rgb(220,36,30)",
+              "rgb(255,206,0)",
+              "rgb(1,114,41)",
+              "rgb(0,175,173)",
+              "rgb(215,153,175)",
+              "rgb(106,114,120)",
+              "rgb(114,17,84)",
+              "rgb(0,0,0)",
+              "rgb(0,24,168)",
+              "rgb(0,160,226)",
+              "rgb(106,187,170)"
+            ]
+          }
+        }
+      }
+    }
+  ]
 }
+
+*/

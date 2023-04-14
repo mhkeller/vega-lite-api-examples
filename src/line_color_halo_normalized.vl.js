@@ -1,5 +1,114 @@
 import * as vl from 'vega-lite-api';
 
-export default function chart() {
-  return {};
+// Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
+
+/*
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Multi-series Line Chart with Halo. Use pivot and repeat-layer as a workaround to facet groups of lines and their halo strokes. See https://github.com/vega/vega-lite/issues/6192 for more discussion.",
+  "data": {"url": "data/stocks.csv"},
+  "transform": [{"pivot": "symbol", "value": "price", "groupby": ["date"]}],
+  "layer": [
+    {
+      "layer": [
+        {
+          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "AAPL", "type": "quantitative", "title": "price"}
+          }
+        },
+        {
+          "mark": {"type": "line"},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "AAPL", "type": "quantitative", "title": "price"},
+            "stroke": {"datum": "AAPL", "type": "nominal"}
+          }
+        }
+      ],
+      "name": "child__layer_AAPL"
+    },
+    {
+      "layer": [
+        {
+          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "AMZN", "type": "quantitative", "title": "price"}
+          }
+        },
+        {
+          "mark": {"type": "line"},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "AMZN", "type": "quantitative", "title": "price"},
+            "stroke": {"datum": "AMZN", "type": "nominal"}
+          }
+        }
+      ],
+      "name": "child__layer_AMZN"
+    },
+    {
+      "layer": [
+        {
+          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "GOOG", "type": "quantitative", "title": "price"}
+          }
+        },
+        {
+          "mark": {"type": "line"},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "GOOG", "type": "quantitative", "title": "price"},
+            "stroke": {"datum": "GOOG", "type": "nominal"}
+          }
+        }
+      ],
+      "name": "child__layer_GOOG"
+    },
+    {
+      "layer": [
+        {
+          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "IBM", "type": "quantitative", "title": "price"}
+          }
+        },
+        {
+          "mark": {"type": "line"},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "IBM", "type": "quantitative", "title": "price"},
+            "stroke": {"datum": "IBM", "type": "nominal"}
+          }
+        }
+      ],
+      "name": "child__layer_IBM"
+    },
+    {
+      "layer": [
+        {
+          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "MSFT", "type": "quantitative", "title": "price"}
+          }
+        },
+        {
+          "mark": {"type": "line"},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "MSFT", "type": "quantitative", "title": "price"},
+            "stroke": {"datum": "MSFT", "type": "nominal"}
+          }
+        }
+      ],
+      "name": "child__layer_MSFT"
+    }
+  ]
 }
+*/

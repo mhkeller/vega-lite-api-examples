@@ -29,7 +29,7 @@
       }
     ]
   },
-  "mark": "arc",
+  "mark": { "type": "arc" },
   "encoding": {
     "theta": {
       "field": "value",
