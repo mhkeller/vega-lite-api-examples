@@ -8,7 +8,9 @@ export default function chart () {
 		})
 		.description('Google\'s stock price over time.')
 		.data('data/stocks.csv')
-		.transform(vl.filter('datum.symbol===\'GOOG\''))
+		.transform({
+			filter: 'datum.symbol===\'GOOG\''
+		})
 		.encode(
 			vl.x().fieldT('date'),
 			vl.y().fieldQ('price')
