@@ -1,7 +1,19 @@
 import * as vl from 'vega-lite-api';
 
 // Write a Node.JS function that uses the vega-lite-api library to generate the vega-lite JSON spec below. The function should return the vega-lite-api object. Call the function `chart` and export as the es6 module default export.
-
+export default function chart () {
+	return vl
+		.markArea()
+		.width(300)
+		.height(200)
+		.data('data/unemployment-across-industries.json')
+		.encode(
+			vl.x().timeUnit('yearmonth').field('date').axis({ format: '%Y' }),
+			vl.y().aggregate('sum').field('count'),
+			vl.color().field('series').scale({ scheme: 'category20b' })
+		)
+		.toSpec();
+}
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
