@@ -15,7 +15,7 @@
   },
   "layer": [
     {
-      "mark": "bar",
+      "mark": {"type": "bar" },
       "encoding": {
         "x": {"field": "category"},
         "xOffset": {"field": "group"},
