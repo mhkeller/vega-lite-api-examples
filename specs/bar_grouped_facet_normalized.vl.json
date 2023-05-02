@@ -16,7 +16,7 @@
   "config": {"view": {"stroke": "transparent"}},
   "facet": {"column": {"field": "category", "header": {"orient": "bottom"}}},
   "spec": {
-    "mark": "bar",
+    "mark": {"type": "bar" },
     "encoding": {
       "y": {"field": "value", "type": "quantitative"},
       "x": {"field": "group", "axis": null},
