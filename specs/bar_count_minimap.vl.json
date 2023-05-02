@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "data/cars.json"},
   "hconcat": [{
-    "mark": "bar",
+    "mark": {"type": "bar"},
     "transform": [{
       "filter": {"param": "brush"}
     }],
@@ -29,7 +29,7 @@
         "encodings": ["y"]
       }
     }],
-    "mark": "bar",
+    "mark":  { "type": "bar" },
     "encoding": {
       "y": {
         "field": "Name",
