@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 49 / 703
+> Examples completed: 50 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-49--703)
+- [Example list](#example-list-completed-50--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -42,7 +42,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 }
 ```
 
-## Example list (Completed: 49 / 703)
+## Example list (Completed: 50 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -123,7 +123,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 * - [ ] [bar_grouped_errorbar_normalized](./src/bar_grouped_errorbar_normalized.vl.js)
 * - [ ] [bar_grouped_facet](./src/bar_grouped_facet.vl.js)
 * - [ ] [bar_grouped_facet_independent_scale](./src/bar_grouped_facet_independent_scale.vl.js)
-* - [ ] [bar_grouped_facet_independent_scale_fixed_width](./src/bar_grouped_facet_independent_scale_fixed_width.vl.js)
+* &nbsp; ✅ [bar_grouped_facet_independent_scale_fixed_width](./src/bar_grouped_facet_independent_scale_fixed_width.vl.js)
 * &nbsp; ✅ [bar_grouped_facet_independent_scale_fixed_width_normalized](./src/bar_grouped_facet_independent_scale_fixed_width_normalized.vl.js)
 * - [ ] [bar_grouped_facet_independent_scale_normalized](./src/bar_grouped_facet_independent_scale_normalized.vl.js)
 * - [ ] [bar_grouped_facet_normalized](./src/bar_grouped_facet_normalized.vl.js)
