@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 41 / 703
+> Examples completed: 42 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-41--703)
+- [Example list](#example-list-completed-42--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -42,7 +42,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 }
 ```
 
-## Example list (Completed: 41 / 703)
+## Example list (Completed: 42 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -112,7 +112,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 * &nbsp; ✅ [bar_default_tooltip_title_null](./src/bar_default_tooltip_title_null.vl.js)
 * &nbsp; ✅ [bar_distinct](./src/bar_distinct.vl.js)
 * &nbsp; ✅ [bar_diverging_stack_population_pyramid](./src/bar_diverging_stack_population_pyramid.vl.js)
-* - [ ] [bar_diverging_stack_transform](./src/bar_diverging_stack_transform.vl.js)
+* &nbsp; ✅ [bar_diverging_stack_transform](./src/bar_diverging_stack_transform.vl.js)
 * - [ ] [bar_filter_calc](./src/bar_filter_calc.vl.js)
 * - [ ] [bar_fit](./src/bar_fit.vl.js)
 * - [ ] [bar_gantt](./src/bar_gantt.vl.js)
