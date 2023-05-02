@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 22 / 703
+> Examples completed: 23 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-22--703)
+- [Example list](#example-list-completed-23--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -42,7 +42,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 }
 ```
 
-## Example list (Completed: 22 / 703)
+## Example list (Completed: 23 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -92,7 +92,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 * &nbsp; ✅ [bar_aggregate_transform](./src/bar_aggregate_transform.vl.js)
 * &nbsp; ✅ [bar_aggregate_vertical](./src/bar_aggregate_vertical.vl.js)
 * - [ ] [bar_argmax](./src/bar_argmax.vl.js)
-* - [ ] [bar_argmax_transform](./src/bar_argmax_transform.vl.js)
+* &nbsp; ✅ [bar_argmax_transform](./src/bar_argmax_transform.vl.js)
 * - [ ] [bar_array_aggregate](./src/bar_array_aggregate.vl.js)
 * - [ ] [bar_axis_orient](./src/bar_axis_orient.vl.js)
 * - [ ] [bar_axis_space_saving](./src/bar_axis_space_saving.vl.js)
