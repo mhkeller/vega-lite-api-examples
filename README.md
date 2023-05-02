@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 19 / 703
+> Examples completed: 20 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-19--703)
+- [Example list](#example-list-completed-20--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -42,7 +42,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 }
 ```
 
-## Example list (Completed: 19 / 703)
+## Example list (Completed: 20 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -117,7 +117,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 * - [ ] [bar_fit](./src/bar_fit.vl.js)
 * - [ ] [bar_gantt](./src/bar_gantt.vl.js)
 * - [ ] [bar_gantt_config_no_zero](./src/bar_gantt_config_no_zero.vl.js)
-* - [ ] [bar_grouped](./src/bar_grouped.vl.js)
+* &nbsp; ✅ [bar_grouped](./src/bar_grouped.vl.js)
 * - [ ] [bar_grouped_custom_padding](./src/bar_grouped_custom_padding.vl.js)
 * - [ ] [bar_grouped_errorbar](./src/bar_grouped_errorbar.vl.js)
 * - [ ] [bar_grouped_errorbar_normalized](./src/bar_grouped_errorbar_normalized.vl.js)
