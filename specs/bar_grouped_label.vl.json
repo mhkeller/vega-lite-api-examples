@@ -23,7 +23,7 @@
     "y": {"field": "value", "type": "quantitative"}
   },
   "layer": [{
-    "mark": "bar",
+    "mark": {"type": "bar" },
     "encoding": {
       "color": {"field": "group"}
     }
