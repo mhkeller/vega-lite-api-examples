@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 33 / 703
+> Examples completed: 34 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-33--703)
+- [Example list](#example-list-completed-34--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -42,7 +42,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 }
 ```
 
-## Example list (Completed: 33 / 703)
+## Example list (Completed: 34 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -104,7 +104,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 * - [ ] [bar_column_fold_normalized](./src/bar_column_fold_normalized.vl.js)
 * &nbsp; ✅ [bar_column_pivot](./src/bar_column_pivot.vl.js)
 * &nbsp; ✅ [bar_config_no_zero](./src/bar_config_no_zero.vl.js)
-* - [ ] [bar_corner_radius_end](./src/bar_corner_radius_end.vl.js)
+* &nbsp; ✅ [bar_corner_radius_end](./src/bar_corner_radius_end.vl.js)
 * - [ ] [bar_count_minimap](./src/bar_count_minimap.vl.js)
 * - [ ] [bar_custom_sort_full](./src/bar_custom_sort_full.vl.js)
 * - [ ] [bar_custom_sort_partial](./src/bar_custom_sort_partial.vl.js)
