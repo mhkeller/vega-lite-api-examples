@@ -7,7 +7,7 @@
     "xOffset": {"field": "Origin", "type": "nominal"}
   },
   "layer": [{
-    "mark": "bar",
+    "mark": { "type": "bar" },
     "encoding": {
       "y": {
         "aggregate": "mean",
@@ -17,7 +17,7 @@
       "color": {"field": "Origin", "type": "nominal"}
     }
   },{
-    "mark": "errorbar",
+    "mark": {"type": "errorbar" },
     "encoding": {
       "y": {
         "field": "Acceleration",
