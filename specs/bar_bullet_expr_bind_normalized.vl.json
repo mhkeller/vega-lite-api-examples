@@ -84,7 +84,7 @@
       }
     },
     {
-      "mark": {"type": "tick", "color": "black", "size": {"expr": "height"}},
+      "mark": {"type": "tick", "color": "black", "size": {"expr": "height"}, "thickness": 2 },
       "encoding": {
         "x": {
           "type": "quantitative",

@@ -36,7 +36,7 @@
     "mark": {"type": "bar", "color": "steelblue", "size": {"expr": "innerBarSize"}},
     "encoding": {"x": {"field": "measures[0]"}}
   },{
-    "mark": {"type": "tick", "color": "black", "size": {"expr": "height"}},
+    "mark": {"type": "tick", "color": "black", "size": {"expr": "height"}, "thickness": 2 },
     "encoding": {"x": {"field": "markers[0]"}}
   }],
   "config": {"tick": {"thickness": 2}}
