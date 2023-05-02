@@ -54,13 +54,11 @@ export default function chart () {
 		])
 		.transform([
 			{
-				calculate:
-					"if(datum.type === 'Strongly disagree',-2,0) + if(datum.type==='Disagree',-1,0) + if(datum.type =='Neither agree nor disagree',0,0) + if(datum.type ==='Agree',1,0) + if(datum.type ==='Strongly agree',2,0)",
+				calculate: 'if(datum.type === \'Strongly disagree\',-2,0) + if(datum.type===\'Disagree\',-1,0) + if(datum.type ==\'Neither agree nor disagree\',0,0) + if(datum.type ===\'Agree\',1,0) + if(datum.type ===\'Strongly agree\',2,0)',
 				as: 'q_order'
 			},
 			{
-				calculate:
-					"if(datum.type === 'Disagree' || datum.type === 'Strongly disagree', datum.percentage,0) + if(datum.type === 'Neither agree nor disagree', datum.percentage / 2,0)",
+				calculate: 'if(datum.type === \'Disagree\' || datum.type === \'Strongly disagree\', datum.percentage,0) + if(datum.type === \'Neither agree nor disagree\', datum.percentage / 2,0)',
 				as: 'signed_percentage'
 			},
 			{ stack: 'percentage', as: ['v1', 'v2'], groupby: ['question'] },
