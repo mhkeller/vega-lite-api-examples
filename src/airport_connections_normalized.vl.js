@@ -1,5 +1,65 @@
 import * as vl from 'vega-lite-api';
 
+function generateVegaLiteSpec() {
+  const flights = vl.markCircle()
+    .data(vl.url('data/flights-airport.csv'))
+    .transform(
+      vl.aggregate({ op: 'count', as: 'routes' }).groupby(['origin']),
+      vl.lookup('origin')
+        .from(vl.url('data/airports.csv'))
+        .key('iata')
+        .fields(['state', 'latitude', 'longitude']),
+      vl.filter('datum.state !== "PR" && datum.state !== "VI"')
+    )
+    .params(vl.selectPoint('org')
+      .on('mouseover')
+      .nearest(true)
+      .fields(['origin'])
+    )
+    .encode(
+      vl.latitude().fieldQ('latitude'),
+      vl.longitude().fieldQ('longitude'),
+      vl.size().fieldQ('routes').scale({ rangeMax: 1000 }).legend(null),
+      vl.order().fieldQ('routes').sort('descending')
+    );
+
+  const routes = vl.markRule({ color: '#000', opacity: 0.35 })
+    .data(vl.url('data/flights-airport.csv'))
+    .transform(
+      vl.filter(vl.param('org').empty(false)),
+      vl.lookup('origin')
+        .from(vl.url('data/airports.csv'))
+        .key('iata')
+        .fields(['latitude', 'longitude']),
+      vl.lookup('destination')
+        .from(vl.url('data/airports.csv'))
+        .key('iata')
+        .fields(['latitude', 'longitude'])
+        .as(['lat2', 'lon2'])
+    )
+    .encode(
+      vl.latitude().fieldQ('latitude'),
+      vl.longitude().fieldQ('longitude'),
+      vl.latitude2().fieldQ('lat2'),
+      vl.longitude2().fieldQ('lon2')
+    );
+
+  const states = vl.markGeoshape({ fill: '#ddd', stroke: '#fff', strokeWidth: 1 })
+    .data(
+      vl.url('data/us-10m.json'),
+      { format: { type: 'topojson', feature: 'states' } }
+    );
+
+  const vegaLiteSpec = vl.layer(states, routes, flights)
+    .projection(vl.projection('albersUsa'))
+    .width(900)
+    .height(500)
+    .description('An interactive visualization of connections among major U.S. airports in 2008. Based on a U.S. airports example by Mike Bostock.');
+
+  return vegaLiteSpec.toJSON();
+}
+
+
 /**
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
