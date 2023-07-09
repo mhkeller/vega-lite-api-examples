@@ -13,6 +13,11 @@ if (typeof spec.mark === 'string') {
 	spec.mark = { type: spec.mark };
 }
 
+// Change spec.mark from a string to an object, which is what vega-lite-api creates
+if (typeof spec.spec === 'object' && typeof spec.spec?.mark === 'string') {
+	spec.spec.mark = { type: spec.spec.mark };
+}
+
 describe(`${name}.vg.js`, () => {
 	it(`should match spec`, () => {
 		const actual = fn();
