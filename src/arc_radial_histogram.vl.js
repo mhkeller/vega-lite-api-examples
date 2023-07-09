@@ -16,7 +16,7 @@ export default function chart() {
     );
 
   return vl
-    .layer([layer1, layer2])
+    .layer(layer1, layer2)
     .data('data/movies.json')
     .encode(
       vl.theta().bin(true).field('IMDB Rating'),
