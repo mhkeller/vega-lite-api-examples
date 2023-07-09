@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 82 / 703
+> Examples completed: 84 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-82--703)
+- [Example list](#example-list-completed-84--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -41,7 +41,7 @@ Tests are automatically generated when you run `npm test`. See the list below fo
 }
 ```
 
-## Example list (Completed: 82 / 703)
+## Example list (Completed: 84 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -59,7 +59,7 @@ Tests are automatically generated when you run `npm test`. See the list below fo
 * &nbsp; ✅ [arc_radial_histogram_normalized](./src/arc_radial_histogram_normalized.vl.js)
 * &nbsp; ✅ [arc_radial_normalized](./src/arc_radial_normalized.vl.js)
 * &nbsp; ✅ [area](./src/area.vl.js)
-* - [ ] [area_cumulative_freq](./src/area_cumulative_freq.vl.js)
+* &nbsp; ✅ [area_cumulative_freq](./src/area_cumulative_freq.vl.js)
 * &nbsp; ✅ [area_density](./src/area_density.vl.js)
 * &nbsp; ✅ [area_density_facet](./src/area_density_facet.vl.js)
 * &nbsp; ✅ [area_density_facet_normalized](./src/area_density_facet_normalized.vl.js)
@@ -67,7 +67,7 @@ Tests are automatically generated when you run `npm test`. See the list below fo
 * &nbsp; ✅ [area_density_stacked_fold](./src/area_density_stacked_fold.vl.js)
 * &nbsp; ✅ [area_gradient](./src/area_gradient.vl.js)
 * &nbsp; ✅ [area_gradient_normalized](./src/area_gradient_normalized.vl.js)
-* - [ ] [area_horizon](./src/area_horizon.vl.js)
+* &nbsp; ✅ [area_horizon](./src/area_horizon.vl.js)
 * &nbsp; ✅ [area_horizon_normalized](./src/area_horizon_normalized.vl.js)
 * &nbsp; ✅ [area_overlay](./src/area_overlay.vl.js)
 * &nbsp; ✅ [area_overlay_normalized](./src/area_overlay_normalized.vl.js)
