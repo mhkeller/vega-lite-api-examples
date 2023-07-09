@@ -32,7 +32,7 @@ Tests are automatically generated when you run `npm test`. See the list below fo
 ## Notes
 
 1. As described in [this issue](https://github.com/vega/vega-lite-api/issues/440), the `mark` field may not match the spec.
-2. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but is not present in the spec: 
+2. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but was not present in the spec: 
 
 ```json
 "order": {
