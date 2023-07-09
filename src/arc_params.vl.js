@@ -65,7 +65,7 @@ export default function chart() {
   // const z = vl.hconcat()
 
   return vl
-    .hconcat([singleArc, stackedArcs])
+    .hconcat(singleArc, stackedArcs)
     .description('A simple pie chart with embedded data.')
     .params([
       { "name": "radius", "value": 0,
