@@ -1,5 +1,4 @@
 import * as vl from 'vega-lite-api';
-// import { hconcat } from 'vega-lite-api';
 
 /**
  * Write a Node.JS function that uses the vega-lite-api library to
@@ -7,21 +6,6 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function chart() {
-  /*
-  {
-    "title": "Single Arc",
-    "data": {"values": [{}]},
-    "mark": {
-      "type": "arc",
-      "radius": {"expr": "radius"},
-      "radius2": {"expr": "radius2"},
-      "theta": {"expr": "theta_single_arc"},
-      "theta2": {"expr": "theta2_single_arc"},
-      "cornerRadius": {"expr": "cornerRadius"},
-      "padAngle": {"expr": "padAngle"},
-      "strokeWidth": {"expr": "strokeWidth"}
-    }
-    */
   const singleArc = vl
     .markArc(
       {
@@ -62,7 +46,6 @@ export default function chart() {
         vl.theta().fieldQ('value'),
         vl.color().fieldN('category')
       )
-  // const z = vl.hconcat()
 
   return vl
     .hconcat(singleArc, stackedArcs)
