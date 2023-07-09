@@ -9,7 +9,7 @@
   "spec": {
     "width": 400,
     "height": 80,
-    "mark": "area",
+    "mark": {"type" : "area"},
     "encoding": {
       "x": {"field": "value", "type": "quantitative", "title": "Body Mass (g)"},
       "y": {"field": "density", "type": "quantitative", "stack": "zero"}
