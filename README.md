@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 59 / 703
+> Examples completed: 66 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-59--703)
+- [Example list](#example-list-completed-66--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -42,7 +42,7 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 }
 ```
 
-## Example list (Completed: 59 / 703)
+## Example list (Completed: 66 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -50,15 +50,15 @@ In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` f
 * &nbsp; ✅ [arc_donut](./src/arc_donut.vl.js)
 * &nbsp; ✅ [arc_facet](./src/arc_facet.vl.js)
 * &nbsp; ✅ [arc_facet_normalized](./src/arc_facet_normalized.vl.js)
-* - [ ] [arc_ordinal_theta](./src/arc_ordinal_theta.vl.js)
-* - [ ] [arc_params](./src/arc_params.vl.js)
+* &nbsp; ✅ [arc_ordinal_theta](./src/arc_ordinal_theta.vl.js)
+* &nbsp; ✅ [arc_params](./src/arc_params.vl.js)
 * &nbsp; ✅ [arc_pie](./src/arc_pie.vl.js)
 * &nbsp; ✅ [arc_pie_normalize_tooltip](./src/arc_pie_normalize_tooltip.vl.js)
-* - [ ] [arc_pie_pyramid](./src/arc_pie_pyramid.vl.js)
-* - [ ] [arc_radial](./src/arc_radial.vl.js)
-* - [ ] [arc_radial_histogram](./src/arc_radial_histogram.vl.js)
-* - [ ] [arc_radial_histogram_normalized](./src/arc_radial_histogram_normalized.vl.js)
-* - [ ] [arc_radial_normalized](./src/arc_radial_normalized.vl.js)
+* &nbsp; ✅ [arc_pie_pyramid](./src/arc_pie_pyramid.vl.js)
+* &nbsp; ✅ [arc_radial](./src/arc_radial.vl.js)
+* &nbsp; ✅ [arc_radial_histogram](./src/arc_radial_histogram.vl.js)
+* &nbsp; ✅ [arc_radial_histogram_normalized](./src/arc_radial_histogram_normalized.vl.js)
+* &nbsp; ✅ [arc_radial_normalized](./src/arc_radial_normalized.vl.js)
 * - [ ] [area](./src/area.vl.js)
 * - [ ] [area_cumulative_freq](./src/area_cumulative_freq.vl.js)
 * - [ ] [area_density](./src/area_density.vl.js)
