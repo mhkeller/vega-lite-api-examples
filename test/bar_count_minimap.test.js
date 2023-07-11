@@ -4,18 +4,22 @@ import { readFileSync } from 'fs';
 
 import fn from '../src/bar_count_minimap.vl.js';
 
+function * iter(obj) {
+	for (let [key, value] of Object.entries(obj)) {
+			if (Object(value) !== value) yield [obj, key, value];
+			else yield * iter(value);
+	}
+}
+
 const name = 'bar_count_minimap';
 
 const spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 
-// Change this from a string to an object, which is what vega-lite-api creates
-if (typeof spec.mark === 'string') {
-	spec.mark = { type: spec.mark };
-}
-
-// Change spec.mark from a string to an object, which is what vega-lite-api creates
-if (typeof spec.spec === 'object' && typeof spec.spec?.mark === 'string') {
-	spec.spec.mark = { type: spec.spec.mark };
+// Changes mark fields that are nested in any objects from a string to an object, which is what vega-lite-api creates
+for (let [obj] of iter(spec)) {
+	if (typeof obj.mark === "string") {
+		obj.mark = { type: obj.mark } 
+	}
 }
 
 describe(`${name}.vg.js`, () => {
