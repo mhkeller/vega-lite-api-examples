@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 66 / 703
+> Examples completed: 84 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-66--703)
+- [Example list](#example-list-completed-84--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -31,7 +31,39 @@ Tests are automatically generated when you run `npm test`. See the list below fo
 
 ## Notes
 
-1. As described in [this issue](https://github.com/vega/vega-lite-api/issues/440), the `mark` field may not match the spec.
+1. As described in [this issue](https://github.com/vega/vega-lite-api/issues/440), the `mark` field may not match the spec. This may occur when `mark` is nested inside a `spec` or a `layer`
+
+_spec_
+```json
+"spec": {
+  "mark": "bar"
+}
+```
+
+_vega-lite example output_
+```json
+"spec": {
+  "mark": {"type": "bar"}
+}
+```
+
+To address the issue, fixes were made in the test template.
+
+```js
+function * iter(obj) {
+	for (let [key, value] of Object.entries(obj)) {
+			if (Object(value) !== value) yield [obj, key, value];
+			else yield * iter(value);
+	}
+}
+
+// Changes mark fields that are nested in any objects from a string to an object, which is what vega-lite-api creates
+for (let [obj] of iter(spec)) {
+	if (typeof obj.mark === "string") {
+		obj.mark = { type: obj.mark } 
+	}
+}
+```
 2. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but was not present in the spec: 
 
 ```json
@@ -41,7 +73,7 @@ Tests are automatically generated when you run `npm test`. See the list below fo
 }
 ```
 
-## Example list (Completed: 66 / 703)
+## Example list (Completed: 84 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -58,24 +90,24 @@ Tests are automatically generated when you run `npm test`. See the list below fo
 * &nbsp; ✅ [arc_radial_histogram](./src/arc_radial_histogram.vl.js)
 * &nbsp; ✅ [arc_radial_histogram_normalized](./src/arc_radial_histogram_normalized.vl.js)
 * &nbsp; ✅ [arc_radial_normalized](./src/arc_radial_normalized.vl.js)
-* - [ ] [area](./src/area.vl.js)
-* - [ ] [area_cumulative_freq](./src/area_cumulative_freq.vl.js)
-* - [ ] [area_density](./src/area_density.vl.js)
-* - [ ] [area_density_facet](./src/area_density_facet.vl.js)
-* - [ ] [area_density_facet_normalized](./src/area_density_facet_normalized.vl.js)
-* - [ ] [area_density_stacked](./src/area_density_stacked.vl.js)
-* - [ ] [area_density_stacked_fold](./src/area_density_stacked_fold.vl.js)
-* - [ ] [area_gradient](./src/area_gradient.vl.js)
-* - [ ] [area_gradient_normalized](./src/area_gradient_normalized.vl.js)
-* - [ ] [area_horizon](./src/area_horizon.vl.js)
-* - [ ] [area_horizon_normalized](./src/area_horizon_normalized.vl.js)
-* - [ ] [area_overlay](./src/area_overlay.vl.js)
-* - [ ] [area_overlay_normalized](./src/area_overlay_normalized.vl.js)
-* - [ ] [area_overlay_with_y2](./src/area_overlay_with_y2.vl.js)
-* - [ ] [area_overlay_with_y2_normalized](./src/area_overlay_with_y2_normalized.vl.js)
-* - [ ] [area_params](./src/area_params.vl.js)
-* - [ ] [area_temperature_range](./src/area_temperature_range.vl.js)
-* - [ ] [area_vertical](./src/area_vertical.vl.js)
+* &nbsp; ✅ [area](./src/area.vl.js)
+* &nbsp; ✅ [area_cumulative_freq](./src/area_cumulative_freq.vl.js)
+* &nbsp; ✅ [area_density](./src/area_density.vl.js)
+* &nbsp; ✅ [area_density_facet](./src/area_density_facet.vl.js)
+* &nbsp; ✅ [area_density_facet_normalized](./src/area_density_facet_normalized.vl.js)
+* &nbsp; ✅ [area_density_stacked](./src/area_density_stacked.vl.js)
+* &nbsp; ✅ [area_density_stacked_fold](./src/area_density_stacked_fold.vl.js)
+* &nbsp; ✅ [area_gradient](./src/area_gradient.vl.js)
+* &nbsp; ✅ [area_gradient_normalized](./src/area_gradient_normalized.vl.js)
+* &nbsp; ✅ [area_horizon](./src/area_horizon.vl.js)
+* &nbsp; ✅ [area_horizon_normalized](./src/area_horizon_normalized.vl.js)
+* &nbsp; ✅ [area_overlay](./src/area_overlay.vl.js)
+* &nbsp; ✅ [area_overlay_normalized](./src/area_overlay_normalized.vl.js)
+* &nbsp; ✅ [area_overlay_with_y2](./src/area_overlay_with_y2.vl.js)
+* &nbsp; ✅ [area_overlay_with_y2_normalized](./src/area_overlay_with_y2_normalized.vl.js)
+* &nbsp; ✅ [area_params](./src/area_params.vl.js)
+* &nbsp; ✅ [area_temperature_range](./src/area_temperature_range.vl.js)
+* &nbsp; ✅ [area_vertical](./src/area_vertical.vl.js)
 * - [ ] [argmin_spaces](./src/argmin_spaces.vl.js)
 * - [ ] [bar](./src/bar.vl.js)
 * - [ ] [bar_1d](./src/bar_1d.vl.js)

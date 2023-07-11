@@ -5,6 +5,18 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markArea()
+    .width(300)
+    .height(200)
+    .data('data/unemployment-across-industries.json')
+    .encode(
+      vl.x().timeUnit('yearmonth').field('date').axis({format: '%Y'}),
+      vl.y().aggregate('sum').field('count').title('count')
+    )
+    .toSpec();
+}
 
 /*
 {

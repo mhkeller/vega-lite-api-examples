@@ -5,6 +5,19 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markArea()
+    .height(100)
+    .width(400)
+    .data('data/movies.json')
+    .transform(vl.density('IMDB Rating').bandwidth(0.3))
+    .encode(
+      vl.x().fieldQ('value').title('IMDB Rating'),
+      vl.y().fieldQ('density')
+    )
+    .toSpec()
+}
 
 /*
 {
