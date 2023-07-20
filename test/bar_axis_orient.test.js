@@ -4,14 +4,25 @@ import { readFileSync } from 'fs';
 
 import fn from '../src/bar_axis_orient.vl.js';
 
+function convertMarkValues(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === "object") {
+        convertMarkValues(obj[key]);
+    }
+    if (key === "mark" && typeof obj[key] === 'string') {
+      obj.mark = { type: obj[key] }
+    }
+  }
+
+	return obj
+}
+
 const name = 'bar_axis_orient';
 
-const spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
+let spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 
-// Change this from a string to an object, which is what vega-lite-api creates
-if (typeof spec.mark === 'string') {
-	spec.mark = { type: spec.mark };
-}
+// Changes mark fields that are nested in any objects from a string to an object, which is what vega-lite-api creates
+spec = convertMarkValues(spec)
 
 describe(`${name}.vg.js`, () => {
 	it(`should match spec`, () => {
