@@ -210,7 +210,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [boxplot_1D_horizontal_explicit](./src/boxplot_1D_horizontal_explicit.vl.js)
 * &nbsp; ✅ [boxplot_1D_horizontal_explicit_normalized](./src/boxplot_1D_horizontal_explicit_normalized.vl.js)
 * &nbsp; ✅ [boxplot_1D_horizontal_normalized](./src/boxplot_1D_horizontal_normalized.vl.js)
-* - [ ] [boxplot_1D_invalid](./src/boxplot_1D_invalid.vl.js)
+* &nbsp; ✅ [boxplot_1D_invalid](./src/boxplot_1D_invalid.vl.js)
 * &nbsp; ✅ [boxplot_1D_invalid_normalized](./src/boxplot_1D_invalid_normalized.vl.js)
 * - [ ] [boxplot_1D_vertical](./src/boxplot_1D_vertical.vl.js)
 * - [ ] [boxplot_1D_vertical_normalized](./src/boxplot_1D_vertical_normalized.vl.js)
