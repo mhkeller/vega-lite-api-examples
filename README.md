@@ -31,7 +31,7 @@ Tests are automatically generated when you run `npm test`. See the list below fo
 
 ## Notes
 
-1. As described in [this issue](https://github.com/vega/vega-lite-api/issues/440), the `mark` field may not match the spec. This may occur when `mark` is nested inside a `spec` or a `layer`
+1. As described in [this issue](https://github.com/vega/vega-lite-api/issues/440) and [this PR](https://github.com/mhkeller/vega-lite-api-examples/pull/4), the `mark` field may not match the spec. This may occur when `mark` is nested inside a `spec` or a `layer`
 
 _spec_
 ```json
@@ -43,28 +43,27 @@ _spec_
 _vega-lite example output_
 ```json
 "spec": {
-  "mark": {"type": "bar"}
+  "mark": { "type": "bar" }
 }
 ```
 
-To address the issue, fixes were made in the test template.
+To address this issue, the test template recursively finds `mark` fields that are strings and converts them into objects.
 
 ```js
-function * iter(obj) {
-	for (let [key, value] of Object.entries(obj)) {
-			if (Object(value) !== value) yield [obj, key, value];
-			else yield * iter(value);
+function convertMarkValues (obj) {
+	for (const key in obj) {
+		if (typeof obj[key] === 'object') {
+			convertMarkValues(obj[key]);
+		}
+		if (key === 'mark' && typeof obj[key] === 'string') {
+			obj.mark = { type: obj[key] };
+		}
 	}
-}
 
-// Changes mark fields that are nested in any objects from a string to an object, which is what vega-lite-api creates
-for (let [obj] of iter(spec)) {
-	if (typeof obj.mark === "string") {
-		obj.mark = { type: obj.mark } 
-	}
+	return obj;
 }
 ```
-2. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but was not present in the spec: 
+1. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but was not present in the spec: 
 
 ```json
 "order": {
