@@ -51,16 +51,16 @@ To address this issue, the test template recursively finds `mark` fields that ar
 
 ```js
 function convertMarkValues (obj) {
-	for (const key in obj) {
-		if (typeof obj[key] === 'object') {
-			convertMarkValues(obj[key]);
-		}
-		if (key === 'mark' && typeof obj[key] === 'string') {
-			obj.mark = { type: obj[key] };
-		}
-	}
-
-	return obj;
+  for (const key in obj) {
+    if (typeof obj[key] === 'object') {
+      convertMarkValues(obj[key]);
+    }
+    if (key === 'mark' && typeof obj[key] === 'string') {
+      obj.mark = { type: obj[key] };
+    }
+  }
+  
+  return obj;
 }
 ```
 1. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but was not present in the spec: 
