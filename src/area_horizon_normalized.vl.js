@@ -60,6 +60,7 @@ export default function chart() {
     .config({area: {interpolate: 'monotone'}})
     .toSpec();
 }
+
 /*
 {
   $schema: https://vega.github.io/schema/vega-lite/v5.json,
