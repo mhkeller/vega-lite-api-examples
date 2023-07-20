@@ -5,6 +5,118 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  const layer1 = vl
+    .markRule({aria: false, style: 'boxplot-rule'})
+    .encode(
+      vl.x().fieldN('Species'),
+      vl.y().fieldQ('lower_whisker_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
+      vl.y2().field('lower_box_Body Mass (g)'),
+      vl.tooltip([
+        vl.tooltip().fieldQ('upper_whisker_Body Mass (g)')
+          .title('Max of Body Mass (g)'),
+        vl.tooltip().fieldQ('upper_box_Body Mass (g)')
+          .title('Q3 of Body Mass (g)'),
+        vl.tooltip().fieldQ('mid_box_Body Mass (g)')
+          .title('Median of Body Mass (g)'),
+        vl.tooltip().fieldQ('lower_box_Body Mass (g)')
+          .title('Q1 of Body Mass (g)'),
+        vl.tooltip().fieldQ('lower_whisker_Body Mass (g)')
+          .title('Min of Body Mass (g)'),
+        vl.tooltip().fieldN('Species'),
+      ])
+    );
+
+  const layer2 = vl
+    .markRule({aria: false, style: 'boxplot-rule'})
+    .encode(
+      vl.x().fieldN('Species'),
+      vl.y().fieldQ('upper_box_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
+      vl.y2().field('upper_whisker_Body Mass (g)'),
+      vl.tooltip([
+        vl.tooltip().fieldQ('upper_whisker_Body Mass (g)')
+          .title('Max of Body Mass (g)'),
+        vl.tooltip().fieldQ('upper_box_Body Mass (g)')
+          .title('Q3 of Body Mass (g)'),
+        vl.tooltip().fieldQ('mid_box_Body Mass (g)')
+          .title('Median of Body Mass (g)'),
+        vl.tooltip().fieldQ('lower_box_Body Mass (g)')
+          .title('Q1 of Body Mass (g)'),
+        vl.tooltip().fieldQ('lower_whisker_Body Mass (g)')
+          .title('Min of Body Mass (g)'),
+        vl.tooltip().fieldN('Species'),
+      ])
+    );
+
+  const layer3 = vl
+    .markBar({
+      size: 14,
+      orient: 'vertical',
+      ariaRoleDescription: 'box',
+      style: 'boxplot-box',
+    })
+    .encode(
+      vl.x().fieldN('Species'),
+      vl.y().fieldQ('lower_box_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
+      vl.y2().field('upper_box_Body Mass (g)'),
+      vl.color().fieldN('Species').legend(null),
+      vl.tooltip([
+        vl.tooltip().fieldQ('upper_whisker_Body Mass (g)')
+          .title('Max of Body Mass (g)'),
+        vl.tooltip().fieldQ('upper_box_Body Mass (g)')
+          .title('Q3 of Body Mass (g)'),
+        vl.tooltip().fieldQ('mid_box_Body Mass (g)')
+          .title('Median of Body Mass (g)'),
+        vl.tooltip().fieldQ('lower_box_Body Mass (g)')
+          .title('Q1 of Body Mass (g)'),
+        vl.tooltip().fieldQ('lower_whisker_Body Mass (g)')
+          .title('Min of Body Mass (g)'),
+        vl.tooltip().fieldN('Species'),
+      ])
+    );
+
+  const layer4 = vl
+    .markTick({
+      color: 'white',
+      size: 14,
+      orient: 'horizontal',
+      aria: false,
+      style: 'boxplot-median',
+    })
+    .encode(
+      vl.x().fieldN('Species'),
+      vl.y().fieldQ('mid_box_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
+      vl.tooltip([
+        vl.tooltip().fieldQ('upper_whisker_Body Mass (g)')
+          .title('Max of Body Mass (g)'),
+        vl.tooltip().fieldQ('upper_box_Body Mass (g)')
+          .title('Q3 of Body Mass (g)'),
+        vl.tooltip().fieldQ('mid_box_Body Mass (g)')
+          .title('Median of Body Mass (g)'),
+        vl.tooltip().fieldQ('lower_box_Body Mass (g)')
+          .title('Q1 of Body Mass (g)'),
+        vl.tooltip().fieldQ('lower_whisker_Body Mass (g)')
+          .title('Min of Body Mass (g)'),
+        vl.tooltip().fieldN('Species'),
+      ])
+    );
+
+  return vl
+    .layer(layer1, layer2, layer3, layer4)
+    .data('data/penguins.json')
+    .description('A vertical box plot showing median, min, and max body mass of penguins.')
+    .transform(
+      vl.aggregate(
+        {op: 'q1', field: 'Body Mass (g)', as: 'lower_box_Body Mass (g)'},
+        {op: 'q3', field: 'Body Mass (g)', as: 'upper_box_Body Mass (g)'},
+        {op: 'median', field: 'Body Mass (g)', as: 'mid_box_Body Mass (g)'},
+        {op: 'min', field: 'Body Mass (g)', as: 'lower_whisker_Body Mass (g)'},
+        {op: 'max', field: 'Body Mass (g)', as: 'upper_whisker_Body Mass (g)'},
+      ).groupby('Species', 'Species')
+    )
+    .toSpec();
+}
+
 
 /*
 {
