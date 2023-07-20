@@ -5,6 +5,30 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markBar()
+    .height({step: 12})
+    .data({
+      values: [
+        { Activity: 'Sleeping', Time: 8 },
+        { Activity: 'Eating', Time: 2 },
+        { Activity: 'TV', Time: 4 },
+        { Activity: 'Work', Time: 8 },
+        { Activity: 'Exercise', Time: 2 },
+      ]
+    })
+    .description('A bar graph showing what activites consume what percentage of the day.')
+    .transform(
+      vl.joinaggregate([{op: 'sum', field: 'Time', as: 'TotalTime'}]),
+      vl.calculate(`datum.Time/datum.TotalTime * 100`).as('PercentOfTotal')
+    )
+    .encode(
+      vl.x().fieldQ('PercentOfTotal').title('% of total Time'),
+      vl.y().fieldN('Activity')
+    )
+    .toSpec();
+}
 
 /*
 {
