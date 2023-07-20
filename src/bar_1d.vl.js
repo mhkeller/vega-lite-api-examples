@@ -5,6 +5,17 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markBar()
+    .data('data/population.json')
+    .transform(vl.filter(`datum.year == 2000`))
+    .encode(
+      vl.x().aggregate('sum').field('people').title('population')
+    )
+    .toSpec();
+}
+
 
 /*
 {
