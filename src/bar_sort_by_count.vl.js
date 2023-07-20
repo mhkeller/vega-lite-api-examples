@@ -5,6 +5,17 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markBar()
+    .data('data/cars.json')
+    .description('A scatterplot showing horsepower and miles per gallons for various cars.')
+    .encode(
+      vl.x().sort({op: 'count', order: 'descending'}).field('Cylinders'),
+      vl.y().aggregate('count')
+    )
+    .toSpec();
+}
 
 /*
 {
