@@ -5,7 +5,7 @@
   },
   "repeat": {"layer": ["Worldwide Gross", "US Gross"]},
   "spec": {
-    "mark": {"type": "bar"},
+    "mark": "bar",
     "encoding": {
       "x": {
         "field": "Major Genre",
