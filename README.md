@@ -205,7 +205,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [bar_yearmonth](./src/bar_yearmonth.vl.js)
 * &nbsp; ✅ [bar_yearmonth_custom_format](./src/bar_yearmonth_custom_format.vl.js)
 * - [ ] [boxplot_1D_horizontal](./src/boxplot_1D_horizontal.vl.js)
-* - [ ] [boxplot_1D_horizontal_custom_mark](./src/boxplot_1D_horizontal_custom_mark.vl.js)
+* &nbsp; ✅ [boxplot_1D_horizontal_custom_mark](./src/boxplot_1D_horizontal_custom_mark.vl.js)
 * &nbsp; ✅ [boxplot_1D_horizontal_custom_mark_normalized](./src/boxplot_1D_horizontal_custom_mark_normalized.vl.js)
 * - [ ] [boxplot_1D_horizontal_explicit](./src/boxplot_1D_horizontal_explicit.vl.js)
 * - [ ] [boxplot_1D_horizontal_explicit_normalized](./src/boxplot_1D_horizontal_explicit_normalized.vl.js)
