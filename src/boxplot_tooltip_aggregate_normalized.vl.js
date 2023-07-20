@@ -21,23 +21,18 @@ export default function chart() {
   const outLayer1C2C1 = vl
     .markRule({aria: false, style: 'boxplot-rule'})
     .encode(
-      vl.x().fieldQ('lower_whisker_Body Mass (g)')
-        .title('Body Mass (g)').scale({zero: false}),
+      vl.x().fieldQ('lower_whisker_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
       vl.x2().field('lower_box_Body Mass (g)'),
-      vl.y().fieldN('Species'),
-      vl.tooltip().fieldQ('mean_Body Mass (g)')
-      .title('Mean of Body Mass (g)'),
+      vl.y().fieldN('Species'),vl.tooltip().fieldQ('mean_Body Mass (g)').title('Mean of Body Mass (g)'),
     );
 
   const outLayer1C2C2 = vl
     .markRule({aria: false, style: 'boxplot-rule'})
     .encode(
-      vl.x().fieldQ('upper_box_Body Mass (g)')
-        .title('Body Mass (g)').scale({zero: false}),
+      vl.x().fieldQ('upper_box_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
       vl.x2().field('upper_whisker_Body Mass (g)'),
       vl.y().fieldN('Species'),
-      vl.tooltip().fieldQ('mean_Body Mass (g)')
-      .title('Mean of Body Mass (g)'),
+      vl.tooltip().fieldQ('mean_Body Mass (g)').title('Mean of Body Mass (g)'),
     );
 
 
@@ -73,12 +68,10 @@ export default function chart() {
       style: 'boxplot-box',
       })
     .encode(
-      vl.x().fieldQ('lower_box_Body Mass (g)')
-        .title('Body Mass (g)').scale({zero: false}),
+      vl.x().fieldQ('lower_box_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
       vl.x2().field('upper_box_Body Mass (g)'),
       vl.y().fieldN('Species'),
-      vl.tooltip().fieldQ('mean_Body Mass (g)')
-      .title('Mean of Body Mass (g)'),
+      vl.tooltip().fieldQ('mean_Body Mass (g)').title('Mean of Body Mass (g)'),
     );
 
   const outerLayer2C2 = vl
@@ -90,11 +83,9 @@ export default function chart() {
       style: 'boxplot-median',
       })
     .encode(
-      vl.x().fieldQ('mid_box_Body Mass (g)')
-        .title('Body Mass (g)').scale({zero: false}),
+      vl.x().fieldQ('mid_box_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
       vl.y().fieldN('Species'),
-      vl.tooltip().fieldQ('mean_Body Mass (g)')
-      .title('Mean of Body Mass (g)'),
+      vl.tooltip().fieldQ('mean_Body Mass (g)').title('Mean of Body Mass (g)'),
     );
 
   const outerLayer2 = vl
