@@ -51,17 +51,17 @@ To address the issue, fixes were made in the test template.
 
 ```js
 function * iter(obj) {
-	for (let [key, value] of Object.entries(obj)) {
-			if (Object(value) !== value) yield [obj, key, value];
-			else yield * iter(value);
-	}
+  for (let [key, value] of Object.entries(obj)) {
+    if (Object(value) !== value) yield [obj, key, value];
+    else yield * iter(value);
+  }
 }
 
 // Changes mark fields that are nested in any objects from a string to an object, which is what vega-lite-api creates
 for (let [obj] of iter(spec)) {
-	if (typeof obj.mark === "string") {
-		obj.mark = { type: obj.mark } 
-	}
+  if (typeof obj.mark === "string") {
+    obj.mark = { type: obj.mark } 
+  }
 }
 ```
 2. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but was not present in the spec: 
