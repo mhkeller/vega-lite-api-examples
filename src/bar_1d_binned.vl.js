@@ -5,6 +5,18 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markBar()
+    .width(300)
+    .height(50)
+    .data('data/flights-5k.json')
+    .encode(
+      vl.x().fieldQ('delay').bin({maxbins: 100, minstep: 1}).axis({title: 'delay', titleAnchor: 'start', format: 'd'})
+    )
+    .config({view: {stroke: null}})
+    .toSpec();
+}
 
 /*
 {

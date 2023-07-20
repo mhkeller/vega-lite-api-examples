@@ -5,6 +5,23 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markBar()
+    .data({
+      values: [
+        { b: 28, b2: 0}, { b: 55, b2: 0}, { b: 43, b2: 0},
+        { b: 91, b2: 0}, { b: 81, b2: 0}, { b: 53, b2: 0},
+        { b: 19, b2: 0}, { b: 87, b2: 0}, { b: 52, b2: 0}
+      ]
+    })
+    .encode(
+      vl.x().fieldQ('b'),
+      vl.y().fieldQ('b'),
+      vl.y2().field('b2')
+    )
+    .toSpec()
+}
 
 /*
 {
