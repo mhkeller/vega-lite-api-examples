@@ -4,6 +4,7 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
+
 export default function chart () {
   const layer1 = vl
     .markBar()
@@ -46,9 +47,9 @@ export default function chart () {
     vl.x().fieldN('Cylinders'),
     vl.xOffset().fieldN('Origin'),
     vl.tooltip([
-      vl.tooltip().fieldQ('center_Acceleration').title('Mean of Acceleration') /*.title('Mean of Acceleration')*/,
-      vl.tooltip().fieldQ('upper_Acceleration').title('Mean + stderr of Acceleration') /*.title('Mean + stderr of Acceleration')*/,
-      vl.tooltip().fieldQ('lower_Acceleration').title('Mean - stderr of Acceleration') /*.title('Mean - stderr of Acceleration')*/,
+      vl.tooltip().fieldQ('center_Acceleration').title('Mean of Acceleration'),
+      vl.tooltip().fieldQ('upper_Acceleration').title('Mean + stderr of Acceleration'),
+      vl.tooltip().fieldQ('lower_Acceleration').title('Mean - stderr of Acceleration'),
       vl.tooltip().fieldN('Cylinders'),
       vl.tooltip().fieldN('Origin')
     ])
@@ -60,6 +61,7 @@ export default function chart () {
 		.layer(layer1, layer2)
 		.toSpec();
 }
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
