@@ -232,7 +232,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [boxplot_preaggregated_normalized](./src/boxplot_preaggregated_normalized.vl.js)
 * &nbsp; ✅ [boxplot_tooltip_aggregate](./src/boxplot_tooltip_aggregate.vl.js)
 * &nbsp; ✅ [boxplot_tooltip_aggregate_normalized](./src/boxplot_tooltip_aggregate_normalized.vl.js)
-* - [ ] [boxplot_tooltip_not_aggregate](./src/boxplot_tooltip_not_aggregate.vl.js)
+* &nbsp; ✅ [boxplot_tooltip_not_aggregate](./src/boxplot_tooltip_not_aggregate.vl.js)
 * &nbsp; ✅ [boxplot_tooltip_not_aggregate_normalized](./src/boxplot_tooltip_not_aggregate_normalized.vl.js)
 * - [ ] [brush_table](./src/brush_table.vl.js)
 * - [ ] [circle](./src/circle.vl.js)
