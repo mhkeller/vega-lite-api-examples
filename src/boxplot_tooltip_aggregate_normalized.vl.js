@@ -23,7 +23,8 @@ export default function chart() {
     .encode(
       vl.x().fieldQ('lower_whisker_Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
       vl.x2().field('lower_box_Body Mass (g)'),
-      vl.y().fieldN('Species'),vl.tooltip().fieldQ('mean_Body Mass (g)').title('Mean of Body Mass (g)'),
+      vl.y().fieldN('Species'),
+      vl.tooltip().fieldQ('mean_Body Mass (g)').title('Mean of Body Mass (g)'),
     );
 
   const outLayer1C2C2 = vl
