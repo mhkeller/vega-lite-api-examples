@@ -24,6 +24,15 @@ let spec = JSON.parse(readFileSync(`./specs/${name}.vl.json`, 'utf-8'));
 // Changes mark fields that are nested in any objects from a string to an object, which is what vega-lite-api creates
 spec = convertMarkValues(spec);
 
+// Change layer[i].mark from a string to an object, which is what vega-lite-api creates
+if (typeof spec.layer === 'object' && spec.layer.length) {
+	spec.layer.forEach(l => {
+		if (typeof l.mark === 'string') {
+			l.mark = { type: l.mark };
+		}
+	});
+}
+
 describe(`${name}.vg.js`, () => {
 	it(`should match spec`, () => {
 		const actual = fn();
