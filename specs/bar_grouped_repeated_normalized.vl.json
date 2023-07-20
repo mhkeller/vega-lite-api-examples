@@ -4,7 +4,7 @@
   "config": {"mark": {"invalid": null}},
   "layer": [
     {
-      "mark": {"type": "bar"},
+      "mark": "bar",
       "encoding": {
         "x": {"field": "Major Genre", "type": "nominal"},
         "y": {
@@ -23,7 +23,7 @@
       "name": "child__layer_Worldwide_Gross"
     },
     {
-      "mark": {"type": "bar"},
+      "mark": "bar",
       "encoding": {
         "x": {"field": "Major Genre", "type": "nominal"},
         "y": {
