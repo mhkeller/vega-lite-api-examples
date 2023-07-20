@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 133 / 703
+> Examples completed: 134 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-133--703)
+- [Example list](#example-list-completed-134--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 133 / 703)
+## Example list (Completed: 134 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -108,7 +108,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [area_temperature_range](./src/area_temperature_range.vl.js)
 * &nbsp; ✅ [area_vertical](./src/area_vertical.vl.js)
 * &nbsp; ✅ [argmin_spaces](./src/argmin_spaces.vl.js)
-* - [ ] [bar](./src/bar.vl.js)
+* &nbsp; ✅ [bar](./src/bar.vl.js)
 * &nbsp; ✅ [bar_1d](./src/bar_1d.vl.js)
 * &nbsp; ✅ [bar_1d_binned](./src/bar_1d_binned.vl.js)
 * &nbsp; ✅ [bar_1d_step_config](./src/bar_1d_step_config.vl.js)
