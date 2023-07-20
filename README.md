@@ -216,7 +216,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [boxplot_1D_vertical_normalized](./src/boxplot_1D_vertical_normalized.vl.js)
 * - [ ] [boxplot_2D_horizontal](./src/boxplot_2D_horizontal.vl.js)
 * - [ ] [boxplot_2D_horizontal_color_size](./src/boxplot_2D_horizontal_color_size.vl.js)
-* - [ ] [boxplot_2D_horizontal_color_size_normalized](./src/boxplot_2D_horizontal_color_size_normalized.vl.js)
+* &nbsp; ✅ [boxplot_2D_horizontal_color_size_normalized](./src/boxplot_2D_horizontal_color_size_normalized.vl.js)
 * - [ ] [boxplot_2D_horizontal_normalized](./src/boxplot_2D_horizontal_normalized.vl.js)
 * - [ ] [boxplot_2D_vertical](./src/boxplot_2D_vertical.vl.js)
 * - [ ] [boxplot_2D_vertical_normalized](./src/boxplot_2D_vertical_normalized.vl.js)
