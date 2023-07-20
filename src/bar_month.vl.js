@@ -5,6 +5,16 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function() {
+  return vl
+    .markBar()
+    .data('data/seattle-weather.csv')
+    .encode(
+      vl.x().timeUnit('month').fieldO('date'),
+      vl.y().aggregate('mean').field('precipitation')
+    )
+    .toSpec();
+}
 
 /*
 {
