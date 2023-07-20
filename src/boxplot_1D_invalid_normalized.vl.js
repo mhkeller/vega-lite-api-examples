@@ -140,12 +140,12 @@ export default function chart() {
     .layer(outerLayer1, outerLayer2)
     .data({
       values: [
-        {a: 'null', b: 28, },
-        {a: 33, b: 55, },
-        {a: 33, b: 43, },
-        {a: 'null', b: 91, },
-        {a: 'null', b: 81, },
-        {a: 'null', b: 53, },
+        {a: 'null', b: 28},
+        {a: 33, b: 55},
+        {a: 33, b: 43},
+        {a: 'null', b: 91},
+        {a: 'null', b: 81},
+        {a: 'null', b: 53},
       ]
     })
     .toSpec();
