@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 134 / 703
+> Examples completed: 164 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-134--703)
+- [Example list](#example-list-completed-164--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -63,7 +63,7 @@ function convertMarkValues (obj) {
   return obj;
 }
 ```
-1. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but was not present in the spec: 
+2. In the [`arc_pie_pyramid`](src/arc_pie_pyramid.vl.js) file, the ordinal `type` field is added but was not present in the spec: 
 
 ```json
 "order": {
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 134 / 703)
+## Example list (Completed: 164 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -204,36 +204,36 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [bar_x_offset_without_x_broken](./src/bar_x_offset_without_x_broken.vl.js)
 * &nbsp; ✅ [bar_yearmonth](./src/bar_yearmonth.vl.js)
 * &nbsp; ✅ [bar_yearmonth_custom_format](./src/bar_yearmonth_custom_format.vl.js)
-* - [ ] [boxplot_1D_horizontal](./src/boxplot_1D_horizontal.vl.js)
-* - [ ] [boxplot_1D_horizontal_custom_mark](./src/boxplot_1D_horizontal_custom_mark.vl.js)
-* - [ ] [boxplot_1D_horizontal_custom_mark_normalized](./src/boxplot_1D_horizontal_custom_mark_normalized.vl.js)
-* - [ ] [boxplot_1D_horizontal_explicit](./src/boxplot_1D_horizontal_explicit.vl.js)
-* - [ ] [boxplot_1D_horizontal_explicit_normalized](./src/boxplot_1D_horizontal_explicit_normalized.vl.js)
-* - [ ] [boxplot_1D_horizontal_normalized](./src/boxplot_1D_horizontal_normalized.vl.js)
-* - [ ] [boxplot_1D_invalid](./src/boxplot_1D_invalid.vl.js)
-* - [ ] [boxplot_1D_invalid_normalized](./src/boxplot_1D_invalid_normalized.vl.js)
-* - [ ] [boxplot_1D_vertical](./src/boxplot_1D_vertical.vl.js)
-* - [ ] [boxplot_1D_vertical_normalized](./src/boxplot_1D_vertical_normalized.vl.js)
-* - [ ] [boxplot_2D_horizontal](./src/boxplot_2D_horizontal.vl.js)
-* - [ ] [boxplot_2D_horizontal_color_size](./src/boxplot_2D_horizontal_color_size.vl.js)
-* - [ ] [boxplot_2D_horizontal_color_size_normalized](./src/boxplot_2D_horizontal_color_size_normalized.vl.js)
-* - [ ] [boxplot_2D_horizontal_normalized](./src/boxplot_2D_horizontal_normalized.vl.js)
-* - [ ] [boxplot_2D_vertical](./src/boxplot_2D_vertical.vl.js)
-* - [ ] [boxplot_2D_vertical_normalized](./src/boxplot_2D_vertical_normalized.vl.js)
-* - [ ] [boxplot_groupped](./src/boxplot_groupped.vl.js)
-* - [ ] [boxplot_groupped_normalized](./src/boxplot_groupped_normalized.vl.js)
-* - [ ] [boxplot_minmax_2D_horizontal](./src/boxplot_minmax_2D_horizontal.vl.js)
-* - [ ] [boxplot_minmax_2D_horizontal_custom_midtick_color](./src/boxplot_minmax_2D_horizontal_custom_midtick_color.vl.js)
-* - [ ] [boxplot_minmax_2D_horizontal_custom_midtick_color_normalized](./src/boxplot_minmax_2D_horizontal_custom_midtick_color_normalized.vl.js)
-* - [ ] [boxplot_minmax_2D_horizontal_normalized](./src/boxplot_minmax_2D_horizontal_normalized.vl.js)
-* - [ ] [boxplot_minmax_2D_vertical](./src/boxplot_minmax_2D_vertical.vl.js)
-* - [ ] [boxplot_minmax_2D_vertical_normalized](./src/boxplot_minmax_2D_vertical_normalized.vl.js)
-* - [ ] [boxplot_preaggregated](./src/boxplot_preaggregated.vl.js)
-* - [ ] [boxplot_preaggregated_normalized](./src/boxplot_preaggregated_normalized.vl.js)
-* - [ ] [boxplot_tooltip_aggregate](./src/boxplot_tooltip_aggregate.vl.js)
-* - [ ] [boxplot_tooltip_aggregate_normalized](./src/boxplot_tooltip_aggregate_normalized.vl.js)
-* - [ ] [boxplot_tooltip_not_aggregate](./src/boxplot_tooltip_not_aggregate.vl.js)
-* - [ ] [boxplot_tooltip_not_aggregate_normalized](./src/boxplot_tooltip_not_aggregate_normalized.vl.js)
+* &nbsp; ✅ [boxplot_1D_horizontal](./src/boxplot_1D_horizontal.vl.js)
+* &nbsp; ✅ [boxplot_1D_horizontal_custom_mark](./src/boxplot_1D_horizontal_custom_mark.vl.js)
+* &nbsp; ✅ [boxplot_1D_horizontal_custom_mark_normalized](./src/boxplot_1D_horizontal_custom_mark_normalized.vl.js)
+* &nbsp; ✅ [boxplot_1D_horizontal_explicit](./src/boxplot_1D_horizontal_explicit.vl.js)
+* &nbsp; ✅ [boxplot_1D_horizontal_explicit_normalized](./src/boxplot_1D_horizontal_explicit_normalized.vl.js)
+* &nbsp; ✅ [boxplot_1D_horizontal_normalized](./src/boxplot_1D_horizontal_normalized.vl.js)
+* &nbsp; ✅ [boxplot_1D_invalid](./src/boxplot_1D_invalid.vl.js)
+* &nbsp; ✅ [boxplot_1D_invalid_normalized](./src/boxplot_1D_invalid_normalized.vl.js)
+* &nbsp; ✅ [boxplot_1D_vertical](./src/boxplot_1D_vertical.vl.js)
+* &nbsp; ✅ [boxplot_1D_vertical_normalized](./src/boxplot_1D_vertical_normalized.vl.js)
+* &nbsp; ✅ [boxplot_2D_horizontal](./src/boxplot_2D_horizontal.vl.js)
+* &nbsp; ✅ [boxplot_2D_horizontal_color_size](./src/boxplot_2D_horizontal_color_size.vl.js)
+* &nbsp; ✅ [boxplot_2D_horizontal_color_size_normalized](./src/boxplot_2D_horizontal_color_size_normalized.vl.js)
+* &nbsp; ✅ [boxplot_2D_horizontal_normalized](./src/boxplot_2D_horizontal_normalized.vl.js)
+* &nbsp; ✅ [boxplot_2D_vertical](./src/boxplot_2D_vertical.vl.js)
+* &nbsp; ✅ [boxplot_2D_vertical_normalized](./src/boxplot_2D_vertical_normalized.vl.js)
+* &nbsp; ✅ [boxplot_groupped](./src/boxplot_groupped.vl.js)
+* &nbsp; ✅ [boxplot_groupped_normalized](./src/boxplot_groupped_normalized.vl.js)
+* &nbsp; ✅ [boxplot_minmax_2D_horizontal](./src/boxplot_minmax_2D_horizontal.vl.js)
+* &nbsp; ✅ [boxplot_minmax_2D_horizontal_custom_midtick_color](./src/boxplot_minmax_2D_horizontal_custom_midtick_color.vl.js)
+* &nbsp; ✅ [boxplot_minmax_2D_horizontal_custom_midtick_color_normalized](./src/boxplot_minmax_2D_horizontal_custom_midtick_color_normalized.vl.js)
+* &nbsp; ✅ [boxplot_minmax_2D_horizontal_normalized](./src/boxplot_minmax_2D_horizontal_normalized.vl.js)
+* &nbsp; ✅ [boxplot_minmax_2D_vertical](./src/boxplot_minmax_2D_vertical.vl.js)
+* &nbsp; ✅ [boxplot_minmax_2D_vertical_normalized](./src/boxplot_minmax_2D_vertical_normalized.vl.js)
+* &nbsp; ✅ [boxplot_preaggregated](./src/boxplot_preaggregated.vl.js)
+* &nbsp; ✅ [boxplot_preaggregated_normalized](./src/boxplot_preaggregated_normalized.vl.js)
+* &nbsp; ✅ [boxplot_tooltip_aggregate](./src/boxplot_tooltip_aggregate.vl.js)
+* &nbsp; ✅ [boxplot_tooltip_aggregate_normalized](./src/boxplot_tooltip_aggregate_normalized.vl.js)
+* &nbsp; ✅ [boxplot_tooltip_not_aggregate](./src/boxplot_tooltip_not_aggregate.vl.js)
+* &nbsp; ✅ [boxplot_tooltip_not_aggregate_normalized](./src/boxplot_tooltip_not_aggregate_normalized.vl.js)
 * - [ ] [brush_table](./src/brush_table.vl.js)
 * - [ ] [circle](./src/circle.vl.js)
 * - [ ] [circle_binned](./src/circle_binned.vl.js)
