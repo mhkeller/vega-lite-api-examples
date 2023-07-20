@@ -14,18 +14,18 @@ export default function chart() {
       )
     )
     .encode(
-      vl.y().fieldQ('Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
       vl.x().fieldN('Species'),
+      vl.y().fieldQ('Body Mass (g)').title('Body Mass (g)').scale({zero: false}),
       vl.color().fieldN('Species').legend(null),
     );
 
   const outLayer1C2C1 = vl
     .markRule({aria: false, style: 'boxplot-rule'})
     .encode(
+      vl.x().fieldN('Species'),
       vl.y().fieldQ('lower_whisker_Body Mass (g)')
         .title('Body Mass (g)').scale({zero: false}),
       vl.y2().field('lower_box_Body Mass (g)'),
-      vl.x().fieldN('Species'),
       vl.tooltip([
         vl.tooltip().fieldQ('upper_whisker_Body Mass (g)')
           .title('Upper Whisker of Body Mass (g)'),
@@ -38,10 +38,10 @@ export default function chart() {
   const outLayer1C2C2 = vl
     .markRule({aria: false, style: 'boxplot-rule'})
     .encode(
+      vl.x().fieldN('Species'),
       vl.y().fieldQ('upper_box_Body Mass (g)')
         .title('Body Mass (g)').scale({zero: false}),
       vl.y2().field('upper_whisker_Body Mass (g)'),
-      vl.x().fieldN('Species'),
       vl.tooltip([
         vl.tooltip().fieldQ('upper_whisker_Body Mass (g)')
           .title('Upper Whisker of Body Mass (g)'),
@@ -83,10 +83,10 @@ export default function chart() {
       style: 'boxplot-box',
       })
     .encode(
+      vl.x().fieldN('Species'),
       vl.y().fieldQ('lower_box_Body Mass (g)')
         .title('Body Mass (g)').scale({zero: false}),
       vl.y2().field('upper_box_Body Mass (g)'),
-      vl.x().fieldN('Species'),
       vl.color().fieldN('Species').legend(null),
       vl.tooltip([
         vl.tooltip().fieldQ('max_Body Mass (g)')
@@ -112,9 +112,9 @@ export default function chart() {
       style: 'boxplot-median',
       })
     .encode(
+      vl.x().fieldN('Species'),
       vl.y().fieldQ('mid_box_Body Mass (g)')
         .title('Body Mass (g)').scale({zero: false}),
-      vl.x().fieldN('Species'),
       vl.tooltip([
         vl.tooltip().fieldQ('max_Body Mass (g)')
           .title('Max of Body Mass (g)'),
