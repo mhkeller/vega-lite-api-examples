@@ -224,7 +224,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [boxplot_groupped_normalized](./src/boxplot_groupped_normalized.vl.js)
 * - [ ] [boxplot_minmax_2D_horizontal](./src/boxplot_minmax_2D_horizontal.vl.js)
 * - [ ] [boxplot_minmax_2D_horizontal_custom_midtick_color](./src/boxplot_minmax_2D_horizontal_custom_midtick_color.vl.js)
-* - [ ] [boxplot_minmax_2D_horizontal_custom_midtick_color_normalized](./src/boxplot_minmax_2D_horizontal_custom_midtick_color_normalized.vl.js)
+* &nbsp; ✅ [boxplot_minmax_2D_horizontal_custom_midtick_color_normalized](./src/boxplot_minmax_2D_horizontal_custom_midtick_color_normalized.vl.js)
 * - [ ] [boxplot_minmax_2D_horizontal_normalized](./src/boxplot_minmax_2D_horizontal_normalized.vl.js)
 * - [ ] [boxplot_minmax_2D_vertical](./src/boxplot_minmax_2D_vertical.vl.js)
 * - [ ] [boxplot_minmax_2D_vertical_normalized](./src/boxplot_minmax_2D_vertical_normalized.vl.js)
