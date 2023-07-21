@@ -53,14 +53,6 @@ export default function chart() {
       vl.filter(vl.field('rank').lt(20))
     );
 
-  /**
-   * "transform": [
-        {"filter": {"param": "brush"}},
-        {"window": [{"op": "rank", "as": "rank"}]},
-        {"filter": {"field": "rank", "lt": 20}}
-      ],
-   */
-
   return vl
     .hconcat(hconcat1, hconcat2)
     .data('data/cars.json')
