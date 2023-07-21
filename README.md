@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 164 / 703
+> Examples completed: 182 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-164--703)
+- [Example list](#example-list-completed-182--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 164 / 703)
+## Example list (Completed: 182 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -234,24 +234,24 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [boxplot_tooltip_aggregate_normalized](./src/boxplot_tooltip_aggregate_normalized.vl.js)
 * &nbsp; ✅ [boxplot_tooltip_not_aggregate](./src/boxplot_tooltip_not_aggregate.vl.js)
 * &nbsp; ✅ [boxplot_tooltip_not_aggregate_normalized](./src/boxplot_tooltip_not_aggregate_normalized.vl.js)
-* - [ ] [brush_table](./src/brush_table.vl.js)
-* - [ ] [circle](./src/circle.vl.js)
-* - [ ] [circle_binned](./src/circle_binned.vl.js)
-* - [ ] [circle_binned_maxbins_2](./src/circle_binned_maxbins_2.vl.js)
-* - [ ] [circle_binned_maxbins_20](./src/circle_binned_maxbins_20.vl.js)
-* - [ ] [circle_binned_maxbins_5](./src/circle_binned_maxbins_5.vl.js)
-* - [ ] [circle_bubble_health_income](./src/circle_bubble_health_income.vl.js)
-* - [ ] [circle_custom_tick_labels](./src/circle_custom_tick_labels.vl.js)
-* - [ ] [circle_flatten](./src/circle_flatten.vl.js)
-* - [ ] [circle_github_punchcard](./src/circle_github_punchcard.vl.js)
-* - [ ] [circle_labelangle_orient_signal](./src/circle_labelangle_orient_signal.vl.js)
-* - [ ] [circle_natural_disasters](./src/circle_natural_disasters.vl.js)
-* - [ ] [circle_opacity](./src/circle_opacity.vl.js)
-* - [ ] [circle_scale_quantile](./src/circle_scale_quantile.vl.js)
-* - [ ] [circle_scale_quantize](./src/circle_scale_quantize.vl.js)
-* - [ ] [circle_scale_threshold](./src/circle_scale_threshold.vl.js)
-* - [ ] [circle_wilkinson_dotplot](./src/circle_wilkinson_dotplot.vl.js)
-* - [ ] [circle_wilkinson_dotplot_stacked](./src/circle_wilkinson_dotplot_stacked.vl.js)
+* &nbsp; ✅ [brush_table](./src/brush_table.vl.js)
+* &nbsp; ✅ [circle](./src/circle.vl.js)
+* &nbsp; ✅ [circle_binned](./src/circle_binned.vl.js)
+* &nbsp; ✅ [circle_binned_maxbins_2](./src/circle_binned_maxbins_2.vl.js)
+* &nbsp; ✅ [circle_binned_maxbins_20](./src/circle_binned_maxbins_20.vl.js)
+* &nbsp; ✅ [circle_binned_maxbins_5](./src/circle_binned_maxbins_5.vl.js)
+* &nbsp; ✅ [circle_bubble_health_income](./src/circle_bubble_health_income.vl.js)
+* &nbsp; ✅ [circle_custom_tick_labels](./src/circle_custom_tick_labels.vl.js)
+* &nbsp; ✅ [circle_flatten](./src/circle_flatten.vl.js)
+* &nbsp; ✅ [circle_github_punchcard](./src/circle_github_punchcard.vl.js)
+* &nbsp; ✅ [circle_labelangle_orient_signal](./src/circle_labelangle_orient_signal.vl.js)
+* &nbsp; ✅ [circle_natural_disasters](./src/circle_natural_disasters.vl.js)
+* &nbsp; ✅ [circle_opacity](./src/circle_opacity.vl.js)
+* &nbsp; ✅ [circle_scale_quantile](./src/circle_scale_quantile.vl.js)
+* &nbsp; ✅ [circle_scale_quantize](./src/circle_scale_quantize.vl.js)
+* &nbsp; ✅ [circle_scale_threshold](./src/circle_scale_threshold.vl.js)
+* &nbsp; ✅ [circle_wilkinson_dotplot](./src/circle_wilkinson_dotplot.vl.js)
+* &nbsp; ✅ [circle_wilkinson_dotplot_stacked](./src/circle_wilkinson_dotplot_stacked.vl.js)
 * - [ ] [concat_bar_layer_circle](./src/concat_bar_layer_circle.vl.js)
 * - [ ] [concat_bar_scales_discretize](./src/concat_bar_scales_discretize.vl.js)
 * - [ ] [concat_bar_scales_discretize_2_cols](./src/concat_bar_scales_discretize_2_cols.vl.js)
