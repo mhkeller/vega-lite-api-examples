@@ -5,6 +5,24 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markCircle()
+    .data({
+      values: [
+        {key: 'alpha', foo: [1, 2], bar: ['A', 'B']},
+        {key: 'beta', foo: [3, 4, 5], bar: ['C', 'D']}
+      ]
+    })
+    .transform(vl.flatten('foo', 'bar'))
+    .encode(
+      vl.x().fieldQ('foo'),
+      vl.y().fieldN('bar'),
+      vl.color().fieldN('key')
+    )
+    .toSpec();
+}
+
 
 /*
 {
