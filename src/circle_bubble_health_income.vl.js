@@ -5,6 +5,22 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markCircle()
+    .width(500)
+    .height(300)
+    .data('data/gapminder-health-income.csv')
+    .description(`A bubble plot showing the correlation between health and income for 187 countries in the world (modified from an example in Lisa Charlotte Rost's blog post 'One Chart, Twelve Charting Libraries' --http://lisacharlotterost.github.io/2016/05/17/one-chart-code/).`)
+    .params([{name: 'view', select: 'interval', bind: 'scales'}])
+    .encode(
+      vl.x().field('income').scale({type: 'log'}),
+      vl.y().fieldQ('health').scale({zero: false}).axis({minExtent: 30}),
+      vl.size().fieldQ('population'),
+      vl.color().value('#000')
+    )
+    .toSpec();
+}
 
 /*
 {

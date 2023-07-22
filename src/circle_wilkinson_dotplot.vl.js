@@ -5,6 +5,19 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markCircle({opacity: 1})
+    .height(100)
+    .data({values: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4, 4]})
+    .description('A Wilkinson Dot Plot')
+    .transform(vl.window({op: 'rank', as: 'id'}).groupby(['data']))
+    .encode(
+      vl.x().fieldO('data'),
+      vl.y().fieldO('id').axis(null).sort('descending')
+    )
+    .toSpec();
+}
 
 /*
 {

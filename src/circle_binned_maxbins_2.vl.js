@@ -5,6 +5,17 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+  return vl
+    .markCircle()
+    .data('data/movies.json')
+    .encode(
+      vl.x().bin({maxbins: 2}).field('IMDB Rating'),
+      vl.y().bin({maxbins: 2}).field('Rotten Tomatoes Rating'),
+      vl.size().aggregate('count')
+    )
+    .toSpec();
+}
 
 /*
 {
