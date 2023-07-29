@@ -5,7 +5,6 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-
 /*
 {
   "data": {"url": "data/penguins.json"},

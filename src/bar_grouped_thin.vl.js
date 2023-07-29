@@ -5,22 +5,22 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  return vl
-    .markBar()
-    .width(500)
-    .data('data/movies.json')
-    .encode(
-      vl.x().fieldN('Director'),
-      vl.xOffset().fieldN('Title'),
-      vl.y().aggregate('mean').fieldQ('Rotten Tomatoes Rating'),
-      vl.color().condition({
-        test: `datum['IMDB Rating'] === null || datum['Rotten Tomatoes Rating'] === null`,
-        value: '#aaa'
-      }),
-    )
-    .config({mark: {invalid: null}})
-    .toSpec();
+export default function chart () {
+	return vl
+		.markBar()
+		.width(500)
+		.data('data/movies.json')
+		.encode(
+			vl.x().fieldN('Director'),
+			vl.xOffset().fieldN('Title'),
+			vl.y().aggregate('mean').fieldQ('Rotten Tomatoes Rating'),
+			vl.color().condition({
+				test: `datum['IMDB Rating'] === null || datum['Rotten Tomatoes Rating'] === null`,
+				value: '#aaa'
+			})
+		)
+		.config({ mark: { invalid: null } })
+		.toSpec();
 }
 
 /*

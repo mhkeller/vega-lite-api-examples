@@ -20,7 +20,7 @@ export default function chart () {
 			groupby: ['Major Genre']
 		})
 		.encode(
-			vl.x().fieldQ("argmax_US_Gross['Production Budget']"),
+			vl.x().fieldQ('argmax_US_Gross[\'Production Budget\']'),
 			vl.y().fieldN('Major Genre')
 		)
 		.toSpec();

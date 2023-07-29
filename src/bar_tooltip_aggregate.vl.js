@@ -5,15 +5,15 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  return vl
-    .markTick()
-    .data({values: [28, 55, 28, 91, 81, 55, 19, 81, 52]})
-    .encode(
-      vl.y().aggregate('mean').field('data'),
-      vl.tooltip().aggregate('mean').field('data')
-    )
-    .toSpec();
+export default function chart () {
+	return vl
+		.markTick()
+		.data({ values: [28, 55, 28, 91, 81, 55, 19, 81, 52] })
+		.encode(
+			vl.y().aggregate('mean').field('data'),
+			vl.tooltip().aggregate('mean').field('data')
+		)
+		.toSpec();
 }
 
 /*

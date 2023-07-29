@@ -5,36 +5,36 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  return vl
-    .markArea({
-      line: {color: 'darkgreen'},
-      color: {
-        x1: 1,
-        y1: 1,
-        x2: 1,
-        y2: 0,
-        gradient: 'linear',
-        stops: [
-          {
-            offset: 0,
-            color: 'white'
-          },
-          {
-            offset: 1,
-            color: 'darkgreen'
-          }
-        ]
-      }
-    })
-    .data('data/stocks.csv')
-    .description(`Google's stock price over time.`)
-    .transform(vl.filter(`datum.symbol==='GOOG'`))
-    .encode(
-      vl.x().fieldT('date'),
-      vl.y().fieldQ('price')
-    )
-    .toSpec();
+export default function chart () {
+	return vl
+		.markArea({
+			line: { color: 'darkgreen' },
+			color: {
+				x1: 1,
+				y1: 1,
+				x2: 1,
+				y2: 0,
+				gradient: 'linear',
+				stops: [
+					{
+						offset: 0,
+						color: 'white'
+					},
+					{
+						offset: 1,
+						color: 'darkgreen'
+					}
+				]
+			}
+		})
+		.data('data/stocks.csv')
+		.description(`Google's stock price over time.`)
+		.transform(vl.filter(`datum.symbol==='GOOG'`))
+		.encode(
+			vl.x().fieldT('date'),
+			vl.y().fieldQ('price')
+		)
+		.toSpec();
 }
 
 /*

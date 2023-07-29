@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 182 / 703
+> Examples completed: 183 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-182--703)
+- [Example list](#example-list-completed-183--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 182 / 703)
+## Example list (Completed: 183 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -548,7 +548,7 @@ function convertMarkValues (obj) {
 * - [ ] [nested_concat_align_normalized](./src/nested_concat_align_normalized.vl.js)
 * - [ ] [parallel_coordinate](./src/parallel_coordinate.vl.js)
 * - [ ] [parallel_coordinate_normalized](./src/parallel_coordinate_normalized.vl.js)
-* - [ ] [param_expr](./src/param_expr.vl.js)
+* &nbsp; ✅ [param_expr](./src/param_expr.vl.js)
 * - [ ] [point_1d](./src/point_1d.vl.js)
 * - [ ] [point_1d_array](./src/point_1d_array.vl.js)
 * - [ ] [point_2d](./src/point_2d.vl.js)

@@ -5,14 +5,14 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  const spec = vl
-    .markBar()
-    .encode(
-      vl.x().fieldN('country'),
-      vl.y().fieldQ('value'),
-      vl.color().fieldN('country')
-    );
+export default function chart () {
+	const spec = vl
+		.markBar()
+		.encode(
+			vl.x().fieldN('country'),
+			vl.y().fieldQ('value'),
+			vl.color().fieldN('country')
+		);
 
 	return vl
 		.data([

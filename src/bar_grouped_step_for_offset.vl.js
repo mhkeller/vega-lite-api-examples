@@ -5,32 +5,32 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  const bar = vl.markBar().toString()
-  console.log('MARKBAR', bar)
-  return vl
-    .markBar()
-    .width({step: 24})
-    .data({
-      values: [
-        {category:"A", group: "x", value:0.1},
-        {category:"A", group: "y", value:0.6},
-        {category:"A", group: "z", value:0.9},
-        {category:"B", group: "x", value:0.7},
-        {category:"B", group: "y", value:0.2},
-        {category:"B", group: "z", value:1.1},
-        {category:"C", group: "x", value:0.6},
-        {category:"C", group: "y", value:0.1},
-        {category:"C", group: "z", value:0.2}
-      ]
-    })
-    .encode(
-      vl.x().field('category'),
-      vl.y().fieldQ('value').axis({title: 'population', grid: false}),
-      vl.xOffset().field('group'),
-      vl.color().field('group')
-    )
-    .toSpec();
+export default function chart () {
+	const bar = vl.markBar().toString();
+	console.log('MARKBAR', bar);
+	return vl
+		.markBar()
+		.width({ step: 24 })
+		.data({
+			values: [
+				{ category: 'A', group: 'x', value: 0.1 },
+				{ category: 'A', group: 'y', value: 0.6 },
+				{ category: 'A', group: 'z', value: 0.9 },
+				{ category: 'B', group: 'x', value: 0.7 },
+				{ category: 'B', group: 'y', value: 0.2 },
+				{ category: 'B', group: 'z', value: 1.1 },
+				{ category: 'C', group: 'x', value: 0.6 },
+				{ category: 'C', group: 'y', value: 0.1 },
+				{ category: 'C', group: 'z', value: 0.2 }
+			]
+		})
+		.encode(
+			vl.x().field('category'),
+			vl.y().fieldQ('value').axis({ title: 'population', grid: false }),
+			vl.xOffset().field('group'),
+			vl.color().field('group')
+		)
+		.toSpec();
 }
 
 /*

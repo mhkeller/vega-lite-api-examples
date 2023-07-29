@@ -5,7 +5,6 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -20,6 +19,5 @@ import * as vl from 'vega-lite-api';
     "shape": {"value": "M0,0.2L0.2351,0.3236 0.1902,0.0618 0.3804,-0.1236 0.1175,-0.1618 0,-0.4 -0.1175,-0.1618 -0.3804,-0.1236 -0.1902,0.0618 -0.2351,0.3236 0,0.2Z"}
   }
 }
-
 
 */

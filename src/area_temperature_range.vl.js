@@ -5,20 +5,20 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  return vl
-    .markArea()
-    .width(600)
-    .height(300)
-    .data('data/seattle-weather.csv')
-    .title(`Seattle Temperature Range, 2012-2015`)
-    .encode(
-      vl.x().field('date').title('Date').axis({format: '%b'}).timeUnit('monthdate'),
-      vl.y().field('temp_max').aggregate('max').title('Daily Temperature Range (C)'),
-      vl.y2().field('temp_min').aggregate('min'),
-      vl.opacity().value(0.7)
-    )
-    .toSpec();
+export default function chart () {
+	return vl
+		.markArea()
+		.width(600)
+		.height(300)
+		.data('data/seattle-weather.csv')
+		.title(`Seattle Temperature Range, 2012-2015`)
+		.encode(
+			vl.x().field('date').title('Date').axis({ format: '%b' }).timeUnit('monthdate'),
+			vl.y().field('temp_max').aggregate('max').title('Daily Temperature Range (C)'),
+			vl.y2().field('temp_min').aggregate('min'),
+			vl.opacity().value(0.7)
+		)
+		.toSpec();
 }
 
 /*

@@ -5,15 +5,15 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  return vl
-    .markBar()
-    .data('data/cars.json')
-    .encode(
-      vl.x().field('Origin'),
-      vl.y().aggregate('count')
-    )
-    .toSpec();
+export default function chart () {
+	return vl
+		.markBar()
+		.data('data/cars.json')
+		.encode(
+			vl.x().field('Origin'),
+			vl.y().aggregate('count')
+		)
+		.toSpec();
 }
 
 /*

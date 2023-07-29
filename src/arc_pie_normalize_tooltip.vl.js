@@ -18,7 +18,8 @@ export default function chart () {
 		])
 		.encode(
 			vl.theta().fieldQ('value').stack('normalize'),
-			vl.color().fieldN('category'))
+			vl.color().fieldN('category')
+		)
 		.toSpec();
 }
 

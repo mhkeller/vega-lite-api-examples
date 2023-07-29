@@ -5,17 +5,16 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  return vl
-    .markBoxplot()
-    .data('data/penguins.json')
-    .description('A horizontal box plot showing median and lower and upper quartiles of the distribution of body mass of penguins.')
-    .encode(
-      vl.x().fieldQ('Body Mass (g)').scale({zero: false})
-    )
-    .toSpec();
+export default function chart () {
+	return vl
+		.markBoxplot()
+		.data('data/penguins.json')
+		.description('A horizontal box plot showing median and lower and upper quartiles of the distribution of body mass of penguins.')
+		.encode(
+			vl.x().fieldQ('Body Mass (g)').scale({ zero: false })
+		)
+		.toSpec();
 }
-
 
 /*
 {

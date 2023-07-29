@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
+export default function chart () {
 	const spec = vl
 		.markBar()
 		.width(100)
@@ -14,7 +14,7 @@ export default function chart() {
 			vl.y().fieldQ('value'),
 			vl.color().field('group')
 		);
-		
+
 	return vl
 		.data(
 			{

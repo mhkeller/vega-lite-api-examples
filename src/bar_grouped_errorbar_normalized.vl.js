@@ -6,54 +6,54 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function chart () {
-  const layer1 = vl
-    .markBar()
-    .encode(
-      vl.x().fieldN('Cylinders'),
-      vl.xOffset().fieldN('Origin'),
-      vl.y().fieldQ('Acceleration').aggregate('mean'),
-      vl.color().fieldN('Origin')
-    );
+	const layer1 = vl
+		.markBar()
+		.encode(
+			vl.x().fieldN('Cylinders'),
+			vl.xOffset().fieldN('Origin'),
+			vl.y().fieldQ('Acceleration').aggregate('mean'),
+			vl.color().fieldN('Origin')
+		);
 
-  const layer2 = vl
-  .markRule({
-    ariaRoleDescription: 'errorbar',
-    style: 'errorbar-rule'
-  })
-  .transform([
-    {
-      aggregate: [
-        {
-          op: 'stderr',
-          field: 'Acceleration',
-          as: 'extent_Acceleration'
-        },
-        { op: 'mean', field: 'Acceleration', as: 'center_Acceleration' }
-      ],
-      groupby: ['Cylinders', 'Origin']
-    },
-    {
-      calculate: 'datum["center_Acceleration"] + datum["extent_Acceleration"]',
-      as: 'upper_Acceleration'
-    },
-    {
-      calculate: 'datum["center_Acceleration"] - datum["extent_Acceleration"]',
-      as: 'lower_Acceleration'
-    }
-  ])
-  .encode(
-    vl.y().fieldQ('lower_Acceleration').title('Acceleration'),
-    vl.y2().field('upper_Acceleration'),
-    vl.x().fieldN('Cylinders'),
-    vl.xOffset().fieldN('Origin'),
-    vl.tooltip([
-      vl.tooltip().fieldQ('center_Acceleration').title('Mean of Acceleration'),
-      vl.tooltip().fieldQ('upper_Acceleration').title('Mean + stderr of Acceleration'),
-      vl.tooltip().fieldQ('lower_Acceleration').title('Mean - stderr of Acceleration'),
-      vl.tooltip().fieldN('Cylinders'),
-      vl.tooltip().fieldN('Origin')
-    ])
-  );
+	const layer2 = vl
+		.markRule({
+			ariaRoleDescription: 'errorbar',
+			style: 'errorbar-rule'
+		})
+		.transform([
+			{
+				aggregate: [
+					{
+						op: 'stderr',
+						field: 'Acceleration',
+						as: 'extent_Acceleration'
+					},
+					{ op: 'mean', field: 'Acceleration', as: 'center_Acceleration' }
+				],
+				groupby: ['Cylinders', 'Origin']
+			},
+			{
+				calculate: 'datum["center_Acceleration"] + datum["extent_Acceleration"]',
+				as: 'upper_Acceleration'
+			},
+			{
+				calculate: 'datum["center_Acceleration"] - datum["extent_Acceleration"]',
+				as: 'lower_Acceleration'
+			}
+		])
+		.encode(
+			vl.y().fieldQ('lower_Acceleration').title('Acceleration'),
+			vl.y2().field('upper_Acceleration'),
+			vl.x().fieldN('Cylinders'),
+			vl.xOffset().fieldN('Origin'),
+			vl.tooltip([
+				vl.tooltip().fieldQ('center_Acceleration').title('Mean of Acceleration'),
+				vl.tooltip().fieldQ('upper_Acceleration').title('Mean + stderr of Acceleration'),
+				vl.tooltip().fieldQ('lower_Acceleration').title('Mean - stderr of Acceleration'),
+				vl.tooltip().fieldN('Cylinders'),
+				vl.tooltip().fieldN('Origin')
+			])
+		);
 
 	return vl
 		.data('data/cars.json')

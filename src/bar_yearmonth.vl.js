@@ -5,16 +5,16 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart() {
-  return vl
-    .markBar()
-    .data('data/seattle-weather.csv')
-    .description('Temperature in Seattle as a bar chart with yearmonth time unit.')
-    .encode(
-      vl.x().timeUnit('yearmonth').field('date'),
-      vl.y().aggregate('mean').field('temp_max'),
-    )
-    .toSpec();
+export default function chart () {
+	return vl
+		.markBar()
+		.data('data/seattle-weather.csv')
+		.description('Temperature in Seattle as a bar chart with yearmonth time unit.')
+		.encode(
+			vl.x().timeUnit('yearmonth').field('date'),
+			vl.y().aggregate('mean').field('temp_max')
+		)
+		.toSpec();
 }
 
 /*
