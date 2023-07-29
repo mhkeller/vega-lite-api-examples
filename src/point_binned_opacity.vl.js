@@ -6,7 +6,7 @@ import * as vl from 'vega-lite-api';
  */
 export default function chart () {
 	return vl.markPoint()
-		.description('A scatterplot showing horsepower and miles per gallons with binned acceleration on color.')
+		.description('A scatterplot showing horsepower and miles per gallons with binned acceleration on opacity.')
 		.data('data/cars.json')
 		.encode(
 			vl.x().fieldQ('Horsepower'),
