@@ -4,7 +4,26 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-
+// export default function chart () {
+// 	return vl.markPoint({ shape: 'wedge', filled: true })
+// 		.description('Vector array map showing wind speed and direction.')
+// 		.width(615)
+// 		.height(560)
+// 		// .projection({ type: 'equalEarth' })
+// 		.encode(
+// 			vl.longitude().fieldQ('longitude'),
+// 			vl.latitude().fieldQ('latitude'),
+// 			vl.color().fieldQ('dir').scale({ domain: [0, 360], scheme: 'rainbow' }).legend(null),
+// 			vl.angle().fieldQ('dir').scale({ domain: [0, 360], range: [180, 540] }),
+// 			vl.size().fieldQ('speed').scale({ rangeMax: 500 })
+// 		)
+// 		.config({ aria: false, view: { step: 10, fill: 'black' } })
+// 		.data(
+// 			vl.url('data/windvectors.csv')
+// 				.format({ type: 'csv', parse: { longitude: 'number', latitude: 'number' } })
+// 		)
+// 		.toSpec();
+// }
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",

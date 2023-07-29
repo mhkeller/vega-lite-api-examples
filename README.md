@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 193 / 703
+> Examples completed: 194 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-193--703)
+- [Example list](#example-list-completed-194--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 193 / 703)
+## Example list (Completed: 194 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -559,7 +559,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [point_2d_tooltip](./src/point_2d_tooltip.vl.js)
 * &nbsp; ✅ [point_2d_tooltip_data](./src/point_2d_tooltip_data.vl.js)
 * &nbsp; ✅ [point_aggregate_detail](./src/point_aggregate_detail.vl.js)
-* - [ ] [point_angle_windvector](./src/point_angle_windvector.vl.js)
+* &nbsp; ✅ [point_angle_windvector](./src/point_angle_windvector.vl.js)
 * - [ ] [point_background](./src/point_background.vl.js)
 * - [ ] [point_binned_color](./src/point_binned_color.vl.js)
 * - [ ] [point_binned_opacity](./src/point_binned_opacity.vl.js)
