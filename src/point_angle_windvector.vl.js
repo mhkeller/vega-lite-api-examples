@@ -5,11 +5,16 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 // export default function chart () {
-// 	return vl.markPoint({ shape: 'wedge', filled: true })
+// 	console.log(vl.description('hello'));
+// 	console.log(vl.projection({ type: 'equalEarth' }));
+// 	console.log(vl);
+// 		debugger
+// 	return vl
+// 		.projection({ type: 'equalEarth' })
+// 		.markPoint({ shape: 'wedge', filled: true })
 // 		.description('Vector array map showing wind speed and direction.')
 // 		.width(615)
 // 		.height(560)
-// 		// .projection({ type: 'equalEarth' })
 // 		.encode(
 // 			vl.longitude().fieldQ('longitude'),
 // 			vl.latitude().fieldQ('latitude'),
