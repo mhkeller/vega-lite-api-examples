@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 201 / 703
+> Examples completed: 202 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-201--703)
+- [Example list](#example-list-completed-202--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 201 / 703)
+## Example list (Completed: 202 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -587,7 +587,7 @@ function convertMarkValues (obj) {
 * - [ ] [point_params](./src/point_params.vl.js)
 * - [ ] [point_quantile_quantile](./src/point_quantile_quantile.vl.js)
 * - [ ] [point_scale_range_field](./src/point_scale_range_field.vl.js)
-* - [ ] [point_shape_custom](./src/point_shape_custom.vl.js)
+* &nbsp; ✅ [point_shape_custom](./src/point_shape_custom.vl.js)
 * &nbsp; ✅ [point_tooltip](./src/point_tooltip.vl.js)
 * - [ ] [rect_binned_heatmap](./src/rect_binned_heatmap.vl.js)
 * - [ ] [rect_heatmap](./src/rect_heatmap.vl.js)
