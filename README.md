@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 197 / 703
+> Examples completed: 205 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-197--703)
+- [Example list](#example-list-completed-205--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 197 / 703)
+## Example list (Completed: 205 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -560,15 +560,15 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [point_2d_tooltip_data](./src/point_2d_tooltip_data.vl.js)
 * &nbsp; ✅ [point_aggregate_detail](./src/point_aggregate_detail.vl.js)
 * - [ ] [point_angle_windvector](./src/point_angle_windvector.vl.js)
-* - [ ] [point_background](./src/point_background.vl.js)
-* - [ ] [point_binned_color](./src/point_binned_color.vl.js)
-* - [ ] [point_binned_opacity](./src/point_binned_opacity.vl.js)
-* - [ ] [point_binned_size](./src/point_binned_size.vl.js)
-* - [ ] [point_bubble](./src/point_bubble.vl.js)
+* &nbsp; ✅ [point_background](./src/point_background.vl.js)
+* &nbsp; ✅ [point_binned_color](./src/point_binned_color.vl.js)
+* &nbsp; ✅ [point_binned_opacity](./src/point_binned_opacity.vl.js)
+* &nbsp; ✅ [point_binned_size](./src/point_binned_size.vl.js)
+* &nbsp; ✅ [point_bubble](./src/point_bubble.vl.js)
 * - [ ] [point_color](./src/point_color.vl.js)
-* - [ ] [point_color_custom](./src/point_color_custom.vl.js)
-* - [ ] [point_color_ordinal](./src/point_color_ordinal.vl.js)
-* - [ ] [point_color_quantitative](./src/point_color_quantitative.vl.js)
+* &nbsp; ✅ [point_color_custom](./src/point_color_custom.vl.js)
+* &nbsp; ✅ [point_color_ordinal](./src/point_color_ordinal.vl.js)
+* &nbsp; ✅ [point_color_quantitative](./src/point_color_quantitative.vl.js)
 * - [ ] [point_color_shape_constant](./src/point_color_shape_constant.vl.js)
 * - [ ] [point_color_with_shape](./src/point_color_with_shape.vl.js)
 * - [ ] [point_colorramp_size](./src/point_colorramp_size.vl.js)
