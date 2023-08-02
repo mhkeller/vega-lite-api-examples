@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 211 / 703
+> Examples completed: 212 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-211--703)
+- [Example list](#example-list-completed-212--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 211 / 703)
+## Example list (Completed: 212 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -574,7 +574,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [point_colorramp_size](./src/point_colorramp_size.vl.js)
 * &nbsp; ✅ [point_diverging_color](./src/point_diverging_color.vl.js)
 * &nbsp; ✅ [point_dot_timeunit_color](./src/point_dot_timeunit_color.vl.js)
-* - [ ] [point_filled](./src/point_filled.vl.js)
+* &nbsp; ✅ [point_filled](./src/point_filled.vl.js)
 * - [ ] [point_grouped](./src/point_grouped.vl.js)
 * - [ ] [point_href](./src/point_href.vl.js)
 * - [ ] [point_invalid_color](./src/point_invalid_color.vl.js)
