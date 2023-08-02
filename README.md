@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 215 / 703
+> Examples completed: 216 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-215--703)
+- [Example list](#example-list-completed-216--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 215 / 703)
+## Example list (Completed: 216 / 703)
 
 * - [ ] [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -578,7 +578,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [point_grouped](./src/point_grouped.vl.js)
 * &nbsp; ✅ [point_href](./src/point_href.vl.js)
 * &nbsp; ✅ [point_invalid_color](./src/point_invalid_color.vl.js)
-* - [ ] [point_log](./src/point_log.vl.js)
+* &nbsp; ✅ [point_log](./src/point_log.vl.js)
 * - [ ] [point_no_axis_domain_grid](./src/point_no_axis_domain_grid.vl.js)
 * - [ ] [point_offset_random](./src/point_offset_random.vl.js)
 * - [ ] [point_ordinal_bin_offset_random](./src/point_ordinal_bin_offset_random.vl.js)
