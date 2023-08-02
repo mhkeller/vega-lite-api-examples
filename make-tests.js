@@ -31,7 +31,7 @@ for (const chartPath of charts) {
 		notify({ m: 'Wrote test...', v: slug, d: ['green', 'bold'] });
 	}
 
-	exampleList += `* ${spec ? '&nbsp; ✅' : '- [ ]'} [${slug}](${chartPath})\n`;
+	exampleList += `* ${spec ? '&nbsp; ✅ ' : '- [ ]'} [${slug}](${chartPath})\n`;
 }
 
 let readme = templateReadme
