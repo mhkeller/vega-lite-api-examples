@@ -1,22 +1,18 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+const vl = require('vega-lite-api');
 
-/*
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {
-    "values": "a\n1\n2\n3\n4",
-    "format": {
-      "type": "csv"
-    }
-  },
-  "mark": "point",
-  "encoding": {
-    "y": {"field": "a", "type": "quantitative"}
-  }
+function generateVegaLiteSpec() {
+  const spec = vl
+    .data({ values: 'a\n1\n2\n3\n4', format: { type: 'csv' } })
+    .mark('point')
+    .encode(
+      vl.y().field('a').type('quantitative')
+    )
+    .toJSON();
+
+  return spec;
 }
-*/
+
+const vegaLiteSpec = generateVegaLiteSpec();
+console.log(JSON.stringify(vegaLiteSpec, null, 2));
