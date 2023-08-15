@@ -5,71 +5,50 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-/*
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A dashboard with cross-highlighting.",
-  "data": {"url": "data/movies.json"},
-  "vconcat": [
-    {
-      "layer": [{
-        "mark": "circle",
-        "encoding": {
-          "x": {
-            "bin": {"maxbins": 10},
-            "field": "IMDB Rating"
-          },
-          "y": {
-            "bin": {"maxbins": 10},
-            "field": "Rotten Tomatoes Rating"
-          },
-          "size": {
-            "aggregate": "count",
-            "title": "All Movies Count"
-          },
-          "opacity": {"value": 0.4}
-        }
-      }, {
-        "transform": [{
-          "filter": {"param": "pts"}
-        }],
-        "mark": "circle",
-        "encoding": {
-          "x": {
-            "bin": {"maxbins": 10},
-            "field": "IMDB Rating"
-          },
-          "y": {
-            "bin": {"maxbins": 10},
-            "field": "Rotten Tomatoes Rating"
-          },
-          "size": {
-            "aggregate": "count",
-            "title": "Selected Category Count"
-          }
-        }
-      }],
-      "resolve": {"legend": {"size": "independent"}}
-    }, {
-      "width": 330,
-      "height": 120,
-      "mark": "bar",
-      "params": [{
-        "name": "pts",
-        "select": {"type": "point", "encodings": ["x"]}
-      }],
-      "encoding": {
-        "x": {"field": "Major Genre", "axis": {"labelAngle": -40}},
-        "y": {"aggregate": "count"},
-        "color": {
-          "condition": {
-            "param": "pts",
-            "value": "steelblue"
-          },
-          "value": "grey"
-        }
-      }
-    }
-  ]
+
+const vl = require('vega-lite-api');
+
+function generateVegaLiteSpec() {
+  return vl
+    .data({ url: 'data/movies.json' })
+    .vconcat(
+      vl.layer(
+        vl.markCircle({
+          opacity: 0.4,
+        })
+        .encode(
+          vl.x().bin({ maxbins: 10 }).field('IMDB Rating'),
+          vl.y().bin({ maxbins: 10 }).field('Rotten Tomatoes Rating'),
+          vl.size().aggregate('count').title('All Movies Count')
+        ),
+        vl.transform(
+          vl.filter({ param: 'pts' })
+        ),
+        vl.markCircle()
+        .encode(
+          vl.x().bin({ maxbins: 10 }).field('IMDB Rating'),
+          vl.y().bin({ maxbins: 10 }).field('Rotten Tomatoes Rating'),
+          vl.size().aggregate('count').title('Selected Category Count')
+        )
+      )
+      .resolve(vl.legend({ size: 'independent' })),
+      vl.layer(
+        vl.markBar({
+          width: 330,
+          height: 120,
+        })
+        .encode(
+          vl.x().field('Major Genre').axis({ labelAngle: -40 }),
+          vl.y().aggregate('count'),
+          vl.color().condition(
+            { param: 'pts', value: 'steelblue' },
+            vl.value('grey')
+          )
+        )
+      )
+    )
+    .toJSON();
 }
-*/
+
+const vegaLiteSpec = generateVegaLiteSpec();
+console.log(JSON.stringify(vegaLiteSpec, null, 2));
