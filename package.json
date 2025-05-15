@@ -9,7 +9,7 @@
 		"maketests": "node make-tests.js",
 		"lint": "prettier src/*.js --write",
 		"pretest": "npm run maketests",
-		"test": "mocha --require esm test/*.test.js"
+		"test": "mocha test/*.test.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -17,7 +17,6 @@
 	"dependencies": {
 		"@mhkeller/notify": "^1.1.0",
 		"@mhkeller/utils": "^7.2.3",
-		"esm": "^3.2.25",
 		"indian-ocean": "^4.0.3",
 		"mocha": "^11.2.2",
 		"prettier": "^2.8.4",
