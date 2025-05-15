@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 240 / 703
+> Examples completed: 245 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-240--703)
+- [Example list](#example-list-completed-245--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 240 / 703)
+## Example list (Completed: 245 / 703)
 
 * &nbsp; ✅ [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -491,8 +491,8 @@ function convertMarkValues (obj) {
 * - [ ] [layer_text_heatmap_normalized](./src/layer_text_heatmap_normalized.vl.js)
 * - [ ] [layer_timeunit_rect](./src/layer_timeunit_rect.vl.js)
 * &nbsp; ✅ [line](./src/line.vl.js)
-* - [ ] [line_bump](./src/line_bump.vl.js)
-* - [ ] [line_bump_normalized](./src/line_bump_normalized.vl.js)
+* &nbsp; ✅ [line_bump](./src/line_bump.vl.js)
+* &nbsp; ✅ [line_bump_normalized](./src/line_bump_normalized.vl.js)
 * &nbsp; ✅ [line_calculate](./src/line_calculate.vl.js)
 * - [ ] [line_color](./src/line_color.vl.js)
 * - [ ] [line_color_binned](./src/line_color_binned.vl.js)
@@ -525,13 +525,13 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [line_month_center_band](./src/line_month_center_band.vl.js)
 * - [ ] [line_outside_domain](./src/line_outside_domain.vl.js)
 * - [ ] [line_overlay](./src/line_overlay.vl.js)
-* - [ ] [line_overlay_normalized](./src/line_overlay_normalized.vl.js)
+* &nbsp; ✅ [line_overlay_normalized](./src/line_overlay_normalized.vl.js)
 * - [ ] [line_overlay_stroked](./src/line_overlay_stroked.vl.js)
-* - [ ] [line_overlay_stroked_normalized](./src/line_overlay_stroked_normalized.vl.js)
+* &nbsp; ✅ [line_overlay_stroked_normalized](./src/line_overlay_stroked_normalized.vl.js)
 * &nbsp; ✅ [line_params](./src/line_params.vl.js)
 * &nbsp; ✅ [line_quarter_legend](./src/line_quarter_legend.vl.js)
 * - [ ] [line_shape_overlay](./src/line_shape_overlay.vl.js)
-* - [ ] [line_shape_overlay_normalized](./src/line_shape_overlay_normalized.vl.js)
+* &nbsp; ✅ [line_shape_overlay_normalized](./src/line_shape_overlay_normalized.vl.js)
 * &nbsp; ✅ [line_skip_invalid](./src/line_skip_invalid.vl.js)
 * &nbsp; ✅ [line_skip_invalid_mid](./src/line_skip_invalid_mid.vl.js)
 * - [ ] [line_skip_invalid_mid_cap_square](./src/line_skip_invalid_mid_cap_square.vl.js)
