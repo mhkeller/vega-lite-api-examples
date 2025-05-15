@@ -5,16 +5,17 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markArea()
 		.data('data/movies.json')
 		.transform(
-			vl.window({
-				op: 'count',
-				field: 'count',
-				as: 'Cumulative Count'
-			})
+			vl
+				.window({
+					op: 'count',
+					field: 'count',
+					as: 'Cumulative Count'
+				})
 				.sort([{ field: 'IMDB Rating' }])
 				.frame([null, 0])
 		)

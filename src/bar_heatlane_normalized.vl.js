@@ -5,21 +5,38 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const layer1 = vl
 		.markBar({ xOffset: 2, x2Offset: -2, cornerRadius: 3 })
 		.encode(
-			vl.x().fieldQ('bin_Horsepower_start').title('Horsepower').axis({ grid: false }),
+			vl
+				.x()
+				.fieldQ('bin_Horsepower_start')
+				.title('Horsepower')
+				.axis({ grid: false }),
 			vl.x2().field('bin_Horsepower_end'),
 			vl.y().field('y').axis(null),
 			vl.y2().field('y2'),
-			vl.color().fieldO('max_bin_count_end').title('count').scale({ scheme: 'lighttealblue' })
+			vl
+				.color()
+				.fieldO('max_bin_count_end')
+				.title('count')
+				.scale({ scheme: 'lighttealblue' })
 		);
 
 	const layer2 = vl
-		.markBar({ xOffset: 2, x2Offset: -2, yOffset: -3, y2Offset: 3 })
+		.markBar({
+			xOffset: 2,
+			x2Offset: -2,
+			yOffset: -3,
+			y2Offset: 3
+		})
 		.encode(
-			vl.x().fieldQ('bin_Horsepower_start').title('Horsepower').axis({ grid: false }),
+			vl
+				.x()
+				.fieldQ('bin_Horsepower_start')
+				.title('Horsepower')
+				.axis({ grid: false }),
 			vl.x2().field('bin_Horsepower_end'),
 			vl.y().field('y').axis(null),
 			vl.y2().field('y2'),
@@ -31,15 +48,34 @@ export default function chart () {
 		.width(400)
 		.height(150)
 		.data('data/cars.json')
-		.description('Heat lane chart based on https://www.smashingmagazine.com/2022/07/accessibility-first-approach-chart-visual-design/')
+		.description(
+			'Heat lane chart based on https://www.smashingmagazine.com/2022/07/accessibility-first-approach-chart-visual-design/'
+		)
 		.title('Heat Lane of Horsepower')
 		.transform(
-			vl.bin().field('Horsepower').as(['bin_Horsepower_start', 'bin_Horsepower_end']),
-			vl.aggregate([{ op: 'count', as: 'count' }]).groupby(['bin_Horsepower_start', 'bin_Horsepower_end']),
-			vl.bin(true).field('count').as(['bin_count_start', 'bin_count_end']),
+			vl
+				.bin()
+				.field('Horsepower')
+				.as(['bin_Horsepower_start', 'bin_Horsepower_end']),
+			vl
+				.aggregate([{ op: 'count', as: 'count' }])
+				.groupby([
+					'bin_Horsepower_start',
+					'bin_Horsepower_end'
+				]),
+			vl
+				.bin(true)
+				.field('count')
+				.as(['bin_count_start', 'bin_count_end']),
 			vl.calculate('-datum.bin_count_end/2').as('y2'),
 			vl.calculate('datum.bin_count_end/2').as('y'),
-			vl.joinaggregate([{ field: 'bin_count_end', op: 'max', as: 'max_bin_count_end' }])
+			vl.joinaggregate([
+				{
+					field: 'bin_count_end',
+					op: 'max',
+					as: 'max_bin_count_end'
+				}
+			])
 		)
 		.toSpec();
 }

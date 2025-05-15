@@ -4,13 +4,17 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
-	return vl.markPoint()
+export default function chart() {
+	return vl
+		.markPoint()
 		.data('data/cars.json')
 		.encode(
 			vl.x().fieldQ('Horsepower'),
 			vl.y().fieldQ('Miles_per_Gallon'),
-			vl.color().fieldN('Origin').scale({ range: ['purple', '#ff0000', 'teal'] })
+			vl
+				.color()
+				.fieldN('Origin')
+				.scale({ range: ['purple', '#ff0000', 'teal'] })
 		)
 		.toSpec();
 }

@@ -4,8 +4,9 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
-	return vl.markBar()
+export default function chart() {
+	return vl
+		.markBar()
 		.data([
 			{ bin_start: 8, bin_end: 10, count: 7 },
 			{ bin_start: 10, bin_end: 12, count: 29 },
@@ -17,7 +18,10 @@ export default function chart () {
 			{ bin_start: 22, bin_end: 24, count: 5 }
 		])
 		.encode(
-			vl.x().field('bin_start').bin({ binned: true, step: 2 }),
+			vl
+				.x()
+				.field('bin_start')
+				.bin({ binned: true, step: 2 }),
 			vl.x2().field('bin_end'),
 			vl.y().fieldQ('count')
 		)

@@ -5,13 +5,10 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const layer1 = vl
 		.markArea({ opacity: 0.7 })
-		.encode(
-			vl.x().fieldT('date'),
-			vl.y().fieldQ('price')
-		);
+		.encode(vl.x().fieldT('date'), vl.y().fieldQ('price'));
 
 	const layer2 = vl
 		.markLine()

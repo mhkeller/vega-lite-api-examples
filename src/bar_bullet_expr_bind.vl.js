@@ -4,7 +4,7 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
+export default function chart() {
 	return vl
 		.data([
 			{
@@ -16,7 +16,11 @@ export default function chart () {
 			}
 		])
 		.encode(
-			vl.x().type('quantitative').scale({ nice: false }).title(null)
+			vl
+				.x()
+				.type('quantitative')
+				.scale({ nice: false })
+				.title(null)
 		)
 		.config({ tick: { thickness: 2 } })
 		.params([
@@ -29,22 +33,41 @@ export default function chart () {
 		])
 		.layer([
 			vl
-				.markBar({ color: '#eee', size: { expr: 'height' } })
+				.markBar({
+					color: '#eee',
+					size: { expr: 'height' }
+				})
 				.encode(vl.x().field('ranges[2]')),
 			vl
-				.markBar({ color: '#ddd', size: { expr: 'height' } })
+				.markBar({
+					color: '#ddd',
+					size: { expr: 'height' }
+				})
 				.encode(vl.x().field('ranges[1]')),
 			vl
-				.markBar({ color: '#ccc', size: { expr: 'height' } })
+				.markBar({
+					color: '#ccc',
+					size: { expr: 'height' }
+				})
 				.encode(vl.x().field('ranges[0]')),
 			vl
-				.markBar({ color: 'lightsteelblue', size: { expr: 'innerBarSize' } })
+				.markBar({
+					color: 'lightsteelblue',
+					size: { expr: 'innerBarSize' }
+				})
 				.encode(vl.x().field('measures[1]')),
 			vl
-				.markBar({ color: 'steelblue', size: { expr: 'innerBarSize' } })
+				.markBar({
+					color: 'steelblue',
+					size: { expr: 'innerBarSize' }
+				})
 				.encode(vl.x().field('measures[0]')),
 			vl
-				.markTick({ color: 'black', thickness: 2, size: { expr: 'height' } })
+				.markTick({
+					color: 'black',
+					thickness: 2,
+					size: { expr: 'height' }
+				})
 				.encode(vl.x().field('markers[0]'))
 		])
 		.toSpec();

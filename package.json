@@ -7,7 +7,7 @@
 	"scripts": {
 		"scaffold": "node make-files.js",
 		"maketests": "node make-tests.js",
-		"lint": "prettier --check src/*.js",
+		"lint": "prettier src/*.js --write",
 		"pretest": "npm run maketests",
 		"test": "mocha --require esm test/*.test.js"
 	},

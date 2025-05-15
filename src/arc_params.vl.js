@@ -5,19 +5,17 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const singleArc = vl
-		.markArc(
-			{
-				radius: { expr: 'radius' },
-				radius2: { expr: 'radius2' },
-				theta: { expr: 'theta_single_arc' },
-				theta2: { expr: 'theta2_single_arc' },
-				cornerRadius: { expr: 'cornerRadius' },
-				padAngle: { expr: 'padAngle' },
-				strokeWidth: { expr: 'strokeWidth' }
-			}
-		)
+		.markArc({
+			radius: { expr: 'radius' },
+			radius2: { expr: 'radius2' },
+			theta: { expr: 'theta_single_arc' },
+			theta2: { expr: 'theta2_single_arc' },
+			cornerRadius: { expr: 'cornerRadius' },
+			padAngle: { expr: 'padAngle' },
+			strokeWidth: { expr: 'strokeWidth' }
+		})
 		.title('Single Arc')
 		.data({ values: [{}] });
 

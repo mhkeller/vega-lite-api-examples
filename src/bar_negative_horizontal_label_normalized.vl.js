@@ -6,22 +6,27 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function () {
-	const layer1 = vl
-		.markBar()
-		.encode(
-			vl.y().fieldN('a').axis({
-				domain: false,
-				ticks: false,
-				labelAngle: 0,
-				labelPadding: 4
-			}),
-			vl.x().fieldQ('b').axis({
+	const layer1 = vl.markBar().encode(
+		vl.y().fieldN('a').axis({
+			domain: false,
+			ticks: false,
+			labelAngle: 0,
+			labelPadding: 4
+		}),
+		vl
+			.x()
+			.fieldQ('b')
+			.axis({
 				gridColor: {
-					condition: { test: 'datum.value === 0', value: 'black' },
+					condition: {
+						test: 'datum.value === 0',
+						value: 'black'
+					},
 					value: '#ddd'
 				}
-			}).scale({ padding: 20 })
-		);
+			})
+			.scale({ padding: 20 })
+	);
 
 	const layer2 = vl
 		.markText({
@@ -35,12 +40,19 @@ export default function () {
 				labelAngle: 0,
 				labelPadding: 4
 			}),
-			vl.x().fieldQ('b').axis({
-				gridColor: {
-					condition: { test: 'datum.value === 0', value: 'black' },
-					value: '#ddd'
-				}
-			}).scale({ padding: 20 }),
+			vl
+				.x()
+				.fieldQ('b')
+				.axis({
+					gridColor: {
+						condition: {
+							test: 'datum.value === 0',
+							value: 'black'
+						},
+						value: '#ddd'
+					}
+				})
+				.scale({ padding: 20 }),
 			vl.text().fieldQ('b')
 		);
 
@@ -59,7 +71,9 @@ export default function () {
 				{ a: 'I', b: 52 }
 			]
 		})
-		.description('A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.')
+		.description(
+			'A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.'
+		)
 		.toSpec();
 }
 

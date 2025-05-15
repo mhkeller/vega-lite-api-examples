@@ -5,11 +5,13 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markBar()
 		.data('data/seattle-weather.csv')
-		.description('Using `labelExpr` to show only initial letters of month names.')
+		.description(
+			'Using `labelExpr` to show only initial letters of month names.'
+		)
 		.encode(
 			vl.x().timeUnit('month').field('date').axis({
 				labelAlign: 'left',

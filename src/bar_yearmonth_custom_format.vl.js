@@ -5,13 +5,17 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markBar()
 		.data('data/seattle-weather.csv')
 		.description('Custom time format on x-axis.')
 		.encode(
-			vl.x().timeUnit('yearmonth').field('date').axis({ format: '%B of %Y' }),
+			vl
+				.x()
+				.timeUnit('yearmonth')
+				.field('date')
+				.axis({ format: '%B of %Y' }),
 			vl.y().aggregate('mean').field('temp_max')
 		)
 		.toSpec();

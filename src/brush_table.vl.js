@@ -5,15 +5,20 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const hconcat1 = vl
 		.markPoint()
 		.params([{ name: 'brush', select: 'interval' }])
 		.encode(
 			vl.x().fieldQ('Horsepower'),
 			vl.y().fieldQ('Miles_per_Gallon'),
-			vl.color()
-				.condition({ param: 'brush', field: 'Cylinders', type: 'ordinal' })
+			vl
+				.color()
+				.condition({
+					param: 'brush',
+					field: 'Cylinders',
+					type: 'ordinal'
+				})
 				.value('grey')
 		);
 
@@ -55,8 +60,12 @@ export default function chart () {
 	return vl
 		.hconcat(hconcat1, hconcat2)
 		.data('data/cars.json')
-		.description('Drag a rectangular brush to show (first 20) selected points in a table.')
-		.transform(vl.window({ op: 'row_number', as: 'row_number' }))
+		.description(
+			'Drag a rectangular brush to show (first 20) selected points in a table.'
+		)
+		.transform(
+			vl.window({ op: 'row_number', as: 'row_number' })
+		)
 		.resolve({ legend: { color: 'independent' } })
 		.toSpec();
 }

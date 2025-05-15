@@ -5,9 +5,8 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
-	const layer1 = vl
-		.markBar();
+export default function chart() {
+	const layer1 = vl.markBar();
 
 	const layer2 = vl
 		.markText({
@@ -31,7 +30,9 @@ export default function chart () {
 				{ a: 'I', b: 52 }
 			]
 		})
-		.description('A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.')
+		.description(
+			'A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.'
+		)
 		.encode(
 			vl.y().fieldN('a').axis({
 				domain: false,
@@ -39,12 +40,19 @@ export default function chart () {
 				labelAngle: 0,
 				labelPadding: 4
 			}),
-			vl.x().fieldQ('b').axis({
-				gridColor: {
-					condition: { test: 'datum.value === 0', value: 'black' },
-					value: '#ddd'
-				}
-			}).scale({ padding: 20 })
+			vl
+				.x()
+				.fieldQ('b')
+				.axis({
+					gridColor: {
+						condition: {
+							test: 'datum.value === 0',
+							value: 'black'
+						},
+						value: '#ddd'
+					}
+				})
+				.scale({ padding: 20 })
 		)
 		.toSpec();
 }

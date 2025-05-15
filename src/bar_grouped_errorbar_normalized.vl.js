@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const layer1 = vl
 		.markBar()
 		.encode(
@@ -28,28 +28,46 @@ export default function chart () {
 						field: 'Acceleration',
 						as: 'extent_Acceleration'
 					},
-					{ op: 'mean', field: 'Acceleration', as: 'center_Acceleration' }
+					{
+						op: 'mean',
+						field: 'Acceleration',
+						as: 'center_Acceleration'
+					}
 				],
 				groupby: ['Cylinders', 'Origin']
 			},
 			{
-				calculate: 'datum["center_Acceleration"] + datum["extent_Acceleration"]',
+				calculate:
+					'datum["center_Acceleration"] + datum["extent_Acceleration"]',
 				as: 'upper_Acceleration'
 			},
 			{
-				calculate: 'datum["center_Acceleration"] - datum["extent_Acceleration"]',
+				calculate:
+					'datum["center_Acceleration"] - datum["extent_Acceleration"]',
 				as: 'lower_Acceleration'
 			}
 		])
 		.encode(
-			vl.y().fieldQ('lower_Acceleration').title('Acceleration'),
+			vl
+				.y()
+				.fieldQ('lower_Acceleration')
+				.title('Acceleration'),
 			vl.y2().field('upper_Acceleration'),
 			vl.x().fieldN('Cylinders'),
 			vl.xOffset().fieldN('Origin'),
 			vl.tooltip([
-				vl.tooltip().fieldQ('center_Acceleration').title('Mean of Acceleration'),
-				vl.tooltip().fieldQ('upper_Acceleration').title('Mean + stderr of Acceleration'),
-				vl.tooltip().fieldQ('lower_Acceleration').title('Mean - stderr of Acceleration'),
+				vl
+					.tooltip()
+					.fieldQ('center_Acceleration')
+					.title('Mean of Acceleration'),
+				vl
+					.tooltip()
+					.fieldQ('upper_Acceleration')
+					.title('Mean + stderr of Acceleration'),
+				vl
+					.tooltip()
+					.fieldQ('lower_Acceleration')
+					.title('Mean - stderr of Acceleration'),
 				vl.tooltip().fieldN('Cylinders'),
 				vl.tooltip().fieldN('Origin')
 			])
@@ -57,7 +75,9 @@ export default function chart () {
 
 	return vl
 		.data('data/cars.json')
-		.description('A vertical box plot showing median, min, and max body mass of penguins.')
+		.description(
+			'A vertical box plot showing median, min, and max body mass of penguins.'
+		)
 		.layer(layer1, layer2)
 		.toSpec();
 }

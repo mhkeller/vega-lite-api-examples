@@ -5,16 +5,27 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markCircle()
 		.height(100)
-		.data({ values: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4, 4] })
-		.description('A Wilkinson Dot Plot created by generating an id and stacking data points')
+		.data({
+			values: [
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4,
+				4, 4, 4, 4
+			]
+		})
+		.description(
+			'A Wilkinson Dot Plot created by generating an id and stacking data points'
+		)
 		.transform(vl.window({ op: 'rank', as: 'id' }))
 		.encode(
 			vl.x().fieldO('data'),
-			vl.y().aggregate('count').stack(true).bandPosition(0.5),
+			vl
+				.y()
+				.aggregate('count')
+				.stack(true)
+				.bandPosition(0.5),
 			vl.detail().field('id')
 		)
 		.toSpec();

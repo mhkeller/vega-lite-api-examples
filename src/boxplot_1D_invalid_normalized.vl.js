@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const outerLayer1C1 = vl
 		.markPoint({ style: 'boxplot-outliers' })
 		.transform(
@@ -29,9 +29,13 @@ export default function chart () {
 			vl.y().fieldQ('lower_whisker_b').title('b'),
 			vl.y2().field('lower_box_b'),
 			vl.tooltip([
-				vl.tooltip().fieldQ('upper_whisker_b')
+				vl
+					.tooltip()
+					.fieldQ('upper_whisker_b')
 					.title('Upper Whisker of b'),
-				vl.tooltip().fieldQ('lower_whisker_b')
+				vl
+					.tooltip()
+					.fieldQ('lower_whisker_b')
 					.title('Lower Whisker of b'),
 				vl.tooltip().fieldQ('a')
 			])
@@ -48,9 +52,13 @@ export default function chart () {
 			vl.y().fieldQ('upper_box_b').title('b'),
 			vl.y2().field('upper_whisker_b'),
 			vl.tooltip([
-				vl.tooltip().fieldQ('upper_whisker_b')
+				vl
+					.tooltip()
+					.fieldQ('upper_whisker_b')
 					.title('Upper Whisker of b'),
-				vl.tooltip().fieldQ('lower_whisker_b')
+				vl
+					.tooltip()
+					.fieldQ('lower_whisker_b')
 					.title('Lower Whisker of b'),
 				vl.tooltip().fieldQ('a')
 			])
@@ -62,21 +70,33 @@ export default function chart () {
 			vl.filter(
 				`(datum[\"lower_box_b\"] - 1.5 * (datum[\"upper_box_b\"] - datum[\"lower_box_b\"]) <= datum[\"b\"]) && (datum[\"b\"] <= datum[\"upper_box_b\"] + 1.5 * (datum[\"upper_box_b\"] - datum[\"lower_box_b\"]))`
 			),
-			vl.aggregate(
-				{ op: 'min', field: 'b', as: 'lower_whisker_b' },
-				{ op: 'max', field: 'b', as: 'upper_whisker_b' },
-				{ op: 'min', field: 'lower_box_b', as: 'lower_box_b' },
-				{ op: 'max', field: 'upper_box_b', as: 'upper_box_b' }
-			).groupby(['a'])
+			vl
+				.aggregate(
+					{ op: 'min', field: 'b', as: 'lower_whisker_b' },
+					{ op: 'max', field: 'b', as: 'upper_whisker_b' },
+					{
+						op: 'min',
+						field: 'lower_box_b',
+						as: 'lower_box_b'
+					},
+					{
+						op: 'max',
+						field: 'upper_box_b',
+						as: 'upper_box_b'
+					}
+				)
+				.groupby(['a'])
 		);
 
 	const outerLayer1 = vl
 		.layer(outerLayer1C1, outerLayer1C2)
 		.transform(
-			vl.joinaggregate(
-				{ op: 'q1', field: 'b', as: 'lower_box_b' },
-				{ op: 'q3', field: 'b', as: 'upper_box_b' }
-			).groupby(['a'])
+			vl
+				.joinaggregate(
+					{ op: 'q1', field: 'b', as: 'lower_box_b' },
+					{ op: 'q3', field: 'b', as: 'upper_box_b' }
+				)
+				.groupby(['a'])
 		);
 
 	const outerLayer2C1 = vl
@@ -94,7 +114,10 @@ export default function chart () {
 			vl.tooltip([
 				vl.tooltip().fieldQ('max_b').title('Max of b'),
 				vl.tooltip().fieldQ('upper_box_b').title('Q3 of b'),
-				vl.tooltip().fieldQ('mid_box_b').title('Median of b'),
+				vl
+					.tooltip()
+					.fieldQ('mid_box_b')
+					.title('Median of b'),
 				vl.tooltip().fieldQ('lower_box_b').title('Q1 of b'),
 				vl.tooltip().fieldQ('min_b').title('Min of b'),
 				vl.tooltip().fieldQ('a')
@@ -117,7 +140,10 @@ export default function chart () {
 			vl.tooltip([
 				vl.tooltip().fieldQ('max_b').title('Max of b'),
 				vl.tooltip().fieldQ('upper_box_b').title('Q3 of b'),
-				vl.tooltip().fieldQ('mid_box_b').title('Median of b'),
+				vl
+					.tooltip()
+					.fieldQ('mid_box_b')
+					.title('Median of b'),
 				vl.tooltip().fieldQ('lower_box_b').title('Q1 of b'),
 				vl.tooltip().fieldQ('min_b').title('Min of b'),
 				vl.tooltip().fieldQ('a')
@@ -127,13 +153,15 @@ export default function chart () {
 	const outerLayer2 = vl
 		.layer(outerLayer2C1, outerLayer2C2)
 		.transform(
-			vl.aggregate(
-				{ op: 'q1', field: 'b', as: 'lower_box_b' },
-				{ op: 'q3', field: 'b', as: 'upper_box_b' },
-				{ op: 'median', field: 'b', as: 'mid_box_b' },
-				{ op: 'min', field: 'b', as: 'min_b' },
-				{ op: 'max', field: 'b', as: 'max_b' }
-			).groupby(['a'])
+			vl
+				.aggregate(
+					{ op: 'q1', field: 'b', as: 'lower_box_b' },
+					{ op: 'q3', field: 'b', as: 'upper_box_b' },
+					{ op: 'median', field: 'b', as: 'mid_box_b' },
+					{ op: 'min', field: 'b', as: 'min_b' },
+					{ op: 'max', field: 'b', as: 'max_b' }
+				)
+				.groupby(['a'])
 		);
 
 	return vl

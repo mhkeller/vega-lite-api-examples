@@ -5,11 +5,13 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markArea({ interpolate: 'monotone' })
 		.data('data/cars.json')
-		.description('Area chart showing weight of cars over time (vertical).')
+		.description(
+			'Area chart showing weight of cars over time (vertical).'
+		)
 		.encode(
 			vl.x().aggregate('sum').field('Weight_in_lbs'),
 			vl.y().timeUnit('year').field('Year')

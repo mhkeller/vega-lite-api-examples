@@ -5,11 +5,15 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const layer1 = vl
 		.markRule()
 		.encode(
-			vl.x().fieldQ('lower').title(null).scale({ zero: false }),
+			vl
+				.x()
+				.fieldQ('lower')
+				.title(null)
+				.scale({ zero: false }),
 			vl.x2().field('upper')
 		);
 
@@ -23,16 +27,12 @@ export default function chart () {
 
 	const layer3 = vl
 		.markTick({ color: 'white', size: 14 })
-		.encode(
-			vl.x().fieldQ('median')
-		);
+		.encode(vl.x().fieldQ('median'));
 
 	const layer4 = vl
 		.markPoint({ style: 'boxplot-outliers' })
 		.transform(vl.flatten('outliers'))
-		.encode(
-			vl.x().fieldQ('outliers')
-		);
+		.encode(vl.x().fieldQ('outliers'));
 
 	return vl
 		.layer(layer1, layer2, layer3, layer4)
@@ -68,9 +68,7 @@ export default function chart () {
 			]
 		})
 		.title('Body Mass of Penguin Species (g)')
-		.encode(
-			vl.y().fieldN('Species').title(null)
-		)
+		.encode(vl.y().fieldN('Species').title(null))
 		.toSpec();
 }
 

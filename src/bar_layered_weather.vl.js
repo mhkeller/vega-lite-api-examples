@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const layer1 = vl
 		.markBar({ size: 20, color: '#ccc' })
 		.encode(
@@ -49,19 +49,34 @@ export default function chart () {
 		);
 
 	const layer7 = vl
-		.markText({ align: 'center', baseline: 'bottom', y: -5 })
-		.encode(
-			vl.text().field('day')
-		);
+		.markText({
+			align: 'center',
+			baseline: 'bottom',
+			y: -5
+		})
+		.encode(vl.text().field('day'));
 
 	return vl
-		.layer(layer1, layer2, layer3, layer4, layer5, layer6, layer7)
+		.layer(
+			layer1,
+			layer2,
+			layer3,
+			layer4,
+			layer5,
+			layer6,
+			layer7
+		)
 		.width(250)
 		.height(200)
 		.data('data/weather.json')
-		.description('A layered bar chart with floating bars representing weekly weather data')
+		.description(
+			'A layered bar chart with floating bars representing weekly weather data'
+		)
 		.title({
-			text: ['Weekly Weather', 'Observations and Predictions'],
+			text: [
+				'Weekly Weather',
+				'Observations and Predictions'
+			],
 			frame: 'group'
 		})
 		.encode(
@@ -73,7 +88,11 @@ export default function chart () {
 				titlePadding: 25,
 				orient: 'top'
 			}),
-			vl.y().scale({ domain: [10, 70] }).axis({ title: 'Temperature (F)' }).type('quantitative')
+			vl
+				.y()
+				.scale({ domain: [10, 70] })
+				.axis({ title: 'Temperature (F)' })
+				.type('quantitative')
 		)
 		.config({ style: { hilo: { size: 20 } } })
 		.toSpec();

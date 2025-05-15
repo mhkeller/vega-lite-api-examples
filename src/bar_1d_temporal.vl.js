@@ -5,13 +5,11 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markBar({ orient: 'vertical' })
 		.data('data/cars.json')
-		.encode(
-			vl.x().fieldT('Year')
-		)
+		.encode(vl.x().fieldT('Year'))
 		.toSpec();
 }
 

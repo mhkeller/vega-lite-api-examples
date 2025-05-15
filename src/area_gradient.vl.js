@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markArea({
 			line: { color: 'darkgreen' },
@@ -30,10 +30,7 @@ export default function chart () {
 		.data('data/stocks.csv')
 		.description(`Google's stock price over time.`)
 		.transform(vl.filter(`datum.symbol==='GOOG'`))
-		.encode(
-			vl.x().fieldT('date'),
-			vl.y().fieldQ('price')
-		)
+		.encode(vl.x().fieldT('date'), vl.y().fieldQ('price'))
 		.toSpec();
 }
 

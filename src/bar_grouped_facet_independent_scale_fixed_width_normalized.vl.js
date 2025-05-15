@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const spec = vl
 		.markBar()
 		.width(100)
@@ -31,8 +31,14 @@ export default function chart () {
 		)
 		.config({ view: { stroke: 'transparent' } })
 		.resolve({ scale: { x: 'independent' } })
-		.facet({ column: { field: 'category', header: { orient: 'bottom' } } })
-		.spec(spec).toSpec();
+		.facet({
+			column: {
+				field: 'category',
+				header: { orient: 'bottom' }
+			}
+		})
+		.spec(spec)
+		.toSpec();
 }
 
 /*

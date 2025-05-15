@@ -5,19 +5,21 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
-	const layer = vl
-		.markArea({
-			clip: true,
-			orient: 'vertical',
-			opacity: 0.6
-		});
+export default function chart() {
+	const layer = vl.markArea({
+		clip: true,
+		orient: 'vertical',
+		opacity: 0.6
+	});
 
 	const layer2 = vl
 		.markArea({ clip: true, orient: 'vertical' })
 		.transform(vl.calculate(`datum.y - 50`).as('ny'))
 		.encode(
-			vl.y().fieldQ('ny').scale({ domain: [0, 50] }),
+			vl
+				.y()
+				.fieldQ('ny')
+				.scale({ domain: [0, 50] }),
 			vl.opacity().value(0.3)
 		);
 
@@ -53,8 +55,15 @@ export default function chart () {
 			`Horizon Graph with 2 layers. (See https://idl.cs.washington.edu/papers/horizon/ for more details on Horizon Graphs.)`
 		)
 		.encode(
-			vl.x().fieldQ('x').scale({ zero: false, nice: false }),
-			vl.y().fieldQ('y').scale({ domain: [0, 50] }).axis({ title: 'y' })
+			vl
+				.x()
+				.fieldQ('x')
+				.scale({ zero: false, nice: false }),
+			vl
+				.y()
+				.fieldQ('y')
+				.scale({ domain: [0, 50] })
+				.axis({ title: 'y' })
 		)
 		.config({ area: { interpolate: 'monotone' } })
 		.toSpec();

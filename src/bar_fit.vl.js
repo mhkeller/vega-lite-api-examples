@@ -4,10 +4,12 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
+export default function chart() {
 	return vl
 		.markBar()
-		.description('A simple bar chart with embedded data that fits exactly into 300px width.')
+		.description(
+			'A simple bar chart with embedded data that fits exactly into 300px width.'
+		)
 		.width(300)
 		.autosize({ type: 'fit', contains: 'padding' })
 		.data([
@@ -21,10 +23,7 @@ export default function chart () {
 			{ a: 'H', b: 87 },
 			{ a: 'I', b: 52 }
 		])
-		.encode(
-			vl.x().fieldO('a'),
-			vl.y().fieldQ('b')
-		)
+		.encode(vl.x().fieldO('a'), vl.y().fieldQ('b'))
 		.toSpec();
 }
 

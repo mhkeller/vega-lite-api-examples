@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const layer1 = vl
 		.markBar({ size: 20, color: '#ccc' })
 		.encode(
@@ -17,7 +17,12 @@ export default function chart () {
 				titlePadding: 25,
 				orient: 'top'
 			}),
-			vl.y().fieldQ('record.low').scale({ domain: [10, 70] }).axis({ title: 'Temperature (F)' }).type('quantitative'),
+			vl
+				.y()
+				.fieldQ('record.low')
+				.scale({ domain: [10, 70] })
+				.axis({ title: 'Temperature (F)' })
+				.type('quantitative'),
 			vl.y2().field('record.high')
 		);
 
@@ -32,7 +37,12 @@ export default function chart () {
 				titlePadding: 25,
 				orient: 'top'
 			}),
-			vl.y().field('normal.low').scale({ domain: [10, 70] }).axis({ title: 'Temperature (F)' }).type('quantitative'),
+			vl
+				.y()
+				.field('normal.low')
+				.scale({ domain: [10, 70] })
+				.axis({ title: 'Temperature (F)' })
+				.type('quantitative'),
 			vl.y2().field('normal.high')
 		);
 
@@ -47,7 +57,12 @@ export default function chart () {
 				titlePadding: 25,
 				orient: 'top'
 			}),
-			vl.y().field('actual.low').scale({ domain: [10, 70] }).axis({ title: 'Temperature (F)' }).type('quantitative'),
+			vl
+				.y()
+				.field('actual.low')
+				.scale({ domain: [10, 70] })
+				.axis({ title: 'Temperature (F)' })
+				.type('quantitative'),
 			vl.y2().field('actual.high')
 		);
 
@@ -62,7 +77,12 @@ export default function chart () {
 				titlePadding: 25,
 				orient: 'top'
 			}),
-			vl.y().field('forecast.low.low').scale({ domain: [10, 70] }).axis({ title: 'Temperature (F)' }).type('quantitative'),
+			vl
+				.y()
+				.field('forecast.low.low')
+				.scale({ domain: [10, 70] })
+				.axis({ title: 'Temperature (F)' })
+				.type('quantitative'),
 			vl.y2().field('forecast.low.high')
 		);
 
@@ -77,7 +97,12 @@ export default function chart () {
 				titlePadding: 25,
 				orient: 'top'
 			}),
-			vl.y().field('forecast.low.high').scale({ domain: [10, 70] }).axis({ title: 'Temperature (F)' }).type('quantitative'),
+			vl
+				.y()
+				.field('forecast.low.high')
+				.scale({ domain: [10, 70] })
+				.axis({ title: 'Temperature (F)' })
+				.type('quantitative'),
 			vl.y2().field('forecast.high.low')
 		);
 
@@ -92,12 +117,21 @@ export default function chart () {
 				titlePadding: 25,
 				orient: 'top'
 			}),
-			vl.y().field('forecast.high.low').scale({ domain: [10, 70] }).axis({ title: 'Temperature (F)' }).type('quantitative'),
+			vl
+				.y()
+				.field('forecast.high.low')
+				.scale({ domain: [10, 70] })
+				.axis({ title: 'Temperature (F)' })
+				.type('quantitative'),
 			vl.y2().field('forecast.high.high')
 		);
 
 	const layer7 = vl
-		.markText({ align: 'center', baseline: 'bottom', y: -5 })
+		.markText({
+			align: 'center',
+			baseline: 'bottom',
+			y: -5
+		})
 		.encode(
 			vl.x().fieldO('id').axis({
 				domain: false,
@@ -111,13 +145,26 @@ export default function chart () {
 		);
 
 	return vl
-		.layer(layer1, layer2, layer3, layer4, layer5, layer6, layer7)
+		.layer(
+			layer1,
+			layer2,
+			layer3,
+			layer4,
+			layer5,
+			layer6,
+			layer7
+		)
 		.width(250)
 		.height(200)
 		.data('data/weather.json')
-		.description('A layered bar chart with floating bars representing weekly weather data')
+		.description(
+			'A layered bar chart with floating bars representing weekly weather data'
+		)
 		.title({
-			text: ['Weekly Weather', 'Observations and Predictions'],
+			text: [
+				'Weekly Weather',
+				'Observations and Predictions'
+			],
 			frame: 'group'
 		})
 		.config({ style: { hilo: { size: 20 } } })

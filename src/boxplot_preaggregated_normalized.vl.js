@@ -5,11 +5,15 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const layer1 = vl
 		.markRule()
 		.encode(
-			vl.x().fieldQ('lower').title(null).scale({ zero: false }),
+			vl
+				.x()
+				.fieldQ('lower')
+				.title(null)
+				.scale({ zero: false }),
 			vl.y().fieldN('Species').title(null),
 			vl.x2().field('upper')
 		);

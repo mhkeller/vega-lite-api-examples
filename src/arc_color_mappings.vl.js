@@ -4,7 +4,7 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
+export default function chart() {
 	return vl
 		.markArc()
 		.description('A simple pie chart with embedded data.')
@@ -22,7 +22,14 @@ export default function chart () {
 				.color()
 				.fieldN('category')
 				.scale({
-					range: ['purple', 'green', 'blue', 'yellow', 'magenta', 'brown'],
+					range: [
+						'purple',
+						'green',
+						'blue',
+						'yellow',
+						'magenta',
+						'brown'
+					],
 					domain: { unionWith: [5, 6] }
 				})
 				.sort(null)

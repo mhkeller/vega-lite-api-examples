@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markBar()
 		.data({
@@ -27,7 +27,8 @@ export default function chart () {
 			vl.tooltip([
 				vl.tooltip().fieldO('a').title('Field A'),
 				vl.tooltip().fieldQ('b').title('Field B')
-			]))
+			])
+		)
 		.toSpec();
 }
 

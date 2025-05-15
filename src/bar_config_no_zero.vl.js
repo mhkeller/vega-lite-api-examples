@@ -4,7 +4,7 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
+export default function chart() {
 	return vl
 		.markBar()
 		.description('A simple bar chart with embedded data.')
@@ -19,7 +19,10 @@ export default function chart () {
 			{ a: 'H', b: 87 },
 			{ a: 'I', b: 52 }
 		])
-		.encode(vl.x().fieldN('a').axis({ labelAngle: 0 }), vl.y().fieldQ('b'))
+		.encode(
+			vl.x().fieldN('a').axis({ labelAngle: 0 }),
+			vl.y().fieldQ('b')
+		)
 		.config({ scale: { zero: false } })
 		.toSpec();
 }

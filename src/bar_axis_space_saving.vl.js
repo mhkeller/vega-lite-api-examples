@@ -4,12 +4,13 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
-	return vl.markBar({
-		yOffset: 5,
-		cornerRadiusEnd: 2,
-		height: { band: 0.5 }
-	})
+export default function chart() {
+	return vl
+		.markBar({
+			yOffset: 5,
+			cornerRadiusEnd: 2,
+			height: { band: 0.5 }
+		})
 		.data('data/cars.json')
 		.height({ step: 50 })
 		.description('Bar Chart with a spacing-saving y-axis')
@@ -28,7 +29,11 @@ export default function chart () {
 				titleAngle: 0,
 				titleAlign: 'left'
 			}),
-			vl.x().aggregate('count').axis({ grid: false }).title('Number of Cars')
+			vl
+				.x()
+				.aggregate('count')
+				.axis({ grid: false })
+				.title('Number of Cars')
 		)
 		.toSpec();
 }

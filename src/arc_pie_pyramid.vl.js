@@ -5,24 +5,42 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markArc({ outerRadius: 80 })
-		.description('Reproducing http://robslink.com/SAS/democd91/pyramid_pie.htm')
+		.description(
+			'Reproducing http://robslink.com/SAS/democd91/pyramid_pie.htm'
+		)
 		.data({
 			values: [
 				{ category: 'Sky', value: 75, order: 3 },
-				{ category: 'Shady side of a pyramid', value: 10, order: 1 },
-				{ category: 'Sunny side of a pyramid', value: 15, order: 2 }
+				{
+					category: 'Shady side of a pyramid',
+					value: 10,
+					order: 1
+				},
+				{
+					category: 'Sunny side of a pyramid',
+					value: 15,
+					order: 2
+				}
 			]
 		})
 		.encode(
-			vl.theta().fieldQ('value').stack(true).scale({ range: [2.35619449, 8.639379797] }),
+			vl
+				.theta()
+				.fieldQ('value')
+				.stack(true)
+				.scale({ range: [2.35619449, 8.639379797] }),
 			vl
 				.color()
 				.fieldN('category')
 				.scale({
-					domain: ['Sky', 'Shady side of a pyramid', 'Sunny side of a pyramid'],
+					domain: [
+						'Sky',
+						'Shady side of a pyramid',
+						'Sunny side of a pyramid'
+					],
 					range: ['#416D9D', '#674028', '#DEAC58']
 				})
 				.legend({

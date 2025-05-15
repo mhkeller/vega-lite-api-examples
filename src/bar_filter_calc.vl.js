@@ -4,10 +4,12 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
+export default function chart() {
 	return vl
 		.markBar()
-		.description('A simple bar chart with embedded data that uses a filter and calculate.')
+		.description(
+			'A simple bar chart with embedded data that uses a filter and calculate.'
+		)
 		.data([
 			{ a: 'A', b: 28 },
 			{ a: 'B', b: 55 },
@@ -19,7 +21,10 @@ export default function chart () {
 			{ a: 'E', b: 81 },
 			{ a: 'F', b: 53 }
 		])
-		.transform([{ calculate: '2*datum.b', as: 'b2' }, { filter: 'datum.b2 > 60' }])
+		.transform([
+			{ calculate: '2*datum.b', as: 'b2' },
+			{ filter: 'datum.b2 > 60' }
+		])
 		.encode(vl.y().fieldQ('b2'), vl.x().fieldO('a'))
 		.toSpec();
 }

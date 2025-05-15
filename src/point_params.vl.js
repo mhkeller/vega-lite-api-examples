@@ -4,7 +4,7 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
+export default function chart() {
 	return vl
 		.markPoint({
 			angle: { expr: 'angle' },
@@ -12,7 +12,9 @@ export default function chart () {
 			shape: { expr: 'shape' },
 			strokeWidth: { expr: 'strokeWidth' }
 		})
-		.description('A scatterplot showing horsepower and miles per gallons for various cars.')
+		.description(
+			'A scatterplot showing horsepower and miles per gallons for various cars.'
+		)
 		.data('data/cars.json')
 		.params([
 			{
@@ -41,12 +43,22 @@ export default function chart () {
 			{
 				name: 'angle',
 				value: 0,
-				bind: { input: 'range', min: -360, max: 360, step: 1 }
+				bind: {
+					input: 'range',
+					min: -360,
+					max: 360,
+					step: 1
+				}
 			},
 			{
 				name: 'size',
 				value: 30,
-				bind: { input: 'range', min: 0, max: 10000, step: 100 }
+				bind: {
+					input: 'range',
+					min: 0,
+					max: 10000,
+					step: 100
+				}
 			},
 			{
 				name: 'strokeWidth',

@@ -5,14 +5,21 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
-	const layer1 = vl.markArc({ stroke: 'white', tooltip: true });
+export default function chart() {
+	const layer1 = vl.markArc({
+		stroke: 'white',
+		tooltip: true
+	});
 
 	const layer2 = vl
 		.markText({ radiusOffset: 15, align: 'right' })
 		.encode(
 			vl.text().bin(true).field('IMDB Rating'),
-			vl.angle().bin(true).field('IMDB Rating').scale({ range: [90, 450] })
+			vl
+				.angle()
+				.bin(true)
+				.field('IMDB Rating')
+				.scale({ range: [90, 450] })
 		);
 
 	return vl

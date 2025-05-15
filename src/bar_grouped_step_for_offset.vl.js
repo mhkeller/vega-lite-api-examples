@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const bar = vl.markBar().toString();
 	console.log('MARKBAR', bar);
 	return vl
@@ -26,7 +26,10 @@ export default function chart () {
 		})
 		.encode(
 			vl.x().field('category'),
-			vl.y().fieldQ('value').axis({ title: 'population', grid: false }),
+			vl
+				.y()
+				.fieldQ('value')
+				.axis({ title: 'population', grid: false }),
 			vl.xOffset().field('group'),
 			vl.color().field('group')
 		)

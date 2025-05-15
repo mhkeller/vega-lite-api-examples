@@ -5,12 +5,17 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markCircle({ size: 80 })
 		.data('data/movies.json')
 		.encode(
-			vl.x().aggregate('mean').field('IMDB Rating').title(null).scale({ domain: [0, 10] })
+			vl
+				.x()
+				.aggregate('mean')
+				.field('IMDB Rating')
+				.title(null)
+				.scale({ domain: [0, 10] })
 				.axis({
 					labelExpr: `datum.label == 0 ? 'Poor' : datum.label == 5 ? 'Neutral' : 'Great'`,
 					labelFlush: false,

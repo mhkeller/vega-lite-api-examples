@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	return vl
 		.markCircle()
 		.data({
@@ -22,9 +22,17 @@ export default function chart () {
 			]
 		})
 		.encode(
-			vl.y().fieldN('b').axis({ ticks: false, domain: false, title: null }).sort(null),
+			vl
+				.y()
+				.fieldN('b')
+				.axis({ ticks: false, domain: false, title: null })
+				.sort(null),
 			vl.size().fieldQ('b').scale({ type: 'quantile' }),
-			vl.color().fieldQ('b').scale({ type: 'quantile' }).legend({ title: 'Quantile' })
+			vl
+				.color()
+				.fieldQ('b')
+				.scale({ type: 'quantile' })
+				.legend({ title: 'Quantile' })
 		)
 		.toSpec();
 }

@@ -4,7 +4,7 @@ import * as vl from 'vega-lite-api';
  * Write a Node.JS function that uses the vega-lite-api library to
  * generate and return the vega-lite JSON spec below.
  */
-export default function chart () {
+export default function chart() {
 	return vl
 		.data([
 			{ category: 'A', group: 'x', value: 0.1 },
@@ -27,9 +27,11 @@ export default function chart () {
 			vl.mark({ type: 'bar' }).encode({
 				color: { field: 'group' }
 			}),
-			vl.mark({ type: 'text', color: 'black', dy: -8 }).encode({
-				text: { field: 'value', type: 'quantitative' }
-			})
+			vl
+				.mark({ type: 'text', color: 'black', dy: -8 })
+				.encode({
+					text: { field: 'value', type: 'quantitative' }
+				})
 		)
 		.toSpec();
 }

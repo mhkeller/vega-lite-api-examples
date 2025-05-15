@@ -5,7 +5,7 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-export default function chart () {
+export default function chart() {
 	const layer = vl
 		.markArea({
 			clip: true,
@@ -13,16 +13,30 @@ export default function chart () {
 			opacity: 0.6
 		})
 		.encode(
-			vl.x().fieldQ('x').scale({ zero: false, nice: false }),
-			vl.y().fieldQ('y').scale({ domain: [0, 50] }).axis({ title: 'y' })
+			vl
+				.x()
+				.fieldQ('x')
+				.scale({ zero: false, nice: false }),
+			vl
+				.y()
+				.fieldQ('y')
+				.scale({ domain: [0, 50] })
+				.axis({ title: 'y' })
 		);
 
 	const layer2 = vl
 		.markArea({ clip: true, orient: 'vertical' })
 		.transform(vl.calculate(`datum.y - 50`).as('ny'))
 		.encode(
-			vl.x().fieldQ('x').scale({ zero: false, nice: false }),
-			vl.y().fieldQ('ny').scale({ domain: [0, 50] }).axis({ title: 'y' }),
+			vl
+				.x()
+				.fieldQ('x')
+				.scale({ zero: false, nice: false }),
+			vl
+				.y()
+				.fieldQ('ny')
+				.scale({ domain: [0, 50] })
+				.axis({ title: 'y' }),
 			vl.opacity().value(0.3)
 		);
 
