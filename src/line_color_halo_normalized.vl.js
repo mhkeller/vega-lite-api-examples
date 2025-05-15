@@ -5,113 +5,38 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-/*
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Multi-series Line Chart with Halo. Use pivot and repeat-layer as a workaround to facet groups of lines and their halo strokes. See https://github.com/vega/vega-lite/issues/6192 for more discussion.",
-  "data": {"url": "data/stocks.csv"},
-  "transform": [{"pivot": "symbol", "value": "price", "groupby": ["date"]}],
-  "layer": [
-    {
-      "layer": [
-        {
-          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "AAPL", "type": "quantitative", "title": "price"}
-          }
-        },
-        {
-          "mark": {"type": "line"},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "AAPL", "type": "quantitative", "title": "price"},
-            "stroke": {"datum": "AAPL", "type": "nominal"}
-          }
-        }
-      ],
-      "name": "child__layer_AAPL"
-    },
-    {
-      "layer": [
-        {
-          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "AMZN", "type": "quantitative", "title": "price"}
-          }
-        },
-        {
-          "mark": {"type": "line"},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "AMZN", "type": "quantitative", "title": "price"},
-            "stroke": {"datum": "AMZN", "type": "nominal"}
-          }
-        }
-      ],
-      "name": "child__layer_AMZN"
-    },
-    {
-      "layer": [
-        {
-          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "GOOG", "type": "quantitative", "title": "price"}
-          }
-        },
-        {
-          "mark": {"type": "line"},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "GOOG", "type": "quantitative", "title": "price"},
-            "stroke": {"datum": "GOOG", "type": "nominal"}
-          }
-        }
-      ],
-      "name": "child__layer_GOOG"
-    },
-    {
-      "layer": [
-        {
-          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "IBM", "type": "quantitative", "title": "price"}
-          }
-        },
-        {
-          "mark": {"type": "line"},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "IBM", "type": "quantitative", "title": "price"},
-            "stroke": {"datum": "IBM", "type": "nominal"}
-          }
-        }
-      ],
-      "name": "child__layer_IBM"
-    },
-    {
-      "layer": [
-        {
-          "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "MSFT", "type": "quantitative", "title": "price"}
-          }
-        },
-        {
-          "mark": {"type": "line"},
-          "encoding": {
-            "x": {"field": "date", "type": "temporal"},
-            "y": {"field": "MSFT", "type": "quantitative", "title": "price"},
-            "stroke": {"datum": "MSFT", "type": "nominal"}
-          }
-        }
-      ],
-      "name": "child__layer_MSFT"
-    }
-  ]
+export default function chart() {
+	const companies = ['AAPL', 'AMZN', 'GOOG', 'IBM', 'MSFT'];
+	return vl
+		.data('data/stocks.csv')
+		.transform({
+			pivot: 'symbol',
+			value: 'price',
+			groupby: ['date']
+		})
+		.layer(
+			...companies.map(symbol =>
+				vl
+					.layer(
+						vl
+							.markLine({ stroke: 'white', strokeWidth: 4 })
+							.encode(
+								vl.x().fieldT('date'),
+								vl.y().fieldQ(symbol).title('price')
+							),
+						vl
+							.markLine()
+							.encode(
+								vl.x().fieldT('date'),
+								vl.y().fieldQ(symbol).title('price'),
+								vl.stroke().datum(symbol).type('nominal')
+							)
+					)
+					.name(`child__layer_${symbol}`)
+			)
+		)
+		.description(
+			'Multi-series Line Chart with Halo. Use pivot and repeat-layer as a workaround to facet groups of lines and their halo strokes. See https://github.com/vega/vega-lite/issues/6192 for more discussion.'
+		)
+		.toSpec();
 }
-*/

@@ -5,36 +5,25 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-/*
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Stock prices of 5 Tech Companies over Time.",
-  "data": {"url": "data/stocks.csv"},
-  "layer": [
-    {
-      "mark": "line",
-      "encoding": {
-        "x": {
-          "timeUnit": {"unit": "year"},
-          "field": "date",
-          "type": "temporal"
-        },
-        "y": {"aggregate": "mean", "field": "price", "type": "quantitative"},
-        "color": {"field": "symbol", "type": "nominal"}
-      }
-    },
-    {
-      "mark": {"type": "point", "opacity": 1, "filled": true},
-      "encoding": {
-        "x": {
-          "timeUnit": {"unit": "year"},
-          "field": "date",
-          "type": "temporal"
-        },
-        "y": {"aggregate": "mean", "field": "price", "type": "quantitative"},
-        "color": {"field": "symbol", "type": "nominal"}
-      }
-    }
-  ]
+export default function chart() {
+  return vl
+    .layer(
+      vl
+        .markLine()
+        .encode(
+          vl.x().fieldT('date').timeUnit({ unit: 'year' }),
+          vl.y().aggregate('mean').fieldQ('price'),
+          vl.color().fieldN('symbol')
+        ),
+      vl
+        .markPoint({ opacity: 1, filled: true })
+        .encode(
+          vl.x().fieldT('date').timeUnit({ unit: 'year' }),
+          vl.y().aggregate('mean').fieldQ('price'),
+          vl.color().fieldN('symbol')
+        )
+    )
+    .data('data/stocks.csv')
+    .description('Stock prices of 5 Tech Companies over Time.')
+    .toSpec();
 }
-*/

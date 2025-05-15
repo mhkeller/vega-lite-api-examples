@@ -16,3 +16,14 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return vl
+		.markLine()
+		.data('data/seattle-weather.csv')
+		.encode(
+			vl.x().field('date').timeUnit('year'),
+			vl.y().field('temp_max').aggregate('mean')
+		)
+		.toSpec();
+}

@@ -18,3 +18,18 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return vl
+		.markLine()
+		.description(
+			'Stock price average broken down by quarter.'
+		)
+		.data('data/stocks.csv')
+		.encode(
+			vl.x().fieldT('date').timeUnit('year'),
+			vl.y().fieldQ('price').aggregate('mean'),
+			vl.color().fieldT('date').timeUnit('quarter')
+		)
+		.toSpec();
+}
