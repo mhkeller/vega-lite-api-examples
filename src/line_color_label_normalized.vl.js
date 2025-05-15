@@ -5,51 +5,46 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-/*
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Multi-series line chart with labels.",
-  "data": {"url": "data/stocks.csv"},
-  "layer": [
-    {
-      "mark": "line",
-      "encoding": {
-        "color": {"field": "symbol", "type": "nominal", "legend": null},
-        "x": {"field": "date", "type": "temporal", "title": "date"},
-        "y": {"field": "price", "type": "quantitative", "title": "price"}
-      }
-    },
-    {
-      "layer": [
-        {
-          "mark": {"type": "circle"},
-          "encoding": {
-            "color": {"field": "symbol", "type": "nominal", "legend": null},
-            "x": {"aggregate": "max", "field": "date", "type": "temporal"},
-            "y": {
-              "aggregate": {"argmax": "date"},
-              "field": "price",
-              "type": "quantitative"
-            }
-          }
-        },
-        {
-          "mark": {"type": "text", "align": "left", "dx": 4},
-          "encoding": {
-            "color": {"field": "symbol", "type": "nominal", "legend": null},
-            "x": {"aggregate": "max", "field": "date", "type": "temporal"},
-            "y": {
-              "aggregate": {"argmax": "date"},
-              "field": "price",
-              "type": "quantitative"
-            },
-            "text": {"field": "symbol", "type": "nominal"}
-          }
-        }
-      ]
-    }
-  ],
-  "config": {"view": {"stroke": null}},
-  "transform": [{"filter": "datum.symbol!=='IBM'"}]
+export default function chart() {
+	return vl
+		.layer(
+			// Main line chart
+			vl
+				.markLine()
+				.encode(
+					vl.color().fieldN('symbol').legend(null),
+					vl.x().fieldT('date').title('date'),
+					vl.y().fieldQ('price').title('price')
+				),
+			// Circles at the end of each line
+			vl.layer(
+				vl
+					.markCircle()
+					.encode(
+						vl.color().fieldN('symbol').legend(null),
+						vl.x().aggregate('max').fieldT('date'),
+						vl
+							.y()
+							.aggregate({ argmax: 'date' })
+							.fieldQ('price')
+					),
+				// Text labels at the end of each line
+				vl
+					.markText({ align: 'left', dx: 4 })
+					.encode(
+						vl.color().fieldN('symbol').legend(null),
+						vl.x().aggregate('max').fieldT('date'),
+						vl
+							.y()
+							.aggregate({ argmax: 'date' })
+							.fieldQ('price'),
+						vl.text().fieldN('symbol')
+					)
+			)
+		)
+		.data('data/stocks.csv')
+		.transform({ filter: "datum.symbol!=='IBM'" })
+		.description('Multi-series line chart with labels.')
+		.config({ view: { stroke: null } })
+		.toSpec();
 }
-*/

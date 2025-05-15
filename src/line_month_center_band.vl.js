@@ -20,3 +20,19 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return vl
+		.markLine({ interpolate: 'monotone' })
+		.description('Line with center band for timeUnit')
+		.data('data/seattle-weather.csv')
+		.encode(
+			vl
+				.x()
+				.field('date')
+				.timeUnit('month')
+				.bandPosition(0.5),
+			vl.y().field('temp_max').aggregate('mean')
+		)
+		.toSpec();
+}

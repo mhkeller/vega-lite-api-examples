@@ -26,3 +26,20 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return vl
+		.markLine()
+		.data({
+			values: [
+				{ Name: 'Peter', Score: 3 },
+				{ Name: 'Paul', Score: 1 },
+				{ Name: 'Mary', Score: 5 }
+			]
+		})
+		.encode(
+			vl.x().fieldN('Name').sort(['Peter', 'Mary', 'Paul']),
+			vl.y().fieldQ('Score')
+		)
+		.toSpec();
+}
