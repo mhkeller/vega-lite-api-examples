@@ -5,6 +5,38 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description:
+			'Summarized and per year weather information for Seatle and New York.',
+		data: { url: 'data/weather.csv' },
+		repeat: { column: ['temp_max', 'precipitation', 'wind'] },
+		spec: {
+			layer: [
+				{
+					mark: { type: 'line' },
+					encoding: {
+						y: { aggregate: 'mean', field: { repeat: 'column' } },
+						x: { timeUnit: 'month', field: 'date', type: 'ordinal' },
+						detail: { timeUnit: 'year', field: 'date' },
+						color: { field: 'location' },
+						opacity: { value: 0.2 }
+					}
+				},
+				{
+					mark: { type: 'line' },
+					encoding: {
+						y: { aggregate: 'mean', field: { repeat: 'column' } },
+						x: { timeUnit: 'month', field: 'date', type: 'ordinal' },
+						color: { field: 'location' }
+					}
+				}
+			]
+		}
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
