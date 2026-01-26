@@ -5,6 +5,20 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.markTrail()
+		.description('Stock prices of 5 Tech Companies over Time.')
+		.data('data/stocks.csv')
+		.encode(
+			vl.x().fieldT('date'),
+			vl.y().fieldQ('price'),
+			vl.size().fieldQ('price'),
+			vl.color().fieldN('symbol')
+		)
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
