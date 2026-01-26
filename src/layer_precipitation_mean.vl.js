@@ -5,6 +5,23 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.layer(
+			vl.markBar().encode(
+				vl.x().timeUnit('month').fieldO('date'),
+				vl.y().aggregate('mean').fieldQ('precipitation')
+			),
+			vl.markRule().encode(
+				vl.y().aggregate('mean').fieldQ('precipitation'),
+				vl.color().value('red'),
+				vl.size().value(3)
+			)
+		)
+		.data('data/seattle-weather.csv')
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
