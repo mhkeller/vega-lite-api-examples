@@ -5,6 +5,18 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.markText()
+		.data('data/cars.json')
+		.width(50)
+		.encode(
+			vl.y().fieldO('Origin'),
+			vl.text().aggregate('mean').fieldQ('Horsepower').format('.2f')
+		)
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
