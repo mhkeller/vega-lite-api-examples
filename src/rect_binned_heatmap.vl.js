@@ -5,6 +5,29 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.markRect()
+		.data('data/movies.json')
+		.width(300)
+		.height(200)
+		.transform({
+			filter: {
+				and: [
+					{ field: 'IMDB Rating', valid: true },
+					{ field: 'Rotten Tomatoes Rating', valid: true }
+				]
+			}
+		})
+		.encode(
+			vl.x().fieldQ('IMDB Rating').bin({ maxbins: 60 }),
+			vl.y().fieldQ('Rotten Tomatoes Rating').bin({ maxbins: 40 }),
+			vl.color().aggregate('count').type('quantitative')
+		)
+		.config({ view: { stroke: 'transparent' } })
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
