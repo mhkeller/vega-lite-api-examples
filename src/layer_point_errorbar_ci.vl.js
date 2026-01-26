@@ -5,6 +5,27 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.layer(
+			vl.markPoint({ filled: true }).encode(
+				vl
+					.x()
+					.aggregate('mean')
+					.fieldQ('yield')
+					.scale({ zero: false })
+					.title('Barley Yield'),
+				vl.color().value('black')
+			),
+			vl
+				.markErrorbar({ extent: 'ci' })
+				.encode(vl.x().fieldQ('yield').title('Barley Yield'))
+		)
+		.data('data/barley.json')
+		.encode(vl.y().fieldO('variety'))
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
