@@ -5,6 +5,17 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	const spec = vl
+		.markGeoshape()
+		.width(200)
+		.height(200)
+		.data({ graticule: true })
+		.toSpec();
+	spec.projection = { type: 'orthographic' };
+	return spec;
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
