@@ -5,6 +5,30 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.layer(
+			vl.markBar().encode(
+				vl.x().fieldQ('IMDB Rating').title('IMDB Rating'),
+				vl.y().fieldO('Title')
+			),
+			vl.markRule({ color: 'red' }).encode(
+				vl.x().aggregate('average').fieldQ('AverageRating')
+			)
+		)
+		.data('data/movies.json')
+		.transform(
+			{ filter: "datum['IMDB Rating'] != null" },
+			{
+				joinaggregate: [
+					{ op: 'mean', field: 'IMDB Rating', as: 'AverageRating' }
+				]
+			},
+			{ filter: "(datum['IMDB Rating'] - datum.AverageRating) > 2.5" }
+		)
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
