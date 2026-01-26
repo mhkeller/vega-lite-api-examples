@@ -5,6 +5,39 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description: 'Multi-series line chart with labels.',
+		data: { url: 'data/stocks.csv' },
+		transform: [{ filter: "datum.symbol!=='IBM'" }],
+		encoding: { color: { field: 'symbol', type: 'nominal', legend: null } },
+		layer: [
+			{
+				mark: { type: 'line' },
+				encoding: {
+					x: { field: 'date', type: 'temporal', title: 'date' },
+					y: { field: 'price', type: 'quantitative', title: 'price' }
+				}
+			},
+			{
+				encoding: {
+					x: { aggregate: 'max', field: 'date', type: 'temporal' },
+					y: { aggregate: { argmax: 'date' }, field: 'price', type: 'quantitative' }
+				},
+				layer: [
+					{ mark: { type: 'circle' } },
+					{
+						mark: { type: 'text', align: 'left', dx: 4 },
+						encoding: { text: { field: 'symbol', type: 'nominal' } }
+					}
+				]
+			}
+		],
+		config: { view: { stroke: null } }
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
