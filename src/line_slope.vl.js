@@ -5,6 +5,22 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.markLine()
+		.description(
+			'Slope graph showing the change in yield for different barley sites. It shows the error in the year labels for the Morris site.'
+		)
+		.data('data/barley.json')
+		.width({ step: 50 })
+		.encode(
+			vl.x().fieldO('year').scale({ padding: 0.5 }),
+			vl.y().aggregate('median').fieldQ('yield'),
+			vl.color().fieldN('site')
+		)
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
