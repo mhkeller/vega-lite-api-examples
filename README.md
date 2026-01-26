@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 245 / 703
+> Examples completed: 246 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-245--703)
+- [Example list](#example-list-completed-246--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 245 / 703)
+## Example list (Completed: 246 / 703)
 
 * &nbsp; ✅ [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -319,7 +319,7 @@ function convertMarkValues (obj) {
 * - [ ] [geo_trellis_normalized](./src/geo_trellis_normalized.vl.js)
 * - [ ] [hconcat_weather](./src/hconcat_weather.vl.js)
 * &nbsp; ✅ [histogram](./src/histogram.vl.js)
-* - [ ] [histogram_bin_change](./src/histogram_bin_change.vl.js)
+* &nbsp; ✅ [histogram_bin_change](./src/histogram_bin_change.vl.js)
 * - [ ] [histogram_bin_spacing](./src/histogram_bin_spacing.vl.js)
 * - [ ] [histogram_bin_spacing_reverse](./src/histogram_bin_spacing_reverse.vl.js)
 * - [ ] [histogram_bin_transform](./src/histogram_bin_transform.vl.js)
