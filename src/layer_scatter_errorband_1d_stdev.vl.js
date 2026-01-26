@@ -5,6 +5,28 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/cars.json' },
+		layer: [
+			{
+				mark: { type: 'point' },
+				encoding: {
+					x: { field: 'Horsepower', type: 'quantitative' },
+					y: { field: 'Miles_per_Gallon', type: 'quantitative' }
+				}
+			},
+			{
+				mark: { type: 'errorband', extent: 'stdev' },
+				encoding: {
+					y: { field: 'Miles_per_Gallon', type: 'quantitative', title: 'Miles per Gallon' }
+				}
+			}
+		]
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
