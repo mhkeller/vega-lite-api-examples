@@ -5,6 +5,32 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/unemployment-across-industries.json' },
+		encoding: {
+			x: { timeUnit: 'yearmonth', field: 'date' },
+			y: { aggregate: 'sum', field: 'count' }
+		},
+		layer: [
+			{
+				params: [
+					{
+						name: 'brush',
+						select: { type: 'interval', encodings: ['x'] }
+					}
+				],
+				mark: { type: 'area' }
+			},
+			{
+				transform: [{ filter: { param: 'brush' } }],
+				mark: { type: 'area', color: 'goldenrod' }
+			}
+		]
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
