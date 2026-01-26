@@ -5,6 +5,35 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		width: 500,
+		height: 300,
+		layer: [
+			{
+				data: {
+					url: 'data/us-10m.json',
+					format: { type: 'topojson', feature: 'states' }
+				},
+				projection: { type: 'albersUsa' },
+				mark: { type: 'geoshape', fill: 'lightgray', stroke: 'white' }
+			},
+			{
+				data: { url: 'data/airports.csv' },
+				projection: { type: 'albersUsa' },
+				mark: { type: 'circle' },
+				encoding: {
+					longitude: { field: 'longitude', type: 'quantitative' },
+					latitude: { field: 'latitude', type: 'quantitative' },
+					size: { value: 10 },
+					color: { value: 'steelblue' }
+				}
+			}
+		]
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
