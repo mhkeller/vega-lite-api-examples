@@ -5,6 +5,12 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	const spec = vl.markPoint().data({ values: [{}] }).toSpec();
+	spec.encoding = {};
+	return spec;
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
