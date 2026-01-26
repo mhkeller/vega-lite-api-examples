@@ -5,6 +5,62 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description: 'Drag out a rectangular brush to highlight points.',
+		data: { url: 'data/cars.json' },
+		hconcat: [
+			{
+				encoding: {
+					x: { field: 'Horsepower', type: 'quantitative' },
+					y: { field: 'Miles_per_Gallon', type: 'quantitative' }
+				},
+				layer: [
+					{
+						params: [
+							{
+								name: 'hover',
+								select: { type: 'point', on: 'mouseover' }
+							}
+						],
+						mark: { type: 'point' }
+					},
+					{
+						mark: { type: 'point', color: 'goldenrod' },
+						transform: [
+							{ filter: { param: 'hover', empty: false } }
+						]
+					}
+				]
+			},
+			{
+				encoding: {
+					x: { field: 'Horsepower', type: 'quantitative' },
+					y: { field: 'Acceleration', type: 'quantitative' }
+				},
+				layer: [
+					{
+						params: [
+							{
+								name: 'hover',
+								select: { type: 'point', on: 'mouseover' }
+							}
+						],
+						mark: { type: 'point' }
+					},
+					{
+						mark: { type: 'point', color: 'goldenrod' },
+						transform: [
+							{ filter: { param: 'hover', empty: false } }
+						]
+					}
+				]
+			}
+		]
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
