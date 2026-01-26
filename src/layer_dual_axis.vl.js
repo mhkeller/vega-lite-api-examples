@@ -5,6 +5,52 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description:
+			'A dual axis chart, created by setting y\'s scale resolution to `"independent"`',
+		width: 400,
+		height: 300,
+		data: { url: 'data/weather.csv' },
+		transform: [{ filter: 'datum.location == "Seattle"' }],
+		encoding: {
+			x: {
+				timeUnit: 'month',
+				field: 'date',
+				axis: { format: '%b', title: null }
+			}
+		},
+		layer: [
+			{
+				mark: { opacity: 0.3, type: 'area', color: '#85C5A6' },
+				encoding: {
+					y: {
+						aggregate: 'average',
+						field: 'temp_max',
+						scale: { domain: [0, 30] },
+						title: 'Avg. Temperature (°C)',
+						axis: { titleColor: '#85C5A6' }
+					},
+					y2: { aggregate: 'average', field: 'temp_min' }
+				}
+			},
+			{
+				mark: { stroke: '#85A9C5', type: 'line', interpolate: 'monotone' },
+				encoding: {
+					y: {
+						aggregate: 'average',
+						field: 'precipitation',
+						title: 'Precipitation (inches)',
+						axis: { titleColor: '#85A9C5' }
+					}
+				}
+			}
+		],
+		resolve: { scale: { y: 'independent' } }
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
