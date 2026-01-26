@@ -5,6 +5,50 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.markBar({ cornerRadiusEnd: 0, orient: 'vertical' })
+		.description(
+			'A histogram for a data source that provides non-linear bins. Thanks to [@Saba9](https://github.com/Saba9) who helps create this example.'
+		)
+		.title('Distribution of Frame Render Time (fps)')
+		.width({ step: 40 })
+		.height(100)
+		.data({
+			values: [
+				{ startTime: '0', endTime: '8.33', residency: 0 },
+				{ startTime: '8.33', endTime: '12.50', residency: 0 },
+				{ startTime: '12.50', endTime: '16.67', residency: 31.17 },
+				{ startTime: '16.67', endTime: '33.33', residency: 38.96 },
+				{ startTime: '33.33', endTime: '50.00', residency: 6.49 },
+				{ startTime: '50.00', endTime: '66.67', residency: 2.9 },
+				{ startTime: '66.67', endTime: '83.33', residency: 2.6 },
+				{ startTime: '83.33', endTime: '∞', residency: 16.88 }
+			]
+		})
+		.encode(
+			vl
+				.x()
+				.fieldO('startTime')
+				.title('')
+				.scale({ type: 'point', padding: 0 })
+				.axis({
+					labelAngle: 0,
+					labelExpr:
+						"datum.value === '∞' ? '0' : format(1000/datum.value, 'd')"
+				})
+				.sort(null),
+			vl.x2().field('endTime'),
+			vl
+				.y()
+				.fieldQ('residency')
+				.title('')
+				.scale({ domain: [0, 100] })
+				.axis({ labelExpr: "datum.label + '%'" })
+		)
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
