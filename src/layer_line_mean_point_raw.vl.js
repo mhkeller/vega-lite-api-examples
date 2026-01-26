@@ -5,6 +5,26 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.layer(
+			vl.markPoint({ opacity: 0.3 }).encode(
+				vl.x().timeUnit('year').field('date'),
+				vl.y().fieldQ('price')
+			),
+			vl.markLine().encode(
+				vl.x().timeUnit('year').field('date'),
+				vl.y().aggregate('mean').field('price')
+			)
+		)
+		.description(
+			'Plot showing average data with raw values in the background.'
+		)
+		.data('data/stocks.csv')
+		.transform({ filter: "datum.symbol==='GOOG'" })
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
