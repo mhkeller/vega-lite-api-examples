@@ -5,6 +5,34 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/seattle-weather.csv' },
+		vconcat: [
+			{
+				title: 'Annual and Total Mean Precipitation from 2012-2015',
+				mark: { type: 'line' },
+				encoding: {
+					y: { field: 'precipitation', aggregate: 'mean', axis: { title: null } },
+					x: { field: 'date', timeUnit: 'month', type: 'ordinal' },
+					row: { field: 'date', timeUnit: 'year', header: { title: null } }
+				},
+				height: 30
+			},
+			{
+				mark: { type: 'line' },
+				encoding: {
+					x: { field: 'date', timeUnit: 'month', type: 'ordinal' },
+					y: { field: 'precipitation', aggregate: 'mean', axis: { title: null } }
+				},
+				height: 50
+			}
+		],
+		config: { facet: { spacing: 5 } }
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
