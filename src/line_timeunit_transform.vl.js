@@ -5,6 +5,20 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description: 'Time unit transform.',
+		data: { url: 'data/seattle-weather.csv' },
+		mark: { type: 'line' },
+		transform: [{ timeUnit: 'month', field: 'date', as: 'month' }],
+		encoding: {
+			x: { field: 'month', type: 'temporal', axis: { format: '%b' } },
+			y: { aggregate: 'max', field: 'temp_max' }
+		}
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
