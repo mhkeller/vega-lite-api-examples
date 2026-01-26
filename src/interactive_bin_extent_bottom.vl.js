@@ -5,6 +5,51 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: {
+			url: 'data/flights-5k.json',
+			format: { parse: { date: 'date' } }
+		},
+		transform: [
+			{
+				calculate: 'hours(datum.date) + minutes(datum.date) / 60',
+				as: 'time'
+			}
+		],
+		vconcat: [
+			{
+				width: 480,
+				height: 150,
+				mark: { type: 'bar' },
+				encoding: {
+					x: {
+						field: 'time',
+						bin: { maxbins: 30, extent: { param: 'brush' } }
+					},
+					y: { aggregate: 'count' }
+				}
+			},
+			{
+				width: 480,
+				height: 50,
+				params: [
+					{
+						name: 'brush',
+						select: { type: 'interval', encodings: ['x'] }
+					}
+				],
+				mark: { type: 'bar' },
+				encoding: {
+					x: { field: 'time', bin: { maxbins: 30 } },
+					y: { aggregate: 'count', axis: { title: 'Count' } }
+				}
+			}
+		]
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
