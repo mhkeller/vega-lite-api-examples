@@ -37,3 +37,27 @@ import * as vl from 'vega-lite-api';
   ]
 }
 */
+
+export default function chart() {
+	return vl
+		.layer(
+			vl
+				.markLine()
+				.encode(vl.x().fieldQ('x'), vl.y().fieldQ('y')),
+			vl
+				.markPoint({ opacity: 1, filled: true })
+				.encode(vl.x().fieldQ('x'), vl.y().fieldQ('y'))
+		)
+		.data({
+			values: [
+				{ x: 1, y: 10 },
+				{ x: 2, y: 30 },
+				{ x: 3, y: null },
+				{ x: 4, y: 15 },
+				{ x: 5, y: null },
+				{ x: 6, y: 40 },
+				{ x: 7, y: 20 }
+			]
+		})
+		.toSpec();
+}

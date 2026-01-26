@@ -25,3 +25,28 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return vl
+		.markLine()
+		.data({
+			values: [
+				{ a: 0, b: 28, c: 0 },
+				{ a: 0, b: 91, c: 1 },
+				{ a: 1, b: 43, c: 0 },
+				{ a: 1, b: 55, c: 1 },
+				{ a: 2, b: 81, c: 0 },
+				{ a: 2, b: 53, c: 1 },
+				{ a: 3, b: 19, c: 0 }
+			]
+		})
+		.encode(
+			vl.x().fieldQ('a').scale({ nice: 1 }),
+			vl
+				.y()
+				.fieldQ('b')
+				.impute({ value: 100, keyvals: [4] }),
+			vl.color().fieldN('c')
+		)
+		.toSpec();
+}
