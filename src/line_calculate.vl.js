@@ -25,3 +25,18 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return vl
+		.markLine()
+		.data('data/seattle-weather.csv')
+		.transform({
+			calculate: 'datum.temp_max - datum.temp_min',
+			as: 'temp_range'
+		})
+		.encode(
+			vl.x().field('date').timeUnit('month'),
+			vl.y().field('temp_range').aggregate('mean')
+		)
+		.toSpec();
+}

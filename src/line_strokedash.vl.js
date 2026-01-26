@@ -18,3 +18,18 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return vl
+		.markLine()
+		.description(
+			'Stock prices of 5 Tech Companies over Time.'
+		)
+		.data('data/stocks.csv')
+		.encode(
+			vl.x().fieldT('date'),
+			vl.y().fieldQ('price'),
+			vl.strokeDash().fieldN('symbol')
+		)
+		.toSpec();
+}

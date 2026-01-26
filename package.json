@@ -16,10 +16,10 @@
 	"license": "ISC",
 	"dependencies": {
 		"@mhkeller/notify": "^1.1.0",
-		"@mhkeller/utils": "^7.2.3",
+		"@mhkeller/utils": "^7.3.0",
 		"indian-ocean": "^4.0.3",
-		"mocha": "^11.2.2",
-		"prettier": "^2.8.4",
+		"mocha": "^11.4.0",
+		"prettier": "^3.5.3",
 		"rimraf": "^6.0.1",
 		"vega-lite-api": "^5.6.0"
 	}

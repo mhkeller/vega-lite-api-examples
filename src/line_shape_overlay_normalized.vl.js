@@ -5,28 +5,25 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
-/*
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Google's stock price over time.",
-  "data": {"url": "data/stocks.csv"},
-  "transform": [{"filter": "datum.symbol==='GOOG'"}],
-  "layer": [
-    {
-      "mark": "line",
-      "encoding": {
-        "x": {"field": "date", "type": "temporal"},
-        "y": {"field": "price", "type": "quantitative"}
-      }
-    },
-    {
-      "mark": {"type": "point", "opacity": 1, "filled": true},
-      "encoding": {
-        "x": {"field": "date", "type": "temporal"},
-        "y": {"field": "price", "type": "quantitative"},
-        "shape": {"value": "square"}
-      }
-    }
-  ]
+export default function chart() {
+  return vl
+    .layer(
+      vl
+        .markLine()
+        .encode(
+          vl.x().fieldT('date'),
+          vl.y().fieldQ('price')
+        ),
+      vl
+        .markPoint({ opacity: 1, filled: true })
+        .encode(
+          vl.x().fieldT('date'),
+          vl.y().fieldQ('price'),
+          vl.shape().value('square')
+        )
+    )
+    .description("Google's stock price over time.")
+    .data('data/stocks.csv')
+    .transform({ filter: "datum.symbol==='GOOG'" })
+    .toSpec();
 }
-*/

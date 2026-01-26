@@ -20,3 +20,12 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return vl
+		.markLine({ interpolate: 'monotone' })
+		.data('data/stocks.csv')
+		.transform({ filter: "datum.symbol==='GOOG'" })
+		.encode(vl.x().fieldT('date'), vl.y().fieldQ('price'))
+		.toSpec();
+}
