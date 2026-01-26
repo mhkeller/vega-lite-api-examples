@@ -5,6 +5,47 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/cars.json' },
+		transform: [
+			{
+				aggregate: [{ op: 'count', as: 'num_cars' }],
+				groupby: ['Origin', 'Cylinders']
+			}
+		],
+		encoding: {
+			y: { field: 'Origin', type: 'ordinal' },
+			x: { field: 'Cylinders', type: 'ordinal' }
+		},
+		layer: [
+			{
+				mark: { type: 'rect' },
+				encoding: {
+					color: {
+						field: 'num_cars',
+						type: 'quantitative',
+						title: 'Count of Records',
+						legend: { direction: 'horizontal', gradientLength: 120 }
+					}
+				}
+			},
+			{
+				mark: { type: 'text' },
+				encoding: {
+					text: { field: 'num_cars', type: 'quantitative' },
+					color: {
+						condition: { test: "datum['num_cars'] < 40", value: 'black' },
+						value: 'white'
+					}
+				}
+			}
+		],
+		config: { axis: { grid: true, tickBand: 'extent' } }
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
