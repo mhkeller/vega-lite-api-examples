@@ -5,6 +5,47 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/sp500.csv' },
+		vconcat: [
+			{
+				width: 480,
+				mark: { type: 'area' },
+				encoding: {
+					x: {
+						field: 'date',
+						type: 'temporal',
+						scale: { domain: { param: 'brush' } },
+						axis: { title: '' }
+					},
+					y: { field: 'price', type: 'quantitative' }
+				}
+			},
+			{
+				width: 480,
+				height: 60,
+				mark: { type: 'area' },
+				params: [
+					{
+						name: 'brush',
+						select: { type: 'interval', encodings: ['x'] }
+					}
+				],
+				encoding: {
+					x: { field: 'date', type: 'temporal' },
+					y: {
+						field: 'price',
+						type: 'quantitative',
+						axis: { tickCount: 3, grid: false }
+					}
+				}
+			}
+		]
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
