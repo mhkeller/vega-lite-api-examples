@@ -5,6 +5,23 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		repeat: ['Horsepower', 'Miles_per_Gallon', 'Acceleration', 'Displacement'],
+		columns: 2,
+		spec: {
+			data: { url: 'data/cars.json' },
+			mark: { type: 'bar' },
+			encoding: {
+				x: { field: { repeat: 'repeat' }, bin: true },
+				y: { aggregate: 'count' },
+				color: { field: 'Origin' }
+			}
+		}
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
