@@ -5,6 +5,23 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	const spec = vl
+		.markCircle()
+		.width(500)
+		.height(300)
+		.data('data/airports.csv')
+		.encode(
+			vl.longitude().fieldQ('longitude'),
+			vl.latitude().fieldQ('latitude'),
+			vl.size().value(10)
+		)
+		.config({ view: { stroke: 'transparent' } })
+		.toSpec();
+	spec.projection = { type: 'albersUsa' };
+	return spec;
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
