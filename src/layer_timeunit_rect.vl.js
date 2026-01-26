@@ -5,6 +5,36 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description: 'Drawing rect bin from the beginning of May to end of July',
+		layer: [
+			{
+				data: { url: 'data/seattle-weather.csv' },
+				mark: { type: 'bar' },
+				encoding: {
+					x: {
+						timeUnit: 'month',
+						field: 'date',
+						title: 'month',
+						axis: { labelAlign: 'left', labelExpr: 'datum.label[0]' }
+					},
+					y: { aggregate: 'mean', field: 'precipitation' }
+				}
+			},
+			{
+				data: { values: [{ date: 'May 1, 2010', date_end: 'July 15, 2010' }] },
+				mark: { type: 'rect', opacity: 0.5, color: 'grey' },
+				encoding: {
+					x: { timeUnit: 'month', field: 'date' },
+					x2: { timeUnit: 'month', field: 'date_end' }
+				}
+			}
+		]
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
