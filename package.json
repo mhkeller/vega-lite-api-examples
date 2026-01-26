@@ -16,7 +16,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"@mhkeller/notify": "^1.1.0",
-		"@mhkeller/utils": "^7.3.0",
+		"@mhkeller/utils": "^8.0.2",
 		"indian-ocean": "^4.0.3",
 		"mocha": "^11.4.0",
 		"prettier": "^3.6.2",
