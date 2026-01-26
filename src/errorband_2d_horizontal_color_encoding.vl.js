@@ -5,6 +5,23 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return vl
+		.layer(
+			vl.markErrorband({ extent: 'ci', borders: true }).encode(
+				vl
+					.y()
+					.fieldQ('Miles_per_Gallon')
+					.scale({ zero: false })
+					.title('Miles per Gallon (95% CIs)'),
+				vl.x().timeUnit('year').field('Year'),
+				vl.color().value('black')
+			)
+		)
+		.data('data/cars.json')
+		.toSpec();
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
