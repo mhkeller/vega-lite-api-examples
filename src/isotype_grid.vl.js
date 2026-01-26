@@ -5,6 +5,39 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	const values = [];
+	for (let i = 1; i <= 100; i++) {
+		values.push({ id: i });
+	}
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		config: { view: { stroke: '' } },
+		width: 400,
+		height: 400,
+		data: { values },
+		transform: [
+			{ calculate: 'ceil (datum.id/10)', as: 'col' },
+			{ calculate: 'datum.id - datum.col*10', as: 'row' }
+		],
+		mark: { type: 'point', filled: true },
+		encoding: {
+			x: { field: 'col', type: 'ordinal', axis: null },
+			y: { field: 'row', type: 'ordinal', axis: null },
+			shape: {
+				value:
+					'M1.7 -1.7h-0.8c0.3 -0.2 0.6 -0.5 0.6 -0.9c0 -0.6 -0.4 -1 -1 -1c-0.6 0 -1 0.4 -1 1c0 0.4 0.2 0.7 0.6 0.9h-0.8c-0.4 0 -0.7 0.3 -0.7 0.6v1.9c0 0.3 0.3 0.6 0.6 0.6h0.2c0 0 0 0.1 0 0.1v1.9c0 0.3 0.2 0.6 0.3 0.6h1.3c0.2 0 0.3 -0.3 0.3 -0.6v-1.8c0 0 0 -0.1 0 -0.1h0.2c0.3 0 0.6 -0.3 0.6 -0.6v-2c0.2 -0.3 -0.1 -0.6 -0.4 -0.6z'
+			},
+			color: {
+				condition: { param: 'highlight', value: 'rgb(194,81,64)' },
+				value: 'rgb(167,165,156)'
+			},
+			size: { value: 90 }
+		},
+		params: [{ name: 'highlight', select: 'interval' }]
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
