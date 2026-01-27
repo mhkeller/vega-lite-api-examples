@@ -34,3 +34,36 @@ import * as vl from 'vega-lite-api';
   }]
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/cars.json' },
+		vconcat: [
+			{
+				params: [{ name: 'brush', select: 'interval' }],
+				mark: { type: 'point' },
+				encoding: {
+					x: { field: 'Horsepower', type: 'quantitative' },
+					y: { field: 'Miles_per_Gallon', type: 'quantitative' }
+				}
+			},
+			{
+				transform: [{ filter: { param: 'brush', empty: false } }],
+				mark: { type: 'point' },
+				encoding: {
+					x: {
+						field: 'Acceleration',
+						type: 'quantitative',
+						scale: { domain: [0, 25] }
+					},
+					y: {
+						field: 'Displacement',
+						type: 'quantitative',
+						scale: { domain: [0, 500] }
+					}
+				}
+			}
+		]
+	};
+}
