@@ -18,3 +18,17 @@ import * as vl from 'vega-lite-api';
   "config": {"bar": {"strokeWidth": 2}}
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/seattle-weather.csv' },
+		mark: { type: 'bar', cornerRadius: 10, stroke: 'black' },
+		encoding: {
+			x: { timeUnit: 'month', field: 'date', type: 'ordinal' },
+			y: { aggregate: 'count' },
+			color: { field: 'weather' }
+		},
+		config: { bar: { strokeWidth: 2 } }
+	};
+}
