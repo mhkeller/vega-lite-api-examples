@@ -19,3 +19,18 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description: 'Stock price mean per quarter broken down by years.',
+		data: { url: 'data/stocks.csv' },
+		mark: { type: 'point' },
+		encoding: {
+			x: { timeUnit: 'quarter', field: 'date', type: 'ordinal' },
+			y: { field: 'price', type: 'quantitative', aggregate: 'mean' },
+			color: { field: 'symbol', type: 'nominal' },
+			column: { field: 'date', timeUnit: 'year' }
+		}
+	};
+}
