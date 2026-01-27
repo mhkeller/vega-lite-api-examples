@@ -25,3 +25,24 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		view: { stroke: null },
+		description: 'A simple chart with an image tooltip.',
+		data: {
+			values: [
+				{ image: 'data/ffox.png' },
+				{ image: 'data/gimp.png' },
+				{ image: 'data/7zip.png' }
+			]
+		},
+		mark: { type: 'text' },
+		encoding: {
+			text: { field: 'image' },
+			y: { field: 'image', axis: null },
+			tooltip: [{ field: 'image' }]
+		}
+	};
+}
