@@ -31,3 +31,29 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/cars.json' },
+		params: [{ name: 'brush', select: 'interval' }],
+		mark: { type: 'circle', clip: true },
+		encoding: {
+			x: {
+				field: 'Horsepower',
+				type: 'quantitative',
+				scale: { domain: [75, 150] }
+			},
+			y: {
+				field: 'Miles_per_Gallon',
+				type: 'quantitative',
+				scale: { domain: [20, 40] }
+			},
+			size: { field: 'Cylinders', type: 'quantitative' },
+			color: {
+				condition: { param: 'brush', field: 'Origin', type: 'nominal' },
+				value: 'grey'
+			}
+		}
+	};
+}
