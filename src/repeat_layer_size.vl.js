@@ -5,6 +5,28 @@ import * as vl from 'vega-lite-api';
  * generate and return the vega-lite JSON spec below.
  */
 
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/movies.json' },
+		repeat: { layer: ['US Gross', 'Worldwide Gross'] },
+		spec: {
+			width: 200,
+			mark: { type: 'line' },
+			encoding: {
+				x: { bin: true, field: 'IMDB Rating', type: 'quantitative' },
+				y: {
+					aggregate: 'mean',
+					field: { repeat: 'layer' },
+					type: 'quantitative',
+					title: 'Mean of US and Worldwide Gross'
+				},
+				color: { datum: { repeat: 'layer' }, type: 'nominal' }
+			}
+		}
+	};
+}
+
 /*
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
