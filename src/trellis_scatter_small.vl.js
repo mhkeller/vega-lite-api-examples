@@ -19,3 +19,18 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		width: 75,
+		height: 75,
+		data: { url: 'data/movies.json' },
+		mark: { type: 'point' },
+		encoding: {
+			column: { field: 'MPAA Rating' },
+			x: { field: 'Worldwide Gross', type: 'quantitative' },
+			y: { field: 'US DVD Sales', type: 'quantitative' }
+		}
+	};
+}
