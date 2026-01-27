@@ -18,3 +18,17 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/barley.json' },
+		mark: { type: 'bar' },
+		encoding: {
+			column: { field: 'year' },
+			x: { field: 'yield', type: 'quantitative', aggregate: 'sum' },
+			y: { field: 'variety', type: 'nominal' },
+			color: { field: 'site', type: 'nominal' }
+		}
+	};
+}
