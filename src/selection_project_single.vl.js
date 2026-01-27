@@ -32,3 +32,34 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/cars.json' },
+		params: [
+			{
+				name: 'pts',
+				select: { type: 'point', toggle: false }
+			}
+		],
+		mark: { type: 'point' },
+		encoding: {
+			x: { field: 'Horsepower', type: 'quantitative' },
+			y: { field: 'Miles_per_Gallon', type: 'quantitative' },
+			color: {
+				condition: {
+					param: 'pts',
+					field: 'Cylinders',
+					type: 'ordinal',
+					scale: { scheme: 'yelloworangebrown' }
+				},
+				value: 'grey'
+			},
+			size: {
+				condition: { param: 'pts', value: 200 },
+				value: 50
+			}
+		}
+	};
+}
