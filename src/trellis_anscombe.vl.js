@@ -27,3 +27,18 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description: "Anscombe's Quartet",
+		data: { url: 'data/anscombe.json' },
+		mark: { type: 'circle' },
+		encoding: {
+			column: { field: 'Series' },
+			x: { field: 'X', type: 'quantitative', scale: { zero: false } },
+			y: { field: 'Y', type: 'quantitative', scale: { zero: false } },
+			opacity: { value: 1 }
+		}
+	};
+}
