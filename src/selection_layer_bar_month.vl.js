@@ -50,3 +50,38 @@ import * as vl from 'vega-lite-api';
   }]
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/seattle-weather.csv' },
+		layer: [
+			{
+				params: [
+					{
+						name: 'brush',
+						select: { type: 'interval', encodings: ['x'] }
+					}
+				],
+				mark: { type: 'bar' },
+				encoding: {
+					x: { timeUnit: 'month', field: 'date', type: 'ordinal' },
+					y: { aggregate: 'mean', field: 'precipitation', type: 'quantitative' },
+					opacity: {
+						condition: { param: 'brush', value: 1 },
+						value: 0.7
+					}
+				}
+			},
+			{
+				transform: [{ filter: { param: 'brush' } }],
+				mark: { type: 'rule' },
+				encoding: {
+					y: { aggregate: 'mean', field: 'precipitation', type: 'quantitative' },
+					color: { value: 'firebrick' },
+					size: { value: 3 }
+				}
+			}
+		]
+	};
+}
