@@ -24,3 +24,20 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/cars.json' },
+		params: [{ name: 'pts', select: 'point' }],
+		mark: { type: 'rect' },
+		encoding: {
+			y: { field: 'Origin' },
+			x: { field: 'Cylinders' },
+			color: {
+				condition: { param: 'pts', aggregate: 'count' },
+				value: 'grey'
+			}
+		}
+	};
+}
