@@ -33,3 +33,34 @@ import * as vl from 'vega-lite-api';
   ]
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/cars.json' },
+		layer: [
+			{
+				params: [
+					{
+						name: 'brush',
+						select: { type: 'interval', encodings: ['x'] }
+					}
+				],
+				mark: { type: 'bar' },
+				encoding: {
+					x: { field: 'Acceleration', bin: true },
+					y: { aggregate: 'count' }
+				}
+			},
+			{
+				transform: [{ filter: { param: 'brush' } }],
+				mark: { type: 'bar' },
+				encoding: {
+					x: { field: 'Acceleration', bin: true },
+					y: { aggregate: 'count' },
+					color: { value: 'goldenrod' }
+				}
+			}
+		]
+	};
+}
