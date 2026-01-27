@@ -24,3 +24,16 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: { url: 'data/cars.json' },
+		mark: { type: 'bar' },
+		encoding: {
+			x: { bin: { maxbins: 15 }, field: 'Horsepower', type: 'quantitative' },
+			y: { aggregate: 'count', type: 'quantitative' },
+			row: { field: 'Origin' }
+		}
+	};
+}
