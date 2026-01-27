@@ -19,8 +19,8 @@
 		"@mhkeller/utils": "^8.0.2",
 		"indian-ocean": "^4.0.3",
 		"mocha": "^11.7.5",
-		"prettier": "^3.6.2",
-		"rimraf": "^6.0.1",
+		"prettier": "^3.8.1",
+		"rimraf": "^6.1.2",
 		"vega-lite-api": "^6.0.0"
 	}
 }
