@@ -35,3 +35,22 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		data: {
+			values: [
+				{ rank: '1' },
+				{ rank: '2', options: { price: 16 } },
+				{ rank: '3', options: { price: 17 } }
+			]
+		},
+		transform: [{ filter: 'datum.options != null' }],
+		mark: { type: 'line' },
+		encoding: {
+			x: { field: 'rank', type: 'ordinal' },
+			y: { field: 'options.price', type: 'quantitative' }
+		}
+	};
+}
