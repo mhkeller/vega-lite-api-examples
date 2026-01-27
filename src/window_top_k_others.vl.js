@@ -41,3 +41,22 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description: 'Top-K plot with "others" by Trevor Manz, adapted from https://observablehq.com/@manzt/top-k-plot-with-others-vega-lite-example.',
+		title: 'Top Directors by Average Worldwide Gross',
+		data: { url: 'data/movies.json' },
+		mark: { type: 'bar' },
+		transform: [
+			{ aggregate: [{ op: 'mean', field: 'Worldwide Gross', as: 'aggregate_gross' }], groupby: ['Director'] },
+			{ window: [{ op: 'row_number', as: 'rank' }], sort: [{ field: 'aggregate_gross', order: 'descending' }] },
+			{ calculate: "datum.rank < 10 ? datum.Director : 'All Others'", as: 'ranked_director' }
+		],
+		encoding: {
+			x: { aggregate: 'mean', field: 'aggregate_gross', type: 'quantitative', title: null },
+			y: { sort: { op: 'mean', field: 'aggregate_gross', order: 'descending' }, field: 'ranked_director', type: 'ordinal', title: null }
+		}
+	};
+}
