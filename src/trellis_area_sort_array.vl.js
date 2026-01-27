@@ -37,3 +37,21 @@ import * as vl from 'vega-lite-api';
   }
 }
 */
+
+export default function chart() {
+	return {
+		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+		description: 'Stock prices of four large companies as a small multiples of area charts.',
+		transform: [{ filter: "datum.symbol !== 'GOOG'" }],
+		width: 300,
+		height: 40,
+		data: { url: 'data/stocks.csv' },
+		mark: { type: 'area' },
+		encoding: {
+			x: { field: 'date', type: 'temporal', title: 'Time', axis: { format: '%Y', grid: false } },
+			y: { field: 'price', type: 'quantitative', title: 'Price', axis: { grid: false } },
+			color: { field: 'symbol', type: 'nominal' },
+			row: { field: 'symbol', type: 'nominal', title: 'Symbol', sort: ['MSFT', 'AAPL', 'IBM', 'AMZN'] }
+		}
+	};
+}
