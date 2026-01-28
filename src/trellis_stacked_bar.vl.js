@@ -1,9 +1,6 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+
 
 /*
 {
@@ -20,15 +17,14 @@ import * as vl from 'vega-lite-api';
 */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		data: { url: 'data/barley.json' },
-		mark: { type: 'bar' },
-		encoding: {
-			column: { field: 'year' },
-			x: { field: 'yield', type: 'quantitative', aggregate: 'sum' },
-			y: { field: 'variety', type: 'nominal' },
-			color: { field: 'site', type: 'nominal' }
-		}
-	};
+	return vl
+		.markBar()
+		.data('data/barley.json')
+		.encode(
+			vl.column().field('year'),
+			vl.x().fieldQ('yield').aggregate('sum'),
+			vl.y().fieldN('variety'),
+			vl.color().fieldN('site')
+		)
+		.toSpec();
 }
