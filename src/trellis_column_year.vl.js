@@ -1,9 +1,6 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+
 
 /*
 {
@@ -21,16 +18,15 @@ import * as vl from 'vega-lite-api';
 */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		description: 'Stock price mean per quarter broken down by years.',
-		data: { url: 'data/stocks.csv' },
-		mark: { type: 'line' },
-		encoding: {
-			x: { timeUnit: 'quarter', field: 'date', type: 'ordinal' },
-			y: { field: 'price', type: 'quantitative', aggregate: 'mean' },
-			color: { field: 'symbol', type: 'nominal' },
-			column: { field: 'date', timeUnit: 'year' }
-		}
-	};
+	return vl
+		.markLine()
+		.description('Stock price mean per quarter broken down by years.')
+		.data('data/stocks.csv')
+		.encode(
+			vl.x().timeUnit('quarter').field('date').type('ordinal'),
+			vl.y().fieldQ('price').aggregate('mean'),
+			vl.color().fieldN('symbol'),
+			vl.column().field('date').timeUnit('year')
+		)
+		.toSpec();
 }
