@@ -1,9 +1,6 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+
 
 /*
 {
@@ -137,90 +134,73 @@ import * as vl from 'vega-lite-api';
 */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		data: {
-			values: [
-				{ label: 'Begin', amount: 4000 },
-				{ label: 'Jan', amount: 1707 },
-				{ label: 'Feb', amount: -1425 },
-				{ label: 'Mar', amount: -1030 },
-				{ label: 'Apr', amount: 1812 },
-				{ label: 'May', amount: -1067 },
-				{ label: 'Jun', amount: -1481 },
-				{ label: 'Jul', amount: 1228 },
-				{ label: 'Aug', amount: 1176 },
-				{ label: 'Sep', amount: 1146 },
-				{ label: 'Oct', amount: 1205 },
-				{ label: 'Nov', amount: -1388 },
-				{ label: 'Dec', amount: 1492 },
-				{ label: 'End', amount: 0 }
-			]
-		},
-		width: 800,
-		height: 450,
-		transform: [
+	const data = [
+		{ label: 'Begin', amount: 4000 },
+		{ label: 'Jan', amount: 1707 },
+		{ label: 'Feb', amount: -1425 },
+		{ label: 'Mar', amount: -1030 },
+		{ label: 'Apr', amount: 1812 },
+		{ label: 'May', amount: -1067 },
+		{ label: 'Jun', amount: -1481 },
+		{ label: 'Jul', amount: 1228 },
+		{ label: 'Aug', amount: 1176 },
+		{ label: 'Sep', amount: 1146 },
+		{ label: 'Oct', amount: 1205 },
+		{ label: 'Nov', amount: -1388 },
+		{ label: 'Dec', amount: 1492 },
+		{ label: 'End', amount: 0 }
+	];
+
+	return vl
+		.layer(
+			vl.markBar({ size: 45 })
+				.encode(
+					vl.y().fieldQ('previous_sum').title('Amount'),
+					vl.y2().field('sum'),
+					vl.color().value('#93c4aa').condition([
+						{ test: "datum.label === 'Begin' || datum.label === 'End'", value: '#f7e0b6' },
+						{ test: 'datum.sum < datum.previous_sum', value: '#f78a64' }
+					])
+				),
+			vl.markRule({ color: '#404040', opacity: 1, strokeWidth: 2, xOffset: -22.5, x2Offset: 22.5 })
+				.encode(
+					vl.x2().field('lead'),
+					vl.y().fieldQ('sum')
+				),
+			vl.markText({ dy: -4, baseline: 'bottom' })
+				.encode(
+					vl.y().fieldQ('sum_inc'),
+					vl.text().fieldN('sum_inc')
+				),
+			vl.markText({ dy: 4, baseline: 'top' })
+				.encode(
+					vl.y().fieldQ('sum_dec'),
+					vl.text().fieldN('sum_dec')
+				),
+			vl.markText({ fontWeight: 'bold', baseline: 'middle' })
+				.encode(
+					vl.y().fieldQ('center'),
+					vl.text().fieldN('text_amount'),
+					vl.color().value('white').condition([
+						{ test: "datum.label === 'Begin' || datum.label === 'End'", value: '#725a30' }
+					])
+				)
+		)
+		.width(800)
+		.height(450)
+		.data({ values: data })
+		.transform(
 			{ window: [{ op: 'sum', field: 'amount', as: 'sum' }] },
 			{ window: [{ op: 'lead', field: 'label', as: 'lead' }] },
-			{ calculate: 'datum.lead === null ? datum.label : datum.lead', as: 'lead' },
-			{ calculate: "datum.label === 'End' ? 0 : datum.sum - datum.amount", as: 'previous_sum' },
-			{ calculate: "datum.label === 'End' ? datum.sum : datum.amount", as: 'amount' },
-			{ calculate: "(datum.label !== 'Begin' && datum.label !== 'End' && datum.amount > 0 ? '+' : '') + datum.amount", as: 'text_amount' },
-			{ calculate: '(datum.sum + datum.previous_sum) / 2', as: 'center' },
-			{ calculate: "datum.sum < datum.previous_sum ? datum.sum : ''", as: 'sum_dec' },
-			{ calculate: "datum.sum > datum.previous_sum ? datum.sum : ''", as: 'sum_inc' }
-		],
-		encoding: {
-			x: { field: 'label', type: 'ordinal', sort: null, axis: { labelAngle: 0, title: 'Months' } }
-		},
-		layer: [
-			{
-				mark: { type: 'bar', size: 45 },
-				encoding: {
-					y: { field: 'previous_sum', type: 'quantitative', title: 'Amount' },
-					y2: { field: 'sum' },
-					color: {
-						condition: [
-							{ test: "datum.label === 'Begin' || datum.label === 'End'", value: '#f7e0b6' },
-							{ test: 'datum.sum < datum.previous_sum', value: '#f78a64' }
-						],
-						value: '#93c4aa'
-					}
-				}
-			},
-			{
-				mark: { type: 'rule', color: '#404040', opacity: 1, strokeWidth: 2, xOffset: -22.5, x2Offset: 22.5 },
-				encoding: {
-					x2: { field: 'lead' },
-					y: { field: 'sum', type: 'quantitative' }
-				}
-			},
-			{
-				mark: { type: 'text', dy: -4, baseline: 'bottom' },
-				encoding: {
-					y: { field: 'sum_inc', type: 'quantitative' },
-					text: { field: 'sum_inc', type: 'nominal' }
-				}
-			},
-			{
-				mark: { type: 'text', dy: 4, baseline: 'top' },
-				encoding: {
-					y: { field: 'sum_dec', type: 'quantitative' },
-					text: { field: 'sum_dec', type: 'nominal' }
-				}
-			},
-			{
-				mark: { type: 'text', fontWeight: 'bold', baseline: 'middle' },
-				encoding: {
-					y: { field: 'center', type: 'quantitative' },
-					text: { field: 'text_amount', type: 'nominal' },
-					color: {
-						condition: [{ test: "datum.label === 'Begin' || datum.label === 'End'", value: '#725a30' }],
-						value: 'white'
-					}
-				}
-			}
-		],
-		config: { text: { fontWeight: 'bold', color: '#404040' } }
-	};
+			vl.calculate('datum.lead === null ? datum.label : datum.lead').as('lead'),
+			vl.calculate("datum.label === 'End' ? 0 : datum.sum - datum.amount").as('previous_sum'),
+			vl.calculate("datum.label === 'End' ? datum.sum : datum.amount").as('amount'),
+			vl.calculate("(datum.label !== 'Begin' && datum.label !== 'End' && datum.amount > 0 ? '+' : '') + datum.amount").as('text_amount'),
+			vl.calculate('(datum.sum + datum.previous_sum) / 2').as('center'),
+			vl.calculate("datum.sum < datum.previous_sum ? datum.sum : ''").as('sum_dec'),
+			vl.calculate("datum.sum > datum.previous_sum ? datum.sum : ''").as('sum_inc')
+		)
+		.encode(vl.x().fieldO('label').sort(null).axis({ labelAngle: 0, title: 'Months' }))
+		.config({ text: { fontWeight: 'bold', color: '#404040' } })
+		.toSpec();
 }
