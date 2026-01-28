@@ -1,9 +1,6 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+
 
 /*
 {
@@ -43,20 +40,19 @@ import * as vl from 'vega-lite-api';
 */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		description: 'Top-K plot with "others" by Trevor Manz, adapted from https://observablehq.com/@manzt/top-k-plot-with-others-vega-lite-example.',
-		title: 'Top Directors by Average Worldwide Gross',
-		data: { url: 'data/movies.json' },
-		mark: { type: 'bar' },
-		transform: [
+	return vl
+		.markBar()
+		.description('Top-K plot with "others" by Trevor Manz, adapted from https://observablehq.com/@manzt/top-k-plot-with-others-vega-lite-example.')
+		.title('Top Directors by Average Worldwide Gross')
+		.data('data/movies.json')
+		.transform(
 			{ aggregate: [{ op: 'mean', field: 'Worldwide Gross', as: 'aggregate_gross' }], groupby: ['Director'] },
 			{ window: [{ op: 'row_number', as: 'rank' }], sort: [{ field: 'aggregate_gross', order: 'descending' }] },
-			{ calculate: "datum.rank < 10 ? datum.Director : 'All Others'", as: 'ranked_director' }
-		],
-		encoding: {
-			x: { aggregate: 'mean', field: 'aggregate_gross', type: 'quantitative', title: null },
-			y: { sort: { op: 'mean', field: 'aggregate_gross', order: 'descending' }, field: 'ranked_director', type: 'ordinal', title: null }
-		}
-	};
+			vl.calculate("datum.rank < 10 ? datum.Director : 'All Others'").as('ranked_director')
+		)
+		.encode(
+			vl.x().aggregate('mean').fieldQ('aggregate_gross').title(null),
+			vl.y().fieldO('ranked_director').sort({ op: 'mean', field: 'aggregate_gross', order: 'descending' }).title(null)
+		)
+		.toSpec();
 }
