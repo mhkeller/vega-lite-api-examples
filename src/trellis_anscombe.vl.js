@@ -1,9 +1,6 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+
 
 /*
 {
@@ -29,16 +26,15 @@ import * as vl from 'vega-lite-api';
 */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		description: "Anscombe's Quartet",
-		data: { url: 'data/anscombe.json' },
-		mark: { type: 'circle' },
-		encoding: {
-			column: { field: 'Series' },
-			x: { field: 'X', type: 'quantitative', scale: { zero: false } },
-			y: { field: 'Y', type: 'quantitative', scale: { zero: false } },
-			opacity: { value: 1 }
-		}
-	};
+	return vl
+		.markCircle()
+		.description("Anscombe's Quartet")
+		.data('data/anscombe.json')
+		.encode(
+			vl.column().field('Series'),
+			vl.x().fieldQ('X').scale({ zero: false }),
+			vl.y().fieldQ('Y').scale({ zero: false }),
+			vl.opacity().value(1)
+		)
+		.toSpec();
 }
