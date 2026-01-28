@@ -1,9 +1,6 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+
 
 /*
 {
@@ -37,20 +34,19 @@ import * as vl from 'vega-lite-api';
 */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		data: {
-			values: [
-				{ rank: '1' },
-				{ rank: '2', options: { price: 16 } },
-				{ rank: '3', options: { price: 17 } }
-			]
-		},
-		transform: [{ filter: 'datum.options != null' }],
-		mark: { type: 'line' },
-		encoding: {
-			x: { field: 'rank', type: 'ordinal' },
-			y: { field: 'options.price', type: 'quantitative' }
-		}
-	};
+	const data = [
+		{ rank: '1' },
+		{ rank: '2', options: { price: 16 } },
+		{ rank: '3', options: { price: 17 } }
+	];
+
+	return vl
+		.markLine()
+		.data({ values: data })
+		.transform(vl.filter('datum.options != null'))
+		.encode(
+			vl.x().fieldO('rank'),
+			vl.y().fieldQ('options.price')
+		)
+		.toSpec();
 }
