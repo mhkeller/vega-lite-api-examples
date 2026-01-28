@@ -1,9 +1,6 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+
 
 /*
 {
@@ -20,15 +17,14 @@ import * as vl from 'vega-lite-api';
 */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		description: 'A trellis scatterplot showing Horsepower and Miles per gallons, faceted by binned values of Acceleration.',
-		data: { url: 'data/cars.json' },
-		mark: { type: 'point' },
-		encoding: {
-			row: { field: 'Acceleration', bin: true },
-			x: { field: 'Horsepower', type: 'quantitative' },
-			y: { field: 'Miles_per_Gallon', type: 'quantitative' }
-		}
-	};
+	return vl
+		.markPoint()
+		.description('A trellis scatterplot showing Horsepower and Miles per gallons, faceted by binned values of Acceleration.')
+		.data('data/cars.json')
+		.encode(
+			vl.row().field('Acceleration').bin(true),
+			vl.x().fieldQ('Horsepower'),
+			vl.y().fieldQ('Miles_per_Gallon')
+		)
+		.toSpec();
 }

@@ -1,9 +1,6 @@
 import * as vl from 'vega-lite-api';
 
-/**
- * Write a Node.JS function that uses the vega-lite-api library to
- * generate and return the vega-lite JSON spec below.
- */
+
 
 /*
 {
@@ -20,14 +17,13 @@ import * as vl from 'vega-lite-api';
 */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		data: { url: 'data/movies.json' },
-		mark: { type: 'point' },
-		encoding: {
-			facet: { field: 'MPAA Rating', type: 'ordinal', columns: 2 },
-			x: { field: 'Worldwide Gross', type: 'quantitative' },
-			y: { field: 'US DVD Sales', type: 'quantitative' }
-		}
-	};
+	return vl
+		.markPoint()
+		.data('data/movies.json')
+		.encode(
+			vl.facet().fieldO('MPAA Rating').columns(2),
+			vl.x().fieldQ('Worldwide Gross'),
+			vl.y().fieldQ('US DVD Sales')
+		)
+		.toSpec();
 }
