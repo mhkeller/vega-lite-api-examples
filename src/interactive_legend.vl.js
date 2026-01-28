@@ -18,7 +18,7 @@ export default function chart() {
 			vl.x().timeUnit('yearmonth').field('date').axis({ domain: false, format: '%Y', tickSize: 0 }),
 			vl.y().aggregate('sum').field('count').stack('center').axis(null),
 			vl.color().field('series').scale({ scheme: 'category20b' }),
-			vl.opacity().if(industry, vl.value(1)).value(0.2)
+			vl.opacity().value(0.2).condition({ param: 'industry', value: 1 })
 		)
 		.toSpec();
 }

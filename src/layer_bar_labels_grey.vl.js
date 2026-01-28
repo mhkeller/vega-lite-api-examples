@@ -6,33 +6,23 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		width: 200,
-		height: { step: 16 },
-		data: { url: 'data/movies.json' },
-		encoding: { y: { field: 'Major Genre', type: 'nominal', axis: null } },
-		layer: [
-			{
-				mark: { type: 'bar', color: '#ddd' },
-				encoding: {
-					x: {
-						aggregate: 'mean',
-						field: 'IMDB Rating',
-						scale: { domain: [0, 10] },
-						title: 'Mean IMDB Ratings'
-					}
-				}
-			},
-			{
-				mark: { type: 'text', align: 'left', x: 5 },
-				encoding: {
-					text: { field: 'Major Genre' },
-					detail: { aggregate: 'count' }
-				}
-			}
-		]
-	};
+	return vl
+		.layer(
+			vl.markBar({ color: '#ddd' })
+				.encode(
+					vl.x().aggregate('mean').field('IMDB Rating').scale({ domain: [0, 10] }).title('Mean IMDB Ratings')
+				),
+			vl.markText({ align: 'left', x: 5 })
+				.encode(
+					vl.text().field('Major Genre'),
+					vl.detail().aggregate('count')
+				)
+		)
+		.width(200)
+		.height({ step: 16 })
+		.data('data/movies.json')
+		.encode(vl.y().fieldN('Major Genre').axis(null))
+		.toSpec();
 }
 
 /*
