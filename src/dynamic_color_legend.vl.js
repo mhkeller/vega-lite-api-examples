@@ -6,94 +6,56 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		title: 'Seattle Weather, 2012-2015',
-		data: { url: 'data/seattle-weather.csv' },
-		params: [
+	return vl
+		.vconcat(
+			vl
+				.markPoint()
+				.width(600)
+				.height(300)
+				.params({ name: 'brush', select: { type: 'interval', encodings: ['x'] } })
+				.transform(vl.filter({ param: 'click' }))
+				.encode(
+					vl.color().value('lightgray').condition({
+						param: 'brush',
+						title: 'Weather',
+						field: 'weather',
+						type: 'nominal',
+						scale: {
+							domain: ['sun', 'fog', 'drizzle', 'rain', 'snow'],
+							range: [
+								{ expr: 'color_sun' },
+								{ expr: 'color_fog' },
+								{ expr: 'color_drizzle' },
+								{ expr: 'color_rain' },
+								{ expr: 'color_snow' }
+							]
+						}
+					}),
+					vl.size().fieldQ('precipitation').title('Precipitation').scale({ domain: [-1, 50] }),
+					vl.x().field('date').timeUnit('monthdate').title('Date').axis({ format: '%b' }),
+					vl.y().fieldQ('temp_max').title('Maximum Daily Temperature (C)').scale({ domain: [-5, 40] })
+				),
+			vl
+				.markBar()
+				.width(600)
+				.params({ name: 'click', select: { type: 'point', encodings: ['color'] } })
+				.transform(vl.filter({ param: 'brush' }))
+				.encode(
+					vl.color().value('lightgray').condition({ param: 'click', field: 'weather' }),
+					vl.x().aggregate('count'),
+					vl.y().field('weather').title('Weather')
+				)
+		)
+		.title('Seattle Weather, 2012-2015')
+		.data('data/seattle-weather.csv')
+		.params(
 			{ name: 'color_rain', value: '#4682b4', bind: { input: 'color' } },
 			{ name: 'color_sun', value: '#4682b4', bind: { input: 'color' } },
 			{ name: 'color_fog', value: '#4682b4', bind: { input: 'color' } },
-			{
-				name: 'color_drizzle',
-				value: '#4682b4',
-				bind: { input: 'color' }
-			},
+			{ name: 'color_drizzle', value: '#4682b4', bind: { input: 'color' } },
 			{ name: 'color_snow', value: '#4682b4', bind: { input: 'color' } }
-		],
-		vconcat: [
-			{
-				encoding: {
-					color: {
-						condition: {
-							param: 'brush',
-							title: 'Weather',
-							field: 'weather',
-							type: 'nominal',
-							scale: {
-								domain: ['sun', 'fog', 'drizzle', 'rain', 'snow'],
-								range: [
-									{ expr: 'color_sun' },
-									{ expr: 'color_fog' },
-									{ expr: 'color_drizzle' },
-									{ expr: 'color_rain' },
-									{ expr: 'color_snow' }
-								]
-							}
-						},
-						value: 'lightgray'
-					},
-					size: {
-						title: 'Precipitation',
-						field: 'precipitation',
-						scale: { domain: [-1, 50] },
-						type: 'quantitative'
-					},
-					x: {
-						field: 'date',
-						timeUnit: 'monthdate',
-						title: 'Date',
-						axis: { format: '%b' }
-					},
-					y: {
-						title: 'Maximum Daily Temperature (C)',
-						field: 'temp_max',
-						scale: { domain: [-5, 40] },
-						type: 'quantitative'
-					}
-				},
-				width: 600,
-				height: 300,
-				mark: { type: 'point' },
-				params: [
-					{
-						name: 'brush',
-						select: { type: 'interval', encodings: ['x'] }
-					}
-				],
-				transform: [{ filter: { param: 'click' } }]
-			},
-			{
-				encoding: {
-					color: {
-						condition: { param: 'click', field: 'weather' },
-						value: 'lightgray'
-					},
-					x: { aggregate: 'count' },
-					y: { title: 'Weather', field: 'weather' }
-				},
-				width: 600,
-				mark: { type: 'bar' },
-				params: [
-					{
-						name: 'click',
-						select: { type: 'point', encodings: ['color'] }
-					}
-				],
-				transform: [{ filter: { param: 'brush' } }]
-			}
-		]
-	};
+		)
+		.toSpec();
 }
 
 /*

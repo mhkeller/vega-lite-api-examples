@@ -6,32 +6,24 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		width: 500,
-		height: 300,
-		layer: [
-			{
-				data: {
-					url: 'data/us-10m.json',
-					format: { type: 'topojson', feature: 'states' }
-				},
-				projection: { type: 'albersUsa' },
-				mark: { type: 'geoshape', fill: 'lightgray', stroke: 'white' }
-			},
-			{
-				data: { url: 'data/airports.csv' },
-				projection: { type: 'albersUsa' },
-				mark: { type: 'circle' },
-				encoding: {
-					longitude: { field: 'longitude', type: 'quantitative' },
-					latitude: { field: 'latitude', type: 'quantitative' },
-					size: { value: 10 },
-					color: { value: 'steelblue' }
-				}
-			}
-		]
-	};
+	return vl
+		.layer(
+			vl.markGeoshape({ fill: 'lightgray', stroke: 'white' })
+				.data(vl.topojson('data/us-10m.json').feature('states'))
+				.project(vl.projection('albersUsa')),
+			vl.markCircle()
+				.data('data/airports.csv')
+				.project(vl.projection('albersUsa'))
+				.encode(
+					vl.longitude().fieldQ('longitude'),
+					vl.latitude().fieldQ('latitude'),
+					vl.size().value(10),
+					vl.color().value('steelblue')
+				)
+		)
+		.width(500)
+		.height(300)
+		.toSpec();
 }
 
 /*

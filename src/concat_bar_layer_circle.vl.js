@@ -6,61 +6,40 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		description: 'A dashboard with cross-highlighting.',
-		data: { url: 'data/movies.json' },
-		vconcat: [
-			{
-				layer: [
-					{
-						mark: { type: 'circle' },
-						encoding: {
-							x: { bin: { maxbins: 10 }, field: 'IMDB Rating' },
-							y: {
-								bin: { maxbins: 10 },
-								field: 'Rotten Tomatoes Rating'
-							},
-							size: { aggregate: 'count', title: 'All Movies Count' },
-							opacity: { value: 0.4 }
-						}
-					},
-					{
-						transform: [{ filter: { param: 'pts' } }],
-						mark: { type: 'circle' },
-						encoding: {
-							x: { bin: { maxbins: 10 }, field: 'IMDB Rating' },
-							y: {
-								bin: { maxbins: 10 },
-								field: 'Rotten Tomatoes Rating'
-							},
-							size: {
-								aggregate: 'count',
-								title: 'Selected Category Count'
-							}
-						}
-					}
-				],
-				resolve: { legend: { size: 'independent' } }
-			},
-			{
-				width: 330,
-				height: 120,
-				mark: { type: 'bar' },
-				params: [
-					{ name: 'pts', select: { type: 'point', encodings: ['x'] } }
-				],
-				encoding: {
-					x: { field: 'Major Genre', axis: { labelAngle: -40 } },
-					y: { aggregate: 'count' },
-					color: {
-						condition: { param: 'pts', value: 'steelblue' },
-						value: 'grey'
-					}
-				}
-			}
-		]
-	};
+	return vl
+		.vconcat(
+			vl
+				.layer(
+					vl.markCircle().encode(
+						vl.x().field('IMDB Rating').bin({ maxbins: 10 }),
+						vl.y().field('Rotten Tomatoes Rating').bin({ maxbins: 10 }),
+						vl.size().aggregate('count').title('All Movies Count'),
+						vl.opacity().value(0.4)
+					),
+					vl
+						.markCircle()
+						.transform(vl.filter({ param: 'pts' }))
+						.encode(
+							vl.x().field('IMDB Rating').bin({ maxbins: 10 }),
+							vl.y().field('Rotten Tomatoes Rating').bin({ maxbins: 10 }),
+							vl.size().aggregate('count').title('Selected Category Count')
+						)
+				)
+				.resolve({ legend: { size: 'independent' } }),
+			vl
+				.markBar()
+				.width(330)
+				.height(120)
+				.params({ name: 'pts', select: { type: 'point', encodings: ['x'] } })
+				.encode(
+					vl.x().field('Major Genre').axis({ labelAngle: -40 }),
+					vl.y().aggregate('count'),
+					vl.color().value('grey').condition({ param: 'pts', value: 'steelblue' })
+				)
+		)
+		.description('A dashboard with cross-highlighting.')
+		.data('data/movies.json')
+		.toSpec();
 }
 
 /*

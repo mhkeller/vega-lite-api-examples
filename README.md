@@ -2,12 +2,12 @@ Vega-Lite API Examples
 ===
 [![tests](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml/badge.svg)](https://github.com/mhkeller/vega-lite-api-examples/actions/workflows/node.js.yml)
 
-> Examples completed: 576 / 703
+> Examples completed: 582 / 703
 
 - [Usage](#usage)
 - [Getting started](#getting-started)
 - [Notes](#notes)
-- [Example list](#example-list-completed-576--703)
+- [Example list](#example-list-completed-582--703)
 
 A repository containing [Vega-Lite-API](https://vega.github.io/vega-lite-api/) implementations of all of the examples in the [Vega-Lite gallery](https://vega.github.io/vega-lite/examples/).
 
@@ -72,7 +72,7 @@ function convertMarkValues (obj) {
 }
 ```
 
-## Example list (Completed: 576 / 703)
+## Example list (Completed: 582 / 703)
 
 * &nbsp; ✅ [airport_connections](./src/airport_connections.vl.js)
 * - [ ] [airport_connections_normalized](./src/airport_connections_normalized.vl.js)
@@ -333,7 +333,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [histogram_reverse](./src/histogram_reverse.vl.js)
 * &nbsp; ✅ [interactive_1d_geo_brush](./src/interactive_1d_geo_brush.vl.js)
 * - [ ] [interactive_1d_geo_brush_normalized](./src/interactive_1d_geo_brush_normalized.vl.js)
-* - [ ] [interactive_airport_crossfilter](./src/interactive_airport_crossfilter.vl.js)
+* &nbsp; ✅ [interactive_airport_crossfilter](./src/interactive_airport_crossfilter.vl.js)
 * - [ ] [interactive_airport_crossfilter_normalized](./src/interactive_airport_crossfilter_normalized.vl.js)
 * &nbsp; ✅ [interactive_area_brush](./src/interactive_area_brush.vl.js)
 * - [ ] [interactive_area_brush_normalized](./src/interactive_area_brush_normalized.vl.js)
@@ -342,7 +342,7 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [interactive_bin_extent_bottom](./src/interactive_bin_extent_bottom.vl.js)
 * &nbsp; ✅ [interactive_brush](./src/interactive_brush.vl.js)
 * &nbsp; ✅ [interactive_concat_layer](./src/interactive_concat_layer.vl.js)
-* - [ ] [interactive_dashboard_europe_pop](./src/interactive_dashboard_europe_pop.vl.js)
+* &nbsp; ✅ [interactive_dashboard_europe_pop](./src/interactive_dashboard_europe_pop.vl.js)
 * &nbsp; ✅ [interactive_geo_earthquakes](./src/interactive_geo_earthquakes.vl.js)
 * - [ ] [interactive_geo_earthquakes_normalized](./src/interactive_geo_earthquakes_normalized.vl.js)
 * &nbsp; ✅ [interactive_global_development](./src/interactive_global_development.vl.js)
@@ -350,8 +350,8 @@ function convertMarkValues (obj) {
 * &nbsp; ✅ [interactive_histogram_full_height_hover](./src/interactive_histogram_full_height_hover.vl.js)
 * &nbsp; ✅ [interactive_index_chart](./src/interactive_index_chart.vl.js)
 * - [ ] [interactive_index_chart_normalized](./src/interactive_index_chart_normalized.vl.js)
-* - [ ] [interactive_layered_crossfilter](./src/interactive_layered_crossfilter.vl.js)
-* - [ ] [interactive_layered_crossfilter_discrete](./src/interactive_layered_crossfilter_discrete.vl.js)
+* &nbsp; ✅ [interactive_layered_crossfilter](./src/interactive_layered_crossfilter.vl.js)
+* &nbsp; ✅ [interactive_layered_crossfilter_discrete](./src/interactive_layered_crossfilter_discrete.vl.js)
 * - [ ] [interactive_layered_crossfilter_discrete_normalized](./src/interactive_layered_crossfilter_discrete_normalized.vl.js)
 * - [ ] [interactive_layered_crossfilter_normalized](./src/interactive_layered_crossfilter_normalized.vl.js)
 * &nbsp; ✅ [interactive_legend](./src/interactive_legend.vl.js)
@@ -423,10 +423,10 @@ function convertMarkValues (obj) {
 * - [ ] [layer_cumulative_histogram_normalized](./src/layer_cumulative_histogram_normalized.vl.js)
 * &nbsp; ✅ [layer_dual_axis](./src/layer_dual_axis.vl.js)
 * - [ ] [layer_dual_axis_normalized](./src/layer_dual_axis_normalized.vl.js)
-* - [ ] [layer_falkensee](./src/layer_falkensee.vl.js)
+* &nbsp; ✅ [layer_falkensee](./src/layer_falkensee.vl.js)
 * &nbsp; ✅ [layer_histogram](./src/layer_histogram.vl.js)
 * &nbsp; ✅ [layer_histogram_global_mean](./src/layer_histogram_global_mean.vl.js)
-* - [ ] [layer_likert](./src/layer_likert.vl.js)
+* &nbsp; ✅ [layer_likert](./src/layer_likert.vl.js)
 * - [ ] [layer_likert_normalized](./src/layer_likert_normalized.vl.js)
 * &nbsp; ✅ [layer_line_co2_concentration](./src/layer_line_co2_concentration.vl.js)
 * - [ ] [layer_line_co2_concentration_normalized](./src/layer_line_co2_concentration_normalized.vl.js)

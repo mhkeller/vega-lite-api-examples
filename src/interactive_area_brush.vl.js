@@ -6,29 +6,17 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		data: { url: 'data/unemployment-across-industries.json' },
-		encoding: {
-			x: { timeUnit: 'yearmonth', field: 'date' },
-			y: { aggregate: 'sum', field: 'count' }
-		},
-		layer: [
-			{
-				params: [
-					{
-						name: 'brush',
-						select: { type: 'interval', encodings: ['x'] }
-					}
-				],
-				mark: { type: 'area' }
-			},
-			{
-				transform: [{ filter: { param: 'brush' } }],
-				mark: { type: 'area', color: 'goldenrod' }
-			}
-		]
-	};
+	return vl
+		.layer(
+			vl.markArea().params({ name: 'brush', select: { type: 'interval', encodings: ['x'] } }),
+			vl.markArea({ color: 'goldenrod' }).transform(vl.filter({ param: 'brush' }))
+		)
+		.data('data/unemployment-across-industries.json')
+		.encode(
+			vl.x().timeUnit('yearmonth').field('date'),
+			vl.y().aggregate('sum').field('count')
+		)
+		.toSpec();
 }
 
 /*

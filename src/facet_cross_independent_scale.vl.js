@@ -6,29 +6,22 @@ import * as vl from 'vega-lite-api';
  */
 
 export default function chart() {
-	return {
-		$schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-		data: {
-			values: [
-				{ r: 'r1', c: 'c1', a: 'a1', b: 'b1' },
-				{ r: 'r1', c: 'c1', a: 'a2', b: 'b2' },
-				{ r: 'r2', c: 'c2', a: 'a1', b: 'b1' },
-				{ r: 'r3', c: 'c2', a: 'a3', b: 'b2' }
-			]
-		},
-		facet: {
-			row: { field: 'r' },
-			column: { field: 'c' }
-		},
-		spec: {
-			mark: { type: 'rect' },
-			encoding: {
-				y: { field: 'b', type: 'nominal' },
-				x: { field: 'a', type: 'nominal' }
-			}
-		},
-		resolve: { scale: { x: 'independent', y: 'independent' } }
-	};
+	return vl
+		.data([
+			{ r: 'r1', c: 'c1', a: 'a1', b: 'b1' },
+			{ r: 'r1', c: 'c1', a: 'a2', b: 'b2' },
+			{ r: 'r2', c: 'c2', a: 'a1', b: 'b1' },
+			{ r: 'r3', c: 'c2', a: 'a3', b: 'b2' }
+		])
+		.facet({ row: { field: 'r' }, column: { field: 'c' } })
+		.spec(
+			vl.markRect().encode(
+				vl.y().fieldN('b'),
+				vl.x().fieldN('a')
+			)
+		)
+		.resolve({ scale: { x: 'independent', y: 'independent' } })
+		.toSpec();
 }
 
 /*
