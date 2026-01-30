@@ -449,7 +449,6 @@ export default function chart() {
 	];
 
 	const brush = vl.selectInterval('brush').encodings('y');
-	const brushAll = vl.selectInterval('brush');
 
 	return vl
 		.hconcat(
@@ -459,7 +458,7 @@ export default function chart() {
 				.encode(
 					vl.y().fieldO('Country').sort('-x'),
 					vl.x().fieldQ('Population_ages_15_64_of_total'),
-					vl.color().if({ param: 'brush', empty: false }, vl.value('goldenrod')).value('steelblue')
+					vl.color().value('steelblue').condition({ param: 'brush', empty: false, value: 'goldenrod' })
 				),
 			vl.markBar()
 				.height(700)
@@ -467,16 +466,16 @@ export default function chart() {
 				.encode(
 					vl.y().fieldO('Country').sort('-x'),
 					vl.x().fieldQ('Population_ages_65_and_above_of_total'),
-					vl.color().if({ param: 'brush', empty: false }, vl.value('goldenrod')).value('steelblue')
+					vl.color().value('steelblue').condition({ param: 'brush', empty: false, value: 'goldenrod' })
 				),
 			vl.markPoint()
 				.width(260)
 				.height(260)
-				.params(brushAll)
+				.params({ name: 'brush', select: 'interval' })
 				.encode(
 					vl.y().fieldQ('Population_ages_15_64_of_total').scale({ zero: false }),
 					vl.x().fieldQ('Population_ages_65_and_above_of_total').scale({ zero: false }),
-					vl.color().if({ param: 'brush', empty: false }, vl.value('goldenrod')).value('steelblue')
+					vl.color().value('steelblue').condition({ param: 'brush', empty: false, value: 'goldenrod' })
 				)
 		)
 		.data({ values: data })
