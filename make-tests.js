@@ -1,12 +1,12 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { mkdirSync, readFileSync, writeFileSync, rmSync } from 'fs';
+// @ts-ignore
 import { readdirFilterSync } from 'indian-ocean';
 import notify from '@mhkeller/notify';
-import { rimrafSync } from 'rimraf';
 import { commas } from '@mhkeller/utils';
 
 notify({ m: 'Making tests...', d: ['blue', 'bold', 'underline'] });
 notify({ m: 'Emptying test directory...', d: 'group' });
-rimrafSync('./test');
+rmSync('./test', { recursive: true, force: true });
 mkdirSync('./test');
 
 const charts = readdirFilterSync('./src/', {
