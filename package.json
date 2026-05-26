@@ -18,7 +18,7 @@
 		"@mhkeller/notify": "^1.2.1",
 		"@mhkeller/utils": "^8.1.1",
 		"indian-ocean": "^4.0.3",
-		"mocha": "^11.7.5",
+		"mocha": "^11.7.6",
 		"prettier": "^3.8.2",
 		"vega-lite-api": "^6.0.0"
 	}
