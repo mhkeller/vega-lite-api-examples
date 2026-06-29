@@ -19,7 +19,7 @@
 		"@mhkeller/utils": "^8.1.1",
 		"indian-ocean": "^4.0.3",
 		"mocha": "^11.7.5",
-		"prettier": "^3.8.2",
+		"prettier": "^3.9.3",
 		"vega-lite-api": "^6.0.0"
 	}
 }
